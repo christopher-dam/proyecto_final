@@ -8,10 +8,10 @@
 }
 .sidebar{
   position: fixed;
-  left: 0;
+  left: -35px;
   top: 0;
   height: 100%;
-  width: 78px;
+  width: 102px;
   background: #11101D;
   padding: 6px 14px;
   z-index: 99;
