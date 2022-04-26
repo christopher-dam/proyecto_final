@@ -10,9 +10,13 @@ include("conexion_BD.php");
     <meta charset="UTF-8">
     <title>Aplicación Gestión Dual</title>
     <link type="text/css" href="../include/estilo.css" rel="stylesheet" />
+    <link type="text/css" href="../include/sydebar.css" rel="stylesheet" />
 
     <!-- Bootstrap de CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+     <!-- Boxicons CDN Link -->
+     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
 
@@ -20,37 +24,40 @@ include("conexion_BD.php");
 
     <!-- Sydebar para navegar por la aplicación -->
 
-    <a class="btn btn-primary" style="position:fixed; top:0; margin:20px; color:white;" data-bs-toggle="offcanvas" href="#menu" role="button" aria-controls="offcanvasExample">
-        Desplegar Menu
-    </a>
-
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="menu" aria-labelledby="offcanvasExampleLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Opciones</h5>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <div class="sidebar">
+        <div class="logo-details">
+            <div class="logo_name">JustVoley</div>
+            <i class='bx bx-menu' id="btn"></i>
         </div>
-        <div class="offcanvas-body">
-            <ul class="list-unstyled components">
-                <li class="active">
-
-                </li>
-                <li>
-                    <a href="inicioAdmin.php">Inicio</a>
-                </li>
-                <li>
-                    <a href="entrenador.php">Entrenadores</a>
-                </li>
-                <li>
-                    <a href="jugador.php">Jugadores</a>
-                </li>
-                <li>
-                    <a href="ejercicio.php">Ejercicios</a>
-                </li>
-                <li>
-                    <a href="salir.php">Cerrar sesión</a>
-                </li>
-            </ul>
-        </div>
+        <ul class="nav-list">
+            <li>
+                <a href="entrenador.php">
+                    <i class='bx bx-calendar'></i>
+                    <span class="links_name">Entrenadores</span>
+                </a>
+                <span class="tooltip">Entrenadores</span>
+            </li>
+            <li>
+                <a href="jugador.php">
+                    <i class='bx bx-book'></i>
+                    <span class="links_name">Jugadores</span>
+                </a>
+                <span class="tooltip">Jugadores</span>
+            </li>
+            <li>
+                <a href="ejercicio.php">
+                    <i class='bx bx-book'></i>
+                    <span class="links_name">Ejercicios</span>
+                </a>
+                <span class="tooltip">Ejercicios</span>
+            </li>
+            <li>
+                <a href="salir.php">
+                    <i class='bx bx-log-out' id="log_out"></i>
+                    <span class="links_name">Cerrar sesión</span>
+                </a>
+                <span class="tooltip">Cerrar sesión</span>
+        </ul>
     </div>
 
     <!-- Contenedor donde se muestran los datos -->
@@ -94,18 +101,13 @@ include("conexion_BD.php");
                                 <h4 class="text-right">Perfil</h4>
                             </div>
                             <div class="row mt-2">
-                                <div class="col-md-4"><label class="labels"><b>Nombre</b></label><p>'. $fila['nombre'] .' </p></div>
-                                <div class="col-md-4"><label class="labels"><b>Apellidos</b></label><p> ' . $fila['apellidos'] . '</p></div>
+                                <div class="col-md-4"><label class="labels"><b>Nombre</b></label><p>' . $fila['nombre'] . ' </p></div>
                                 <div class="col-md-4"><label class="labels"><b>Email</b></label><p> ' . $fila['email'] . '</p></div>
                             </div>
                             <div class="row mt-3" style="margin-top: 20px">
-                                <div class="col-md-4"><label class="labels"><b>Teléfono</b></label><p> ' . $fila['telefono'] . '</p></div>
-                                <div class="col-md-4"><label class="labels"><b>DNI</b></label><p>' . $fila['dni'] . ' </p></div>
-                                <div class="col-md-4"><label class="labels"><b>Observaciones</b></label><p>' . $fila['observaciones'] . ' </p></div>                 
 
                             </div>
                             <div class="row mt-3" style="margin-top: 20px">
-                                <div class="col-md-4"><label class="labels"><b>Equipo</b></label><p> ' . $nombreEquipo['nombre'] . '</p></div>
                             </div>
                            
                         </div>
@@ -124,6 +126,7 @@ include("conexion_BD.php");
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="../scripts/sydebar.js"></script>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

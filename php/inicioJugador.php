@@ -10,14 +10,13 @@ include("conexion_BD.php");
     <meta charset="UTF-8">
     <title>Aplicación Gestión Dual</title>
     <link type="text/css" href="../include/estilo.css" rel="stylesheet" />
-    <link type="text/css" href="../include/style.css" rel="stylesheet" />
+    <link type="text/css" href="../include/sydebar.css" rel="stylesheet" />
 
     <!-- Bootstrap de CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
      <!-- Boxicons CDN Link -->
      <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-
 
 </head>
 
@@ -27,8 +26,7 @@ include("conexion_BD.php");
 
     <div class="sidebar">
     <div class="logo-details">
-      <i class='bx bxl-c-plus-plus icon'></i>
-        <div class="logo_name">CodingLab</div>
+        <div class="logo_name">JustVoley</div>
         <i class='bx bx-menu' id="btn" ></i>
     </div>
     <ul class="nav-list">
@@ -40,46 +38,18 @@ include("conexion_BD.php");
        <span class="tooltip">Inicio</span>
      </li>
      <li>
-       <a href="Calendario">
-         <i class='bx bx-chat' ></i>
-         <span class="links_name">Messages</span>
+       <a href="calendario.php">
+         <i class='bx bx-calendar' ></i>
+         <span class="links_name">Eventos</span>
        </a>
-       <span class="tooltip">Messages</span>
+       <span class="tooltip">Eventos</span>
      </li>
      <li>
        <a href="#">
-         <i class='bx bx-pie-chart-alt-2' ></i>
-         <span class="links_name">Analytics</span>
+         <i class='bx bx-book'></i>
+         <span class="links_name">Manual</span>
        </a>
-       <span class="tooltip">Analytics</span>
-     </li>
-     <li>
-       <a href="#">
-         <i class='bx bx-folder' ></i>
-         <span class="links_name">File Manager</span>
-       </a>
-       <span class="tooltip">Files</span>
-     </li>
-     <li>
-       <a href="#">
-         <i class='bx bx-cart-alt' ></i>
-         <span class="links_name">Order</span>
-       </a>
-       <span class="tooltip">Order</span>
-     </li>
-     <li>
-       <a href="#">
-         <i class='bx bx-heart' ></i>
-         <span class="links_name">Saved</span>
-       </a>
-       <span class="tooltip">Saved</span>
-     </li>
-     <li>
-       <a href="#">
-         <i class='bx bx-cog' ></i>
-         <span class="links_name">Setting</span>
-       </a>
-       <span class="tooltip">Setting</span>
+       <span class="tooltip">Manual</span>
      </li>
      <li>
        <a href="salir.php">
@@ -161,7 +131,8 @@ include("conexion_BD.php");
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="../scripts/script.js"></script>
+    <script src="../scripts/sydebar.js"></script>
+    
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>

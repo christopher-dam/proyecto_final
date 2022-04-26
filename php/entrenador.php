@@ -13,6 +13,7 @@ include("conexion_BD.php");
 
     <!--hoja de estilos -->
     <link type="text/css" href="../include/estilo.css" rel="stylesheet" />
+    <link type="text/css" href="../include/sydebar.css" rel="stylesheet" />
 
     <!--estilo de datatables -->
     <link rel="stylesheet" type="text/css" href="../datatables/datatables.min.css" />
@@ -26,54 +27,62 @@ include("conexion_BD.php");
     <!--estilos de boostrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+     <!-- Boxicons CDN Link -->
+     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
 </head>
 
 <body>
 
     <?php
-   //Conectamos con la BD
-   $link = conectar();
-   $query = "SELECT * FROM entrenador;";
-//    $queryEquipo = "SELECT * FROM equipo;";
+    //Conectamos con la BD
+    $link = conectar();
+    $query = "SELECT * FROM entrenador;";
+    //    $queryEquipo = "SELECT * FROM equipo;";
 
-   //Ejecutar consulta
-   $result = mysqli_query($link, $query);
-//    $resultEquipo = mysqli_query($link, $queryEquipo);
-//    $nombreEquipo = mysqli_fetch_array($resultEquipo);
-   ?>
+    //Ejecutar consulta
+    $result = mysqli_query($link, $query);
+    //    $resultEquipo = mysqli_query($link, $queryEquipo);
+    //    $nombreEquipo = mysqli_fetch_array($resultEquipo);
+    ?>
 
-      <!-- Sydebar para navegar por la aplicación -->
+    <!-- Sydebar para navegar por la aplicación -->
 
-    <a class="btn btn-primary" style="position:fixed; top:0; margin:20px; color:white;" data-bs-toggle="offcanvas" href="#menu" role="button" aria-controls="offcanvasExample">
-        Desplegar Menu
-    </a>
-
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="menu" aria-labelledby="offcanvasExampleLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Opciones</h5>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <div class="sidebar">
+        <div class="logo-details">
+            <div class="logo_name">JustVoley</div>
+            <i class='bx bx-menu' id="btn"></i>
         </div>
-        <div class="offcanvas-body">
-            <ul class="list-unstyled components">
-                <li class="active">
-
-                </li>
-                <li>
-                    <a href="inicioAdmin.php">Inicio</a>
-                </li>
-                <li>
-                    <a href="jugador.php">Jugadores</a>
-                </li>
-                <li>
-                    <a href="ejercicio.php">Ejercicios</a>
-                </li>
-                <li>
-                    <a href="salir.php">Cerrar sesión</a>
-                </li>
-            </ul>
-        </div>
+        <ul class="nav-list">
+            <li>
+                <a href="inicioAdmin.php">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">Inicio</span>
+                </a>
+                <span class="tooltip">Inicio</span>
+            </li>
+            <li>
+                <a href="jugador.php">
+                    <i class='bx bx-book'></i>
+                    <span class="links_name">Jugadores</span>
+                </a>
+                <span class="tooltip">Jugadores</span>
+            </li>
+            <li>
+                <a href="ejercicio.php">
+                    <i class='bx bx-book'></i>
+                    <span class="links_name">Ejercicios</span>
+                </a>
+                <span class="tooltip">Ejercicios</span>
+            </li>
+            <li>
+                <a href="salir.php">
+                    <i class='bx bx-log-out' id="log_out"></i>
+                    <span class="links_name">Cerrar sesión</span>
+                </a>
+                <span class="tooltip">Cerrar sesión</span>
+        </ul>
     </div>
-
     <!-- Contenedor del datatable -->
 
     <div class="container">
@@ -133,11 +142,11 @@ include("conexion_BD.php");
                           
                           Toast.fire({
                             icon: "success",
-                            title: "'.$_SESSION["exito"].'"
+                            title: "' . $_SESSION["exito"] . '"
                           })
                         </script>';
                         unset($_SESSION["exito"]);
-                    }  
+                    }
                     if (isset($_SESSION["error"])) {
                         echo '<script language="javascript">
                         const Toast = Swal.mixin({
@@ -150,11 +159,11 @@ include("conexion_BD.php");
                           
                           Toast.fire({
                             icon: "error",
-                            title: "'.$_SESSION["error"].'"
+                            title: "' . $_SESSION["error"] . '"
                           })
                         </script>';
                         unset($_SESSION["error"]);
-                    }  
+                    }
                     ?>
 
                 </div>
@@ -178,6 +187,7 @@ include("conexion_BD.php");
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
     <script type="text/javascript" src="../scripts/validaciones.js"></script>
+    <script src="../scripts/sydebar.js"></script>
 
 </body>
 
