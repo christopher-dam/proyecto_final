@@ -30,13 +30,6 @@ include("conexion_BD.php");
         <i class='bx bx-menu' id="btn" ></i>
     </div>
     <ul class="nav-list">
-      <li>
-       <a href="inicioJugador.php">
-         <i class='bx bx-user' ></i>
-         <span class="links_name">Inicio</span>
-       </a>
-       <span class="tooltip">Inicio</span>
-     </li>
      <li>
        <a href="calendario.php">
          <i class='bx bx-calendar' ></i>
@@ -45,7 +38,7 @@ include("conexion_BD.php");
        <span class="tooltip">Eventos</span>
      </li>
      <li>
-       <a href="#">
+       <a href="../archivos/manual_jugador.pdf" download="manual_jugador.pdf">
          <i class='bx bx-book'></i>
          <span class="links_name">Manual</span>
        </a>
