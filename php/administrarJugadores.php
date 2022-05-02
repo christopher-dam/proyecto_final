@@ -37,7 +37,7 @@ include("conexion_BD.php");
   <?php
   //Conectamos con la BD
   $link = conectar();
-  $query = "SELECT id, nombre, observaciones FROM jugador WHERE id_entrenador=" . $_SESSION['id_entrenador'] . ";";
+  $query = "SELECT id, nombre, observaciones, lesiones FROM jugador WHERE id_entrenador=" . $_SESSION['id_entrenador'] . ";";
 
 
   //Ejecutar consulta
@@ -88,6 +88,7 @@ include("conexion_BD.php");
                 <th>Editar</th>
                 <th>Nombre</th>
                 <th>Observaciones</th>
+                <th>Lesiones</th>
                 <th>Eliminar</th>
               </tr>
             </thead>
@@ -96,10 +97,11 @@ include("conexion_BD.php");
 
               while ($fila = mysqli_fetch_array($result)) {
                 echo "<tr>
-                  <td><a href='editarJugadorFormulario.php?id_jugador=" . $fila["id"] . "'>
+                  <td><a href='editarJugadorEntrenadorForm.php?id_jugador=" . $fila["id"] . "'>
                   <img src='../imagenes/edit.png' width='20'></a></td>
                   <td>" . utf8_encode($fila['nombre']) . "</td>
                   <td>" . utf8_encode($fila['observaciones']) . "</td>
+                  <td>" . utf8_encode($fila['lesiones']) . "</td>
                   <td><a onclick='return confirmarJugador(" . $fila['id'] . ")'>
                   <img src='../imagenes/delete.png' width='20'></a></td>
                   </tr>";

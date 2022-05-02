@@ -98,6 +98,7 @@ include("conexion_BD.php");
                                 <th>Telefono</th>
                                 <th>Email</th>
                                 <th>Equipo</th>
+                                <th>Entrenador</th>
                                 <th>Eliminar</th>
                             </tr>
                         </thead>
@@ -122,6 +123,16 @@ include("conexion_BD.php");
                                 $nombreEquipo = mysqli_fetch_array($resultEquipo);
 
                                 echo $nombreEquipo['nombre']     .  "</td>
+                                <td>";
+
+                                $queryEntrenador = "SELECT nombre FROM entrenador WHERE id=" . utf8_encode($fila['id_entrenador']) . ";";
+
+                                $resultEntrenador = mysqli_query($link, $queryEntrenador);
+
+                                $nombreEntrenador = mysqli_fetch_array($resultEntrenador);
+
+                                echo $nombreEntrenador['nombre'] . "</td>
+
                                 <td><a onclick='return confirmarJugador(" . $fila['id'] . ")'>
                                 <img src='../imagenes/delete.png' width='20'></a></td>
                                 </tr>";

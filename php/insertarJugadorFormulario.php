@@ -90,9 +90,11 @@ include("conexion_BD.php");
     //Conectamos con la BD
     $link = conectar();
     $queryEquipo = "SELECT * FROM equipo;";
+    $queryEntrenador = "SELECT * FROM entrenador;";
 
     //Ejecutar consulta
     $resultEquipo = mysqli_query($link, $queryEquipo);
+    $resultEntrenador = mysqli_query($link, $queryEntrenador);
     ?>
 
     <!-- Formulario con propiedades flotantes -->
@@ -133,6 +135,19 @@ include("conexion_BD.php");
                         ?>
                     </select>
                 </div>
+
+                <div>
+                    <label class="my-1 mr-2" for="entrenador">Entrenador</label>
+                    <select class="custom-select" name="entrenador" id="entrenador">
+                        <?php
+                        while ($nombreEntrenador = mysqli_fetch_array($resultEntrenador)) {
+                            echo '
+                        <option value="' . utf8_encode($nombreEntrenador['nombre']) . '">' . utf8_encode($nombreEntrenador['nombre']) . '</option>';
+                        }
+                        ?>
+                    </select>
+                </div>
+
                 <div class="form-floating mt-3 mb-3">
                     <input type="text" class="form-control" id="password" placeholder="Ingrese la contraseña del jugador" name="password">
                     <label for="password">Contraseña del jugador</label>

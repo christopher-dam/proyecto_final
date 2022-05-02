@@ -30,19 +30,19 @@ include("conexion_BD.php");
         <i class='bx bx-menu' id="btn" ></i>
     </div>
     <ul class="nav-list">
+    <li>
+       <a href="administrarJugadores.php">
+         <i class='bx bx-group' ></i>
+         <span class="links_name">Jugadores</span>
+       </a>
+       <span class="tooltip">Jugadores</span>
+     </li>
      <li>
        <a href="calendario.php">
          <i class='bx bx-calendar' ></i>
          <span class="links_name">Eventos</span>
        </a>
        <span class="tooltip">Eventos</span>
-     </li>
-     <li>
-       <a href="administrarJugadores.php">
-         <i class='bx bx-group' ></i>
-         <span class="links_name">Jugadores</span>
-       </a>
-       <span class="tooltip">Jugadores</span>
      </li>
      <li>
      <a href="../archivos/manual_entrenador.pdf" download="manual_entrenador.pdf">

@@ -7,8 +7,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>JustApp</title>
 
-	 <!--hoja de estilos -->
-	 <link type="text/css" href="../include/estilo.css" rel="stylesheet" />
+	<!--hoja de estilos -->
+	<link type="text/css" href="../include/estilo.css" rel="stylesheet" />
 
 	<!-- Bootstrap de CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -65,9 +65,13 @@
 						<input type="email" class="form-control" name="email" id="email"></label>
 					</div>
 					<!--- Contraseña --->
-					<div class="mb-4">
-						<label for="password" class="form-label">Contraseña</label>
-						<input type="password" class="form-control" name="pass" id="pass" size="50"></label>
+					<label for="password" class="form-label">Contraseña</label>
+					<div class="mb-4 input-group">
+						<input id="password" type="password" class="form-control" name="pass" id="pass" size="50"></label>
+						<div class="input-group-append">
+							<button id="mostrar_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+
+						</div>
 					</div>
 					<!--- Inicio --->
 					<div class="d-grid">
@@ -85,7 +89,21 @@
 		</div>
 	</div>
 
-
+	<script type="text/javascript">
+		function mostrarPassword() {
+			var cambio = document.getElementById("password");
+			if (cambio.type == "password") {
+				cambio.type = "text";
+				$('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+			} else {
+				cambio.type = "password";
+				$('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+			}
+		}
+	</script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
