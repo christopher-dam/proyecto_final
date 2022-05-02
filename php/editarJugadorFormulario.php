@@ -128,13 +128,9 @@ include("conexion_BD.php");
                     <input class="form-control" id="email" name="email" placeholder="a" value="<?php echo utf8_encode($fila["email"]); ?>" />
                     <label for="email">Email</label>
                 </div>
-                <div class="form-floating mt-3 mb-3">
-                    <input class="form-control" id="observaciones" name="observaciones" placeholder="a" value="<?php echo utf8_encode($fila["observaciones"]); ?>" />
-                    <label for="observaciones">Observaciones</label>
-                </div>
         </div>
         <input type="hidden" name="id" id="id" value="<?php echo utf8_encode($fila["id"]); ?>">
-        <button style="margin-bottom:20px;" type="submit" class="btn btn-primary">Editar</button>
+        <button style="margin-bottom:10px;" type="submit" class="btn btn-primary">Editar</button>
     </div>
     </div>
 

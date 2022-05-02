@@ -5,8 +5,7 @@ include("conexion_BD.php");
     //Conectamos con la BD
     $link=conectar();
     
-    $query="DELETE FROM ejercicio WHERE id=".$_GET["id"];
-            
+    $query="DELETE FROM ejercicio WHERE id=" . $_GET["id"];
     
     //Ejecutar consulta
    if (mysqli_query($link,$query))

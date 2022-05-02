@@ -27,8 +27,8 @@ include("conexion_BD.php");
     <!--estilos de boostrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-     <!-- Boxicons CDN Link -->
-     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
 
@@ -38,12 +38,9 @@ include("conexion_BD.php");
     //Conectamos con la BD
     $link = conectar();
     $query = "SELECT * FROM entrenador;";
-    //    $queryEquipo = "SELECT * FROM equipo;";
 
     //Ejecutar consulta
     $result = mysqli_query($link, $query);
-    //    $resultEquipo = mysqli_query($link, $queryEquipo);
-    //    $nombreEquipo = mysqli_fetch_array($resultEquipo);
     ?>
 
     <!-- Sydebar para navegar por la aplicación -->
@@ -93,12 +90,14 @@ include("conexion_BD.php");
                     <table id="example" class="table table-striped table-bordered" style="width:100%">
                         <thead style="background-color:white">
                             <tr>
+                                <th>Editar</th>
                                 <th>Nombre</th>
                                 <th>Apellidos</th>
                                 <th>DNI</th>
                                 <th>Teléfono</th>
                                 <th>Email</th>
                                 <th>Titulación</th>
+                                <th>Equipo</th>
                                 <th>Eliminar</th>
                             </tr>
                         </thead>
@@ -107,12 +106,23 @@ include("conexion_BD.php");
 
                             while ($fila = mysqli_fetch_array($result)) {
                                 echo "<tr>
+                                <td><a href='editarEntrenadorFormulario.php?id_entrenador=" . $fila["id"] . "'>
+                                <img src='../imagenes/edit.png' width='20'></a></td>
                                 <td>" . utf8_encode($fila['nombre']) . "</td>
                                 <td>" . utf8_encode($fila['apellidos']) . "</td>
                                 <td>" . utf8_encode($fila['dni']) . "</td>
                                 <td>" . utf8_encode($fila['telefono']) . "</td>
                                 <td>" . utf8_encode($fila['email']) . "</td>
                                 <td>" . utf8_encode($fila['titulacion']) . "</td>
+                                <td>";
+
+                                $queryEquipo = "SELECT nombre FROM equipo WHERE id=" . utf8_encode($fila['id_equipo']) . ";";
+
+                                $resultEquipo = mysqli_query($link, $queryEquipo);
+
+                                $nombreEquipo = mysqli_fetch_array($resultEquipo);
+
+                                echo $nombreEquipo['nombre']     .  "</td>
                                 <td><a onclick='return confirmarEntrenador(" . $fila['id'] . ")'>
                                 <img src='../imagenes/delete.png' width='20'></a></td>
                                 </tr>";
@@ -186,6 +196,7 @@ include("conexion_BD.php");
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
+    <!-- Sydebar JS -->
     <script type="text/javascript" src="../scripts/validaciones.js"></script>
     <script src="../scripts/sydebar.js"></script>
 

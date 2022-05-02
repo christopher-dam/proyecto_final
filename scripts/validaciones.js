@@ -51,10 +51,6 @@ function confirmarEjercicio(id) {
 		
 }
 
-function soyMaricon() {
-	alert("Soy maricon");
-  }
-
 /*usado para asegurar que los datos de los formularios son correctos*/
 function validarRegistro() {
 	var nombre = document.getElementById("nombre").value;

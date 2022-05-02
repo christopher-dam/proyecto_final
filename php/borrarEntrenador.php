@@ -5,9 +5,8 @@ include("conexion_BD.php");
     //Conectamos con la BD
     $link=conectar();
     
-    $query="DELETE FROM entrenador WHERE id=".$_GET["id_entrenador"];
-            
-    
+    $query="DELETE FROM entrenador WHERE id=" . $_GET["id_entrenador"];
+
     //Ejecutar consulta
    if (mysqli_query($link,$query))
         $_SESSION["exito"]="Entrenador eliminado correctamente";

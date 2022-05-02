@@ -3,12 +3,12 @@ session_start();
 include("conexion_BD.php");
 
 ?>
-
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aplicación Gestión Dual</title>
 
     <!-- hoja de estilos -->
@@ -39,7 +39,7 @@ include("conexion_BD.php");
 
 </head>
 
-<body>
+<body style="margin-top: 200px;">
 
     <!-- Sydebar para navegar por la aplicación -->
 
@@ -70,102 +70,89 @@ include("conexion_BD.php");
                 </a>
                 <span class="tooltip">Jugadores</span>
             </li>
-            <a href="salir.php">
-                <i class='bx bx-log-out' id="log_out"></i>
-                <span class="links_name">Cerrar sesión</span>
-            </a>
-            <span class="tooltip">Cerrar sesión</span>
+            <li>
+                <a href="ejercicio.php">
+                    <i class='bx bx-basketball'></i>
+                    <span class="links_name">Ejercicios</span>
+                </a>
+                <span class="tooltip">Ejercicios</span>
+            </li>
+            <li>
+                <a href="salir.php">
+                    <i class='bx bx-log-out' id="log_out"></i>
+                    <span class="links_name">Cerrar sesión</span>
+                </a>
+                <span class="tooltip">Cerrar sesión</span>
         </ul>
     </div>
-    <div class="container">
 
-        <h2 style="margin-top: 30px;"><b>Ejercicios</b></h2>
-        <div class="card-deck">
+    <?php
+    $id_entrenador = htmlspecialchars($_GET["id_entrenador"]);
+    //Conectamos con la BD
+    $link = conectar();
 
-            <?php
-            //Conectamos con la BD
-            $link = conectar();
-            $query = "SELECT * FROM ejercicio;";
+    $query = "SELECT * FROM entrenador WHERE id=" . $id_entrenador . ";";
+    
+    //Ejecutar consulta
+    $result = mysqli_query($link, $query);
+    
+    //Extraemos datos de la consulta 
+    $fila = mysqli_fetch_array($result);
 
-            //Ejecutar consulta
-            $result = mysqli_query($link, $query);
+    mysqli_close($link);
+    ?>
 
-            while ($fila = mysqli_fetch_array($result)) {
-                echo '
-                        <div class="card">
-                            <img class="card-img-top" src=../imagenes/' . utf8_encode($fila['foto']) . '>
-                            <div class="card-body">
-                                <h5 class="card-title">' . utf8_encode($fila['nombre']) . '</h5>
-                                <p class="card-text">' . utf8_encode($fila['descripcion']) . '</p>
-                                <a onclick="return confirmarEjercicio('.$fila['id'] .') ">
-                                <img src="../imagenes/delete.png" width="20"></a>
-                                </div>
-                                </div>';
-            }
-            ?>
+    <!-- Formulario con propiedades flotantes -->
+
+    <div id="content" style="padding:10px 20px;">
+        <div class="container mt-3">
+            <h2>Datos del entrenador</h2>
+            <form id="formEditar" name="formEditar" method="post" action="editarEntrenador.php" onsubmit="return validarRegistro()" enctype="multipart/form-data">
+                <div class="form-floating mb-3 mt-3">
+                    <input type="text" class="form-control" placeholder="a" name="nombre" id="nombre" value="<?php echo utf8_encode($fila["nombre"]); ?>" />
+                    <label for="nombre">Nombre</label>
+                </div>
+                <div class="form-floating mb-3 mt-3">
+                    <input type="text" class="form-control" placeholder="a" name="apellidos" id="apellidos" value="<?php echo utf8_encode($fila["apellidos"]); ?>" />
+                    <label for="apellidos">Apellidos</label>
+                </div>
+                <div class="form-floating mb-3 mt-3">
+                    <input type="text" class="form-control" name="dni" id="dni" placeholder="a" value="<?php echo utf8_encode($fila["dni"]); ?>" />
+                    <label for="dni">DNI</label>
+                </div>
+                <div class="form-floating mb-3 mt-3">
+                    <input class="form-control" id="telefono" name="telefono" placeholder="a" value="<?php echo utf8_encode($fila["telefono"]); ?>" />
+                    <label for="telefono">Telefono</label>
+                </div>
+                <div class="form-floating mb-3 mt-3">
+                    <input class="form-control" id="email" name="email" placeholder="a" value="<?php echo utf8_encode($fila["email"]); ?>" />
+                    <label for="email">Email</label>
+                </div>
+                <div>
+                    <label class="my-1 mr-2" for="titulacion">Nivel de titulación del entrenador</label>
+                    <select class="custom-select" name="titulacion" id="titulacion">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
         </div>
-        <div id="centrado">
-            <form id="form1" name="form1" method="post" action="insertarEjercicioFormulario.php">
-                <input type="submit" class="btn btn-primary" style="font-weight:bold; color:white; margin-bottom:20px; margin-top:30px;" name="enviar" id="enviar" value="Añadir ejercicio" />
-            </form>
-        </div>
-
-        <?php
-
-        if (isset($_SESSION["exito"])) {
-            echo '<script language="javascript">
-                        const Toast = Swal.mixin({
-                            toast: true,
-                            position: "top-end",
-                            showConfirmButton: false,
-                            timer: 3000,
-                            timerProgressBar: true,
-                          })
-                          
-                          Toast.fire({
-                            icon: "success",
-                            title: "' . $_SESSION["exito"] . '"
-                          })
-                        </script>';
-            unset($_SESSION["exito"]);
-        }
-        if (isset($_SESSION["error"])) {
-            echo '<script language="javascript">
-                        const Toast = Swal.mixin({
-                            toast: true,
-                            position: "top-end",
-                            showConfirmButton: false,
-                            timer: 3000,
-                            timerProgressBar: true,
-                          })
-                          
-                          Toast.fire({
-                            icon: "error",
-                            title: "' . $_SESSION["error"] . '"
-                          })
-                        </script>';
-            unset($_SESSION["error"]);
-        }
-        ?>
+        <input type="hidden" name="id" id="id" value="<?php echo utf8_encode($fila["id"]); ?>">
+        <button style="margin:10px 0px;" type="submit" class="btn btn-primary">Editar</button>
     </div>
+    </div>
+
+    <script src="../scripts/sydebar.js"></script>
+
     <!-- Bootstrap JS, Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-
-    <!-- jQuery -->
-    <script src="../jquery/jquery-3.3.1.min.js"></script>
-
-    <!-- datatables JS -->
-    <script type="text/javascript" src="../datatables/datatables.min.js"></script>
-    <script type="text/javascript" src="../scripts/main.js"></script>
 
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
-    <script type="text/javascript" src="../scripts/validaciones.js"></script>
-    <script src="../scripts/sydebar.js"></script>
-
+    </div>
 </body>
 
 </html>
