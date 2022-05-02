@@ -100,7 +100,7 @@ include("conexion_BD.php");
     <div id="content" style="padding:10px 20px;">
         <div class="container mt-3">
             <h2>Datos del jugador</h2>
-            <form id="formInsertar" name="formInsertar" method="post" action="insertarJugador.php" onsubmit="return validarRegistr();" enctype="multipart/form-data">
+            <form id="formInsertar" name="formInsertar" method="post" action="insertarJugador.php" onsubmit="return validarRegistro();" enctype="multipart/form-data">
 
                 <div class="form-floating mb-3 mt-3">
                     <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del jugador" name="nombre">
@@ -122,10 +122,6 @@ include("conexion_BD.php");
                     <input type="email" class="form-control" id="email" placeholder="Ingrese el email del jugador" name="email">
                     <label for="email">Email del jugador</label>
                 </div>
-                <div class="form-floating mt-3 mb-3">
-                    <textarea class="form-control" id="observaciones" name="observaciones" placeholder="Ingrese la observación"></textarea>
-                    <label for="observaciones">Observaciones</label>
-                </div>
                 <div>
                     <label class="my-1 mr-2" for="equipos">Equipo al que va inscrito</label>
                     <select class="custom-select" name="equipos" id="equipos">
@@ -141,7 +137,7 @@ include("conexion_BD.php");
                     <input type="text" class="form-control" id="password" placeholder="Ingrese la contraseña del jugador" name="password">
                     <label for="password">Contraseña del jugador</label>
                 </div>
-                <button style="margin:20px 0px;" type="submit" class="btn btn-primary">Enviar</button>
+                <button style="margin:8px 0px;" type="submit" class="btn btn-primary">Enviar</button>
             </form>
         </div>
     </div>
