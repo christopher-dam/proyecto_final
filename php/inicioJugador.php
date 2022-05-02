@@ -8,7 +8,7 @@ include("conexion_BD.php");
 
 <head>
     <meta charset="UTF-8">
-    <title>Aplicación Gestión Dual</title>
+    <title>JustApp</title>
     <link type="text/css" href="../include/estilo.css" rel="stylesheet" />
     <link type="text/css" href="../include/sydebar.css" rel="stylesheet" />
 
@@ -78,44 +78,74 @@ include("conexion_BD.php");
                 // $resultTutor = mysqli_query($link, $queryTutor);
                 // $nombreTutor = mysqli_fetch_array($resultTutor);
 
-                echo '<div id="content">
-                <div class="container rounded bg-white mt-5 mb-5">
-                <div class="row">
-                    <div class="col-md-3 border-right">
-                    <a href="editarPerfilJugadorFormulario.php">
-                        <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Editar Perfil</button></div>
-                    </a>
-                        <div class="d-flex flex-column align-items-center text-center p-3"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold"></span></div>
-                    </div>
-                    <div class="col-md-9 border-right">
-                    <div class="d-flex flex-column align-items-center text-center p-3"><img width="300px" src="../imagenes/cesur.png"></div>
-                        <div class="p-3 py-5" style="margin-top: 0px">
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <h4 class="text-right">Perfil</h4>
+                echo '<div class="container">
+                <div class="main-body">
+                      <div class="row gutters-sm">
+                        <div class="col-md-4 mb-3">
+                          <div class="card">
+                            <div class="card-body">
+                              <div class="d-flex flex-column align-items-center text-center">
+                                <img src=../imagenes/' . utf8_encode($fila['foto']) . ' class="rounded-circle" width="150">
+                                <div class="mt-3">
+                                  <h4 id="nick"><p> ' . $fila['nick'] . '</p></h4>
+                                  <p class="text-secondary mb-1">Just Voley</p>
+                                  <p class="text-muted font-size-sm">More than just a game</p>
+                                  <button class="btn btn-primary">Editar</button>
+                                </div>
+                              </div>
                             </div>
-                            <div class="row mt-2">
-                                <div class="col-md-4"><label class="labels"><b>Nombre</b></label><p>'. $fila['nombre'] .' </p></div>
-                                <div class="col-md-4"><label class="labels"><b>Apellidos</b></label><p> ' . $fila['apellidos'] . '</p></div>
-                                <div class="col-md-4"><label class="labels"><b>Email</b></label><p> ' . $fila['email'] . '</p></div>
-                            </div>
-                            <div class="row mt-3" style="margin-top: 20px">
-                                <div class="col-md-4"><label class="labels"><b>Teléfono</b></label><p> ' . $fila['telefono'] . '</p></div>
-                                <div class="col-md-4"><label class="labels"><b>DNI</b></label><p>' . $fila['dni'] . ' </p></div>
-                                <div class="col-md-4"><label class="labels"><b>Observaciones</b></label><p>' . $fila['observaciones'] . ' </p></div>                 
-
-                            </div>
-                            <div class="row mt-3" style="margin-top: 20px">
-                                <div class="col-md-4"><label class="labels"><b>Equipo</b></label><p> ' . $nombreEquipo['nombre'] . '</p></div>
-                            </div>
-                           
+                          </div>
                         </div>
-
-                    </div>
-                </div>
-            </div>
-            </div>
-            </div>
-            </div>';
+                        <div class="col-md-8">
+                          <div class="card mb-3">
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col-sm-3">
+                                  <h6 class="mb-0">Nombre</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                <p>'. $fila['nombre'] .' '. $fila['apellidos'] . ' </p>
+                                </div>
+                              </div>
+                              <hr>
+                              <div class="row">
+                                <div class="col-sm-3">
+                                  <h6 class="mb-0">DNI</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                <p>' . $fila['dni'] . ' </p>
+                                </div>
+                              </div>
+                              <hr>
+                              <div class="row">
+                                <div class="col-sm-3">
+                                  <h6 class="mb-0">Email</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                <p> ' . $fila['email'] . '</p>
+                                </div>
+                              </div>
+                              <hr>
+                              <div class="row">
+                                <div class="col-sm-3">
+                                  <h6 class="mb-0">Teléfono</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                <p> ' . $fila['telefono'] . '</p>
+                                </div>
+                              </div>
+                              <hr>
+                              <div class="row">
+                                <div class="col-sm-3">
+                                  <h6 class="mb-0">Equipo</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                <p> ' . $nombreEquipo['nombre'] . '</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          </div>';
             }
 
             ?>

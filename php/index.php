@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Aplicación Gestión Dual</title>
+	<title>JustApp</title>
 
 	 <!--hoja de estilos -->
 	 <link type="text/css" href="../include/estilo.css" rel="stylesheet" />
@@ -21,17 +21,31 @@
 
 	<style>
 		.fondo {
-			background-image: url(../imagenes/hombre.jpg);
+			background-image: url(../imagenes/fondo2.png);
 			background-position: center center;
 			background-size: cover;
 			height: 75vh;
 
 		}
+		#Frase{
+			text-align: center;
+			position: absolute;
+			top: 40%;
+			left: 27%;
+			font-size: 24px;
+		}
+		.logologin{
+			max-width: 30%;
+			height: auto;
+			position: relative;
+			top: 53%;
+			left: 69%;
+		}
 	</style>
 </head>
 
 <body>
-
+	
 	<div class="container w-75 mt-5 rounded shadow ">
 		<div class="row align-items-stretch ">
 
@@ -41,7 +55,7 @@
 			</div>
 			<div class="col">
 
-				<h2 class="fw-bold text-center py-5">Bienvenido</h2>
+				<h2 class="fw-bold text-center py-5" style="color: white !important">Bienvenido</h2>
 
 				<!--- LOGIN --->
 				<form id="form" method="post" name="form" action="conectar.php">
@@ -62,10 +76,11 @@
 
 					<!--- Recordar --->
 					<div class="mb-4 form-check">
-						<label style="margin: top 20px;"><a style="position: absolute;" href="mailto:justvoley@gmail.com?Subject=No%20puedo%20acceder%20a%20la%20aplicacion">Olvidé la contraseña</a></label>
+						<label style="margin: top 20px; font-size: 24px;"><a style="position: absolute;" href="mailto:justvoley@gmail.com?Subject=No%20puedo%20acceder%20a%20la%20aplicacion">Olvidé la contraseña</a></label>
 					</div>
-
+					<img class="logologin" src= ../imagenes/logo.png></img>
 				</form>
+				
 			</div>
 		</div>
 	</div>
