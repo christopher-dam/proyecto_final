@@ -44,72 +44,80 @@ include("conexion_BD.php");
     <!-- Sydebar para navegar por la aplicación -->
 
     <div class="sidebar">
-        <div class="logo-details">
-            <div class="logo_name">JustVoley</div>
-            <i class='bx bx-menu' id="btn"></i>
-        </div>
-        <ul class="nav-list">
-            <li>
-                <a href="inicioAdmin.php">
-                    <i class='bx bx-user'></i>
-                    <span class="links_name">Inicio</span>
-                </a>
-                <span class="tooltip">Inicio</span>
-            </li>
-            <li>
-                <a href="entrenador.php">
-                    <i class='bx bx-group'></i>
-                    <span class="links_name">Entrenadores</span>
-                </a>
-                <span class="tooltip">Entrenadores</span>
-            </li>
-            <li>
-                <a href="jugador.php">
-                    <i class='bx bx-group'></i>
-                    <span class="links_name">Jugadores</span>
-                </a>
-                <span class="tooltip">Jugadores</span>
-            </li>
-            <li>
-                <a href="ejercicio.php">
-                    <i class='bx bx-basketball'></i>
-                    <span class="links_name">Ejercicios</span>
-                </a>
-                <span class="tooltip">Ejercicios</span>
-            </li>
-            <li>
-                <a href="salir.php">
-                    <i class='bx bx-log-out' id="log_out"></i>
-                    <span class="links_name">Cerrar sesión</span>
-                </a>
-                <span class="tooltip">Cerrar sesión</span>
-        </ul>
+    <div class="logo-details">
+      <div class="logo_name">JustVoley</div>
+      <i class='bx bx-menu' id="btn"></i>
     </div>
+    <ul class="nav-list">
+      <li>
+        <a href="inicioEntrenador.php">
+          <i class='bx bx-user'></i>
+          <span class="links_name">Inicio</span>
+        </a>
+        <span class="tooltip">Inicio</span>
+      </li>
+      <li>
+       <a href="administrarJugadores.php">
+         <i class='bx bx-group' ></i>
+         <span class="links_name">Jugadores</span>
+       </a>
+       <span class="tooltip">Jugadores</span>
+     </li>
+     <li>
+      <li>
+        <a href="calendario.php">
+          <i class='bx bx-calendar'></i>
+          <span class="links_name">Eventos</span>
+        </a>
+        <span class="tooltip">Eventos</span>
+      </li>
+      <li>
+        <a href="salir.php">
+          <i class='bx bx-log-out' id="log_out"></i>
+          <span class="links_name">Cerrar sesión</span>
+        </a>
+        <span class="tooltip">Cerrar sesión</span>
+    </ul>
+  </div>
+
+
+    <?php
+    $id_jugador = htmlspecialchars($_GET["id_jugador"]);
+    //Conectamos con la BD
+    $link = conectar();
+
+    $query = "SELECT * FROM jugador WHERE id=" . $id_jugador . ";";
+    $queryEquipo = "SELECT * FROM equipo;";
+    //Ejecutar consulta
+    $result = mysqli_query($link, $query);
+    $resultEquipo = mysqli_query($link, $queryEquipo);
+    //Extraemos datos de la consulta 
+    $fila = mysqli_fetch_array($result);
+
+    mysqli_close($link);
+    ?>
 
     <!-- Formulario con propiedades flotantes -->
 
     <div id="content" style="padding:10px 20px;">
         <div class="container mt-3">
-            <h2>Datos del ejercicio</h2>
-            <form id="formInsertar" name="formInsertar" method="post" action="insertarEjercicio.php" onsubmit="return validarEjercicio();" enctype="multipart/form-data">
-
+            <h2>Datos del Jugador</h2>
+            <form id="formEditar" name="formEditar" method="post" action="editarJugadorEntrenador.php" onsubmit="return validarRegistro()" enctype="multipart/form-data">
                 <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del ejercicio" name="nombre">
-                    <label for="nombre">Nombre del ejercicio</label>
+                    <input type="text" class="form-control" placeholder="a" name="observaciones" id="observaciones" value="<?php echo utf8_encode($fila["observaciones"]); ?>" />
+                    <label for="observaciones">Observaciones</label>
                 </div>
-                <div class="form-floating mt-3 mb-3">
-                    <input type="text" class="form-control" id="descripcion" placeholder="Ingrese la descripcion del ejercicio" name="descripcion">
-                    <label for="descripcion">Descripción del ejercicio</label>
+                <div class="form-floating mb-3 mt-3">
+                    <input type="text" class="form-control" placeholder="a" name="lesiones" id="lesiones" value="<?php echo utf8_encode($fila["lesiones"]); ?>" />
+                    <label for="lesiones">Lesiones</label>
                 </div>
-                <div>
-                <label>Elige fotografía</label>
-                <input type="file" name="fotosubida" id="fotosubida"/>
-                </div>
-                <button style="margin:20px 0px;" type="submit" class="btn btn-primary">Enviar</button>
-            </form>
         </div>
+        <input type="hidden" name="id" id="id" value="<?php echo utf8_encode($fila["id"]); ?>">
+        <button style="margin-bottom:10px;" type="submit" class="btn btn-primary">Editar</button>
+    </div>
     </div>
 
+    <script src="../scripts/sydebar.js"></script>
 
     <!-- Bootstrap JS, Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
@@ -118,7 +126,6 @@ include("conexion_BD.php");
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
-    <script src="../scripts/sydebar.js"></script>
 
     </div>
 </body>

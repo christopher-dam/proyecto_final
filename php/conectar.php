@@ -23,8 +23,6 @@ $queryAdmin = "SELECT * FROM administracion WHERE email='" . $email .
     "' AND password='" . $pass . "'";
 $resultAdmin = mysqli_query($link, $queryAdmin);
 
-echo $queryEntrenador;
-
 // Si se puede extraer una fila es que el usuario existe y la password es correcta 
 
 if ($fila = mysqli_fetch_array($resultAlumno)) {

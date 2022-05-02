@@ -34,23 +34,6 @@ function confirmarJugador(id) {
 		
 }
 
-function confirmarEjercicio(id) {
-
-	Swal.fire({  
-		title: '¿Esta seguro de eliminar este ejercicio?',  
-		showDenyButton: true,
-		confirmButtonText: 'Confirmar',
-		denyButtonText: 'Cancelar',
-	  }).then((result) => {  
-		  if (result.isConfirmed) {
-			window.location.href = "borrarEjercicio.php?id=" + id;
-		  } else if (result.isDenied) {
-			return false
-		   }
-	  });
-		
-}
-
 /*usado para asegurar que los datos de los formularios son correctos*/
 function validarRegistro() {
 	var nombre = document.getElementById("nombre").value;
@@ -104,34 +87,6 @@ function validarRegistro() {
 		Swal.fire({
 			title: 'Error',
 			text: 'Inserte una dirección email válida',
-			icon: 'error',
-			confirmButtonText: 'Reintentar'
-		})
-		ok = false;
-	}
-
-	return ok;
-}
-
-function validarEjercicio() {
-	var nombre = document.getElementById("nombre").value;
-	var descripcion = document.getElementById("descripcion").value;
-	var ok = true;
-
-	if (nombre.length==0) {
-		Swal.fire({
-			title: 'Error',
-			text: 'El nombre no puede estar vacío',
-			icon: 'error',
-			confirmButtonText: 'Reintentar'
-		})
-		ok = false;
-	}
-
-	if (descripcion.length==0) {
-		Swal.fire({
-			title: 'Error',
-			text: 'La descripción no puede estar vacia',
 			icon: 'error',
 			confirmButtonText: 'Reintentar'
 		})
