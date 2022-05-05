@@ -35,11 +35,23 @@
 			font-size: 24px;
 		}
 		.logologin{
-			max-width: 30%;
+			max-width: 12%;
 			height: auto;
 			position: relative;
 			top: 53%;
-			left: 69%;
+			left: 85%;
+			padding-bottom: 3%;
+		}
+		.btn-primary {
+		color: #ffff00 !important;
+		background-color: black !important;
+		border-color: black !important;
+		}
+		.col{
+			background-color: rgb(255,255,255,0.5);
+		}
+		.pass:hover{
+			color: #ffff00 !important;
 		}
 	</style>
 </head>
@@ -50,12 +62,12 @@
 		<div class="row align-items-stretch ">
 
 			<!--- Esto es para el fondo y los resize --->
-			<div class="col fondo d-none d-lg-block col-md-5 col-lg-5 col-xl-6">
+			<!-- <div class="col fondo d-none d-lg-block col-md-5 col-lg-5 col-xl-6"> -->
 
 			</div>
 			<div class="col">
 
-				<h2 class="fw-bold text-center py-5" style="color: white !important">Bienvenido</h2>
+				<h2 class="fw-bold text-center py-5">Bienvenido</h2>
 
 				<!--- LOGIN --->
 				<form id="form" method="post" name="form" action="conectar.php">
@@ -80,7 +92,7 @@
 
 					<!--- Recordar --->
 					<div class="mb-4 form-check">
-						<label style="margin: top 20px; font-size: 24px;"><a style="position: absolute;" href="mailto:justvoley@gmail.com?Subject=No%20puedo%20acceder%20a%20la%20aplicacion">Olvidé la contraseña</a></label>
+						<label style="margin: top 20px; font-size: 24px;"><a class="pass" style="position: absolute;" href="mailto:justvoley@gmail.com?Subject=No%20puedo%20acceder%20a%20la%20aplicacion">Olvidé la contraseña</a></label>
 					</div>
 					<img class="logologin" src= ../imagenes/logo.png></img>
 				</form>
