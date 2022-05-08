@@ -73,6 +73,7 @@ include("db_connect.php");
                 <span class="tooltip">Cerrar sesión</span>
         </ul>
     </div>
+    
     <!-- Contenedor del datatable -->
 
     <div class="container">

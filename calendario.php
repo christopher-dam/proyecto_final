@@ -3,15 +3,62 @@ session_start();
 include("db_connect.php");
 
 ?>
+    <!-- Sydebar para navegar por la aplicación -->
 
 <!DOCTYPE html>
 <html>
   <head>
     <title>Calendar Demo</title>
     <link rel="stylesheet" href="css/calendar.css">
+    <link type="text/css" href="css/estilo.css" rel="stylesheet" />
+    <link type="text/css" href="css/sydebar.css" rel="stylesheet" />
     <script src="calendar.js"></script>
+    <!-- Boxicons CDN Link -->
+   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
   </head>
+   
   <body>
+
+  <div class="sidebar">
+    <div class="logo-details">
+        <div class="logo_name">JustVoley</div>
+        <i class='bx bx-menu' id="btn" ></i>
+    </div>
+    <ul class="nav-list">
+    <li>
+       <a href="administrarJugadores.php">
+         <i class='bx bx-group' ></i>
+         <span class="links_name">Jugadores</span>
+       </a>
+       <span class="tooltip">Jugadores</span>
+     </li>
+     <li>
+       <a href="calendario.php">
+         <i class='bx bx-calendar' ></i>
+         <span class="links_name">Eventos</span>
+       </a>
+       <span class="tooltip">Eventos</span>
+     </li>
+     <li>
+     <a href="sarchivos/manual_entrenador.pdf" download="manual_entrenador.pdf">
+         <i class='bx bx-book'></i>
+         <span class="links_name">Manual</span>
+       </a>
+       <span class="tooltip">Manual</span>
+     </li>
+     <li>
+       <a href="salir.php">
+         <i class='bx bx-log-out' id="log_out" ></i>
+         <span class="links_name">Cerrar sesión</span>
+       </a>
+       <span class="tooltip">Cerrar sesión</span>
+    </ul>
+  </div>
+
+
+
+
     <!-- (A) PERIOD SELECTOR -->
     <div id="calPeriod"><?php
       // (A1) MONTH SELECTOR
@@ -53,5 +100,10 @@ include("db_connect.php");
       <input type="button" id="calformdel" value="Delete"/>
       <input type="button" id="calformcx" value="Cancel"/>
     </form></div>
+
+
+    <script src="js/sydebar.js"></script>
+
   </body>
 </html>
+
