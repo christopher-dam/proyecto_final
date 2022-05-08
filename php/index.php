@@ -67,7 +67,7 @@
 			</div>
 			<div class="col">
 
-				<h2 class="fw-bold text-center py-5">Bienvenido</h2>
+				<h2 class="fw-bold text-center py-5" style="font-size: 4rem !important;">Bienvenido</h2>
 
 				<!--- LOGIN --->
 				<form id="form" method="post" name="form" action="conectar.php">

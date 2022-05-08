@@ -9,7 +9,7 @@ include("conexion_BD.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aplicación Gestión Dual</title>
+    <title>JustApp</title>
     <script type="text/javascript" src="../scripts/validaciones.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="sweetalert2.min.js"></script>
@@ -65,9 +65,9 @@ include("conexion_BD.php");
 
      <!-- Formulario con propiedades flotantes -->
 
-    <div id="content" style="padding:10px 20px;">
+    <div id="content" style="padding:10px 20px; background-color: rgb(0,0,0,0.5) !important;">
         <div class="container mt-3">
-            <h2>Datos de la cuenta</h2>
+            <h2 style="font-size: 40px; color:#ffff00;">Datos de la cuenta</h2>
             <form id="formEditar" name="formEditar" method="post" action="editarPerfilJugador.php" onsubmit="return validarperfil()" enctype="multipart/form-data">
                 <div class="form-floating mb-3 mt-3">
                     <input type="text" class="form-control" placeholder="Cambia tu email" name="email" id="email" value="<?php echo utf8_encode($fila["email"]); ?>" />
@@ -82,7 +82,7 @@ include("conexion_BD.php");
                     <label for="password">Confirmar contraseña</label>
                 </div>
 
-                <button style="margin-bottom:20px;" type="submit" class="btn btn-primary">Guardar</button>
+                <button style="margin-bottom:20px; margin-left: 88%" type="submit" class="btn btn-primary">Guardar</button>
         </div>
     </div>
 
