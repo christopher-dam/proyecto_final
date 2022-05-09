@@ -17,7 +17,12 @@ include("db_connect.php");
 
   <!-- Boxicons CDN Link -->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-
+  <style>
+    .mb-0{
+      font-size:18px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 
 <body>
@@ -100,7 +105,7 @@ include("db_connect.php");
                                   <h6 class="mb-0">Nombre</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                <p>' . $fila['nombre'] . ' ' . $fila['apellidos'] . ' </p>
+                                <p style="color:black;">' . $fila['nombre'] . ' ' . $fila['apellidos'] . ' </p>
                                 </div>
                               </div>
                               <hr>
@@ -109,7 +114,7 @@ include("db_connect.php");
                                   <h6 class="mb-0">DNI</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                <p>' . $fila['dni'] . ' </p>
+                                <p style="color:black;">' . $fila['dni'] . ' </p>
                                 </div>
                               </div>
                               <hr>
@@ -118,7 +123,7 @@ include("db_connect.php");
                                   <h6 class="mb-0">Email</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                <p> ' . $fila['email'] . '</p>
+                                <p style="color:black;"> ' . $fila['email'] . '</p>
                                 </div>
                               </div>
                               <hr>
@@ -127,7 +132,7 @@ include("db_connect.php");
                                   <h6 class="mb-0">Teléfono</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                <p> ' . $fila['telefono'] . '</p>
+                                <p style="color:black;"> ' . $fila['telefono'] . '</p>
                                 </div>
                               </div>
                               <hr>
@@ -136,7 +141,7 @@ include("db_connect.php");
                                   <h6 class="mb-0">Equipo</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                <p> ' . $nombreEquipo['nombre'] . '</p>
+                                <p style="color:black;"> ' . $nombreEquipo['nombre'] . '</p>
                                 </div>
                               </div>
                             </div>

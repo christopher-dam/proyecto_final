@@ -15,8 +15,7 @@
 }
 
 body {
-   /* background: linear-gradient(to right, #b1b112, #1b1929 85%); */
-   background-image: url(img/fondo_mixto.jpg)
+   background-image: url(../img/fondo_mixto.jpg)
 }
 
 /* sidebar */

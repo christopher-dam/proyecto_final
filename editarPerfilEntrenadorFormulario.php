@@ -9,16 +9,19 @@ include("db_connect.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aplicación Gestión Dual</title>
-    <script type="text/javascript" src="js/validaciones.js"></script>
+    <title>JustApp</title>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="sweetalert2.min.js"></script>
     <link rel="stylesheet" href="sweetalert2.min.css">
+    <link type="text/css" href="css/sydebar.css" rel="stylesheet" />
+    <link type="text/css" href="css/estilo.css" rel="stylesheet" />
 
     <!-- Bootstrap de CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link type="text/css" href="css/estilo.css" rel="stylesheet" />
+
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
 
@@ -26,31 +29,27 @@ include("db_connect.php");
 
      <!-- Sydebar para navegar por la aplicación -->
 
-    <a class="btn btn-primary" style="position:fixed; top:0; margin:20px; color:white;" data-bs-toggle="offcanvas" href="#menu" role="button" aria-controls="offcanvasExample">
-        Desplegar Menu
-    </a>
-
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="menu" aria-labelledby="offcanvasExampleLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Opciones</h5>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <ul class="list-unstyled components">
-                <li class="active">
-                </li>
-                <li>
-                    <a href="inicioEntrenador.php">Inicio</a>
-                </li>
-                <li>
-                    <a href="actividades.php">Actividades</a>
-                </li>
-                <li>
-                    <a href="salir.php">Cerrar sesión</a>
-                </li>
-            </ul>
-        </div>
+  <div class="sidebar">
+    <div class="logo-details">
+      <div class="logo_name">JustVoley</div>
+      <i class='bx bx-menu' id="btn"></i>
     </div>
+    <ul class="nav-list">
+      <li>
+        <a href="calendario.php">
+          <i class='bx bx-calendar'></i>
+          <span class="links_name">Calendario</span>
+        </a>
+        <span class="tooltip">Calendario</span>
+      </li>
+      <li>
+        <a href="salir.php">
+          <i class='bx bx-log-out' id="log_out"></i>
+          <span class="links_name">Cerrar sesión</span>
+        </a>
+        <span class="tooltip">Cerrar sesión</span>
+    </ul>
+  </div>
 
     <?php
     //Conectamos con la BD
@@ -88,6 +87,10 @@ include("db_connect.php");
     <!-- Bootstrap JS, Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+
+    <script src="js/sydebar.js"></script>
+    <script type="text/javascript" src="js/validaciones.js"></script>
 
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>

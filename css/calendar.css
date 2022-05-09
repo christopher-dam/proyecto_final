@@ -23,8 +23,8 @@ html, body { font-family: arial, sans-serif; }
   padding: 5px;
 }
 .calsq.head {
-  color: #fff;
-  background: #5250da;
+  color: #ffff00;
+  background: black;
   font-weight: bold;
   text-align: center;
 }
@@ -32,9 +32,11 @@ html, body { font-family: arial, sans-serif; }
   height: 120px;
   overflow-y: auto;
   border: 1px solid #eee;
+  background-color: #cdcdcd;
 }
-.calsq.blank { background: #f2f2f2; }
+.calsq.blank { background: transparent; border: none; }
 .calsq.today { background: #fbffde; }
+/* .calsq.day { background: #cdcdcd; } */
 .calnum { color: #888; }
 .calevt {
   height: 20px;
@@ -90,3 +92,33 @@ html, body { font-family: arial, sans-serif; }
 }
 #calformsave { background: #5250da; }
 #calformdel, #calformcx { background: #a22a2a; }
+
+
+/*COSAS NUESTRAS*/
+#calPeriod{
+  display: flex;
+  align-items: center !important;
+  justify-content: center !important;
+}
+#calmonth{
+  background-color: #cdcdcd;
+  font-weight: bold;
+  border-top: 2px solid white !important;
+  border-bottom: 2px solid white !important;
+  border-left: 2px solid white !important;
+}
+#calyear{
+  background-color: #cdcdcd;
+  font-weight: bold;
+  border-top: 2px solid black !important;
+  border-bottom: 2px solid black !important;
+  border-right: 2px solid black !important;
+}
+#calwrap{
+  display: flex;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 15px 15px 0px 15px;
+  width: 80%;
+  margin: auto !important;
+}
