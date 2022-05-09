@@ -12,8 +12,10 @@ include("db_connect.php");
   <title>Aplicación Gestión Dual</title>
 
   <!--hoja de estilos -->
-  <link type="text/css" href="ccs/estilo.css" rel="stylesheet" />
-  <link type="text/css" href="ccs/sydebar.css" rel="stylesheet" />
+  <!-- <link type="text/css" href="ccs/estilo.css" rel="stylesheet" />
+  <link type="text/css" href="ccs/sydebar.css" rel="stylesheet" /> -->
+  <link type="text/css" href="css/estilo.css" rel="stylesheet" />
+  <link type="text/css" href="css/sydebar.css" rel="stylesheet" />
 
   <!--estilo de datatables -->
   <link rel="stylesheet" type="text/css" href="datatables/datatables.min.css" />
@@ -111,12 +113,6 @@ include("db_connect.php");
               ?>
             </tbody>
           </table>
-
-          <div id="centrado">
-            <form id="form1" name="form1" method="post" action="insertarJugadorFormulario.php">
-              <input type="submit" class="btn btn-primary" style="font-weight:bold; color:white; margin-bottom:20px;" name="enviar" id="enviar" value="Insertar jugador" />
-            </form>
-          </div>
 
           <?php
           if (isset($_SESSION["exito"])) {
