@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("conexion_BD.php");
+include("db_connect.php");
 
 ?>
 <!DOCTYPE html>
@@ -9,8 +9,8 @@ include("conexion_BD.php");
 <head>
     <meta charset="UTF-8">
     <title>Aplicación Gestión Dual</title>
-    <link type="text/css" href="../include/estilo.css" rel="stylesheet" />
-    <link type="text/css" href="../include/sydebar.css" rel="stylesheet" />
+    <link type="text/css" href="css/estilo.css" rel="stylesheet" />
+    <link type="text/css" href="css/sydebar.css" rel="stylesheet" />
 
     <!-- Bootstrap de CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -45,7 +45,7 @@ include("conexion_BD.php");
        <span class="tooltip">Eventos</span>
      </li>
      <li>
-     <a href="../archivos/manual_entrenador.pdf" download="manual_entrenador.pdf">
+     <a href="sarchivos/manual_entrenador.pdf" download="manual_entrenador.pdf">
          <i class='bx bx-book'></i>
          <span class="links_name">Manual</span>
        </a>
@@ -95,7 +95,7 @@ include("conexion_BD.php");
                         <div class="d-flex flex-column align-items-center text-center p-3"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold"></span></div>
                     </div>
                     <div class="col-md-9 border-right">
-                    <div class="d-flex flex-column align-items-center text-center p-3"><img width="300px" src="../imagenes/cesur.png"></div>
+                    <div class="d-flex flex-column align-items-center text-center p-3"><img width="300px" src="img/cesur.png"></div>
                         <div class="p-3 py-5" style="margin-top: 0px">
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <h4 class="text-right">Perfil</h4>
@@ -129,7 +129,7 @@ include("conexion_BD.php");
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="../scripts/sydebar.js"></script>
+    <script src="js/sydebar.js"></script>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

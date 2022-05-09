@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("conexion_BD.php");
+include("db_connect.php");
 
 ?>
 <!DOCTYPE html>
@@ -12,11 +12,11 @@ include("conexion_BD.php");
     <title>Aplicación Gestión Dual</title>
 
     <!-- hoja de estilos -->
-    <link type="text/css" href="../include/estilo.css" rel="stylesheet" />
-    <link type="text/css" href="../include/sydebar.css" rel="stylesheet" />
+    <link type="text/css" href="css/estilo.css" rel="stylesheet" />
+    <link type="text/css" href="css/sydebar.css" rel="stylesheet" />
 
     <!-- script de validaciones -->
-    <script type="text/javascript" src="../scripts/validaciones.js"></script>
+    <script type="text/javascript" src="js/validaciones.js"></script>
 
     <!-- sweetalert -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -69,13 +69,6 @@ include("conexion_BD.php");
                     <span class="links_name">Jugadores</span>
                 </a>
                 <span class="tooltip">Jugadores</span>
-            </li>
-            <li>
-                <a href="ejercicio.php">
-                    <i class='bx bx-basketball'></i>
-                    <span class="links_name">Ejercicios</span>
-                </a>
-                <span class="tooltip">Ejercicios</span>
             </li>
             <li>
                 <a href="salir.php">
@@ -134,7 +127,7 @@ include("conexion_BD.php");
     </div>
     </div>
 
-    <script src="../scripts/sydebar.js"></script>
+    <script src="js/sydebar.js"></script>
 
     <!-- Bootstrap JS, Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

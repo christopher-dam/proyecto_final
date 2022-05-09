@@ -1,14 +1,14 @@
 <?php
 session_start();
-include("conexion_BD.php");
+include("db_connect.php");
 
     //Conectamos con la BD
     $link=conectar();
     
-    $query="UPDATE entrenador 
+    $query="UPDATE jugador 
             SET email='".utf8_decode($_POST["email"])."',
             password='".md5($_POST["password"])."'
-            WHERE id=".$_SESSION["id_entrenador"].";";
+            WHERE id=".$_SESSION["id_jugador"].";";
     
     //Ejecutar consulta
    if (mysqli_query($link,$query))
@@ -18,4 +18,4 @@ include("conexion_BD.php");
         
     mysqli_close($link);
     
-    header("location:inicioEntrenador.php");
+    header("location:inicioJugador.php");

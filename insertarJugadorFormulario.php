@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("conexion_BD.php");
+include("db_connect.php");
 
 ?>
 <!DOCTYPE html>
@@ -12,11 +12,11 @@ include("conexion_BD.php");
     <title>Aplicación Gestión Dual</title>
 
     <!-- hoja de estilos -->
-    <link type="text/css" href="../include/estilo.css" rel="stylesheet" />
-    <link type="text/css" href="../include/sydebar.css" rel="stylesheet" />
+    <link type="text/css" href="css/estilo.css" rel="stylesheet" />
+    <link type="text/css" href="css/sydebar.css" rel="stylesheet" />
 
     <!-- script de validaciones -->
-    <script type="text/javascript" src="../scripts/validaciones.js"></script>
+    <script type="text/javascript" src="js/validaciones.js"></script>
 
     <!-- sweetalert -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -71,13 +71,6 @@ include("conexion_BD.php");
                 <span class="tooltip">Jugadores</span>
             </li>
             <li>
-                <a href="ejercicio.php">
-                    <i class='bx bx-basketball'></i>
-                    <span class="links_name">Ejercicios</span>
-                </a>
-                <span class="tooltip">Ejercicios</span>
-            </li>
-            <li>
                 <a href="salir.php">
                     <i class='bx bx-log-out' id="log_out"></i>
                     <span class="links_name">Cerrar sesión</span>
@@ -87,62 +80,75 @@ include("conexion_BD.php");
     </div>
 
     <?php
-    $id_entrenador = htmlspecialchars($_GET["id_entrenador"]);
     //Conectamos con la BD
     $link = conectar();
+    $queryEquipo = "SELECT * FROM equipo;";
+    $queryEntrenador = "SELECT * FROM entrenador;";
 
-    $query = "SELECT * FROM entrenador WHERE id=" . $id_entrenador . ";";
-    
     //Ejecutar consulta
-    $result = mysqli_query($link, $query);
-    
-    //Extraemos datos de la consulta 
-    $fila = mysqli_fetch_array($result);
-
-    mysqli_close($link);
+    $resultEquipo = mysqli_query($link, $queryEquipo);
+    $resultEntrenador = mysqli_query($link, $queryEntrenador);
     ?>
 
     <!-- Formulario con propiedades flotantes -->
 
     <div id="content" style="padding:10px 20px;">
         <div class="container mt-3">
-            <h2>Datos del entrenador</h2>
-            <form id="formEditar" name="formEditar" method="post" action="editarEntrenador.php" onsubmit="return validarRegistro()" enctype="multipart/form-data">
+            <h2>Datos del jugador</h2>
+            <form id="formInsertar" name="formInsertar" method="post" action="insertarJugador.php" onsubmit="return validarRegistro();" enctype="multipart/form-data">
+
                 <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" placeholder="a" name="nombre" id="nombre" value="<?php echo utf8_encode($fila["nombre"]); ?>" />
-                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del jugador" name="nombre">
+                    <label for="nombre">Nombre del jugador </label>
                 </div>
-                <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" placeholder="a" name="apellidos" id="apellidos" value="<?php echo utf8_encode($fila["apellidos"]); ?>" />
-                    <label for="apellidos">Apellidos</label>
+                <div class="form-floating mt-3 mb-3">
+                    <input type="text" class="form-control" id="apellidos" placeholder="Introduce los apellidos del jugador" name="apellidos">
+                    <label for="apellidos">Apellidos del jugador</label>
                 </div>
-                <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" name="dni" id="dni" placeholder="a" value="<?php echo utf8_encode($fila["dni"]); ?>" />
-                    <label for="dni">DNI</label>
+                <div class="form-floating mt-3 mb-3">
+                    <input type="text" class="form-control" id="dni" placeholder="Ingrese el dni del jugador" name="dni">
+                    <label for="dni">DNI del jugador</label>
                 </div>
-                <div class="form-floating mb-3 mt-3">
-                    <input class="form-control" id="telefono" name="telefono" placeholder="a" value="<?php echo utf8_encode($fila["telefono"]); ?>" />
-                    <label for="telefono">Telefono</label>
+                <div class="form-floating mt-3 mb-3">
+                    <input type="tel" class="form-control" id="telefono" placeholder="Ingrese el número del jugador" name="telefono">
+                    <label for="telefono">Teléfono del jugador</label>
                 </div>
-                <div class="form-floating mb-3 mt-3">
-                    <input class="form-control" id="email" name="email" placeholder="a" value="<?php echo utf8_encode($fila["email"]); ?>" />
-                    <label for="email">Email</label>
+                <div class="form-floating mt-3 mb-3">
+                    <input type="email" class="form-control" id="email" placeholder="Ingrese el email del jugador" name="email">
+                    <label for="email">Email del jugador</label>
                 </div>
                 <div>
-                    <label class="my-1 mr-2" for="titulacion">Nivel de titulación del entrenador</label>
-                    <select class="custom-select" name="titulacion" id="titulacion">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
+                    <label class="my-1 mr-2" for="equipos">Equipo al que va inscrito</label>
+                    <select class="custom-select" name="equipos" id="equipos">
+                        <?php
+                        while ($nombreEquipo = mysqli_fetch_array($resultEquipo)) {
+                            echo '
+                        <option value="' . utf8_encode($nombreEquipo['nombre']) . '">' . utf8_encode($nombreEquipo['nombre']) . '</option>';
+                        }
+                        ?>
                     </select>
                 </div>
-        </div>
-        <input type="hidden" name="id" id="id" value="<?php echo utf8_encode($fila["id"]); ?>">
-        <button style="margin:10px 0px;" type="submit" class="btn btn-primary">Editar</button>
-    </div>
-    </div>
 
-    <script src="../scripts/sydebar.js"></script>
+                <div>
+                    <label class="my-1 mr-2" for="entrenador">Entrenador</label>
+                    <select class="custom-select" name="entrenador" id="entrenador">
+                        <?php
+                        while ($nombreEntrenador = mysqli_fetch_array($resultEntrenador)) {
+                            echo '
+                        <option value="' . utf8_encode($nombreEntrenador['nombre']) . '">' . utf8_encode($nombreEntrenador['nombre']) . '</option>';
+                        }
+                        ?>
+                    </select>
+                </div>
+
+                <div class="form-floating mt-3 mb-3">
+                    <input type="text" class="form-control" id="password" placeholder="Ingrese la contraseña del jugador" name="password">
+                    <label for="password">Contraseña del jugador</label>
+                </div>
+                <button style="margin:8px 0px;" type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+    </div>
 
     <!-- Bootstrap JS, Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
@@ -151,6 +157,9 @@ include("conexion_BD.php");
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+    <script src="js/sydebar.js"></script>
+
 
     </div>
 </body>

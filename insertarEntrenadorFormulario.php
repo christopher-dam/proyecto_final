@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("conexion_BD.php");
+include("db_connect.php");
 
 ?>
 <!DOCTYPE html>
@@ -12,11 +12,11 @@ include("conexion_BD.php");
     <title>Aplicación Gestión Dual</title>
 
     <!-- hoja de estilos -->
-    <link type="text/css" href="../include/estilo.css" rel="stylesheet" />
-    <link type="text/css" href="../include/sydebar.css" rel="stylesheet" />
+    <link type="text/css" href="css/estilo.css" rel="stylesheet" />
+    <link type="text/css" href="css/sydebar.css" rel="stylesheet" />
 
     <!-- script de validaciones -->
-    <script type="text/javascript" src="../scripts/validaciones.js"></script>
+    <script type="text/javascript" src="js/validaciones.js"></script>
 
     <!-- sweetalert -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -69,13 +69,6 @@ include("conexion_BD.php");
                     <span class="links_name">Jugadores</span>
                 </a>
                 <span class="tooltip">Jugadores</span>
-            </li>
-            <li>
-                <a href="ejercicio.php">
-                    <i class='bx bx-basketball'></i>
-                    <span class="links_name">Ejercicios</span>
-                </a>
-                <span class="tooltip">Ejercicios</span>
             </li>
             <li>
                 <a href="salir.php">
@@ -159,7 +152,7 @@ include("conexion_BD.php");
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
-    <script src="../scripts/sydebar.js"></script>
+    <script src="js/sydebar.js"></script>
 
 
     </div>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("conexion_BD.php");
+include("db_connect.php");
 
 //Llamar a la función de copnexión con la BD
 $link = conectar();
@@ -28,12 +28,15 @@ $resultAdmin = mysqli_query($link, $queryAdmin);
 if ($fila = mysqli_fetch_array($resultAlumno)) {
     $_SESSION["id_jugador"] = $fila["id"];
     header("Location:inicioJugador.php");
+
 } elseif ($fila = mysqli_fetch_array($resultEntrenador)) {
     $_SESSION["id_entrenador"] = $fila["id"];
     header("Location:inicioEntrenador.php");
+
 } elseif ($fila = mysqli_fetch_array($resultAdmin)) {
     $_SESSION["id_admin"] = $fila["id"];
     header("Location:inicioAdmin.php");
+    
 } else {
     $_SESSION["error"] = "Email o contraseña erróneos";
     header("Location:index.php");

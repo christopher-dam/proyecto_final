@@ -8,7 +8,7 @@
 	<title>JustApp</title>
 
 	<!--hoja de estilos -->
-	<link type="text/css" href="../include/estilo.css" rel="stylesheet" />
+	<link type="text/css" href="css/estilo.css" rel="stylesheet" />
 
 	<!-- Bootstrap de CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -21,7 +21,7 @@
 
 	<style>
 		.fondo {
-			background-image: url(../imagenes/fondo2.png);
+			background-image: url(img/fondo2.png);
 			background-position: center center;
 			background-size: cover;
 			height: 75vh;
@@ -94,7 +94,7 @@
 					<div class="mb-4 form-check">
 						<label style="margin: top 20px; font-size: 24px;"><a class="pass" style="position: absolute;" href="mailto:justvoley@gmail.com?Subject=No%20puedo%20acceder%20a%20la%20aplicacion">Olvidé la contraseña</a></label>
 					</div>
-					<img class="logologin" src= ../imagenes/logo.png></img>
+					<img class="logologin" src= img/logo.png></img>
 				</form>
 				
 			</div>
@@ -120,10 +120,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-
 </body>
-
-
 
 
 <?php

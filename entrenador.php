@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("conexion_BD.php");
+include("db_connect.php");
 
 ?>
 
@@ -12,12 +12,12 @@ include("conexion_BD.php");
     <title>Aplicación Gestión Dual</title>
 
     <!--hoja de estilos -->
-    <link type="text/css" href="../include/estilo.css" rel="stylesheet" />
-    <link type="text/css" href="../include/sydebar.css" rel="stylesheet" />
+    <link type="text/css" href="ccs/estilo.css" rel="stylesheet" />
+    <link type="text/css" href="css/sydebar.css" rel="stylesheet" />
 
     <!--estilo de datatables -->
-    <link rel="stylesheet" type="text/css" href="../datatables/datatables.min.css" />
-    <link rel="stylesheet" type="text/css" href="../datatables/DataTables-1.11.4/css/dataTables.bootstrap5.min.css" />
+    <link rel="stylesheet" type="text/css" href="datatables/datatables.min.css" />
+    <link rel="stylesheet" type="text/css" href="datatables/DataTables-1.11.4/css/dataTables.bootstrap5.min.css" />
 
     <!--estilos de sweetalert2 -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -66,13 +66,6 @@ include("conexion_BD.php");
                 <span class="tooltip">Jugadores</span>
             </li>
             <li>
-                <a href="ejercicio.php">
-                    <i class='bx bx-basketball'></i>
-                    <span class="links_name">Ejercicios</span>
-                </a>
-                <span class="tooltip">Ejercicios</span>
-            </li>
-            <li>
                 <a href="salir.php">
                     <i class='bx bx-log-out' id="log_out"></i>
                     <span class="links_name">Cerrar sesión</span>
@@ -107,7 +100,7 @@ include("conexion_BD.php");
                             while ($fila = mysqli_fetch_array($result)) {
                                 echo "<tr>
                                 <td><a href='editarEntrenadorFormulario.php?id_entrenador=" . $fila["id"] . "'>
-                                <img src='../imagenes/edit.png' width='20'></a></td>
+                                <img src='img/edit.png' width='20'></a></td>
                                 <td>" . utf8_encode($fila['nombre']) . "</td>
                                 <td>" . utf8_encode($fila['apellidos']) . "</td>
                                 <td>" . utf8_encode($fila['dni']) . "</td>
@@ -124,7 +117,7 @@ include("conexion_BD.php");
 
                                 echo $nombreEquipo['nombre']     .  "</td>
                                 <td><a onclick='return confirmarEntrenador(" . $fila['id'] . ")'>
-                                <img src='../imagenes/delete.png' width='20'></a></td>
+                                <img src='img/delete.png' width='20'></a></td>
                                 </tr>";
                             }
 
@@ -186,19 +179,19 @@ include("conexion_BD.php");
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
     <!-- jQuery -->
-    <script src="../jquery/jquery-3.3.1.min.js"></script>
+    <script src="jquery/jquery-3.3.1.min.js"></script>
 
     <!-- datatables JS -->
-    <script type="text/javascript" src="../datatables/datatables.min.js"></script>
-    <script type="text/javascript" src="../scripts/main.js"></script>
+    <script type="text/javascript" src="datatables/datatables.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
     <!-- Sydebar JS -->
-    <script type="text/javascript" src="../scripts/validaciones.js"></script>
-    <script src="../scripts/sydebar.js"></script>
+    <script type="text/javascript" src="js/validaciones.js"></script>
+    <script src="js/sydebar.js"></script>
 
 </body>
 
