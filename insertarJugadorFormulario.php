@@ -71,6 +71,13 @@ include("db_connect.php");
                 <span class="tooltip">Jugadores</span>
             </li>
             <li>
+                <a href="ejercicio.php">
+                    <i class='bx bx-ball'></i>
+                    <span class="links_name">Ejercicios</span>
+                </a>
+                <span class="tooltip">Ejercicios</span>
+            </li>
+            <li>
                 <a href="salir.php">
                     <i class='bx bx-log-out' id="log_out"></i>
                     <span class="links_name">Cerrar sesión</span>

@@ -35,8 +35,22 @@ include("db_connect.php");
       <i class='bx bx-menu' id="btn"></i>
     </div>
     <ul class="nav-list">
+    <li>
+        <a href="inicioEntrenador.php">
+          <i class='bx bx-user'></i>
+          <span class="links_name">Inicio</span>
+        </a>
+        <span class="tooltip">Inicio</span>
+      </li>
       <li>
-        <a href="calendario.php">
+       <a href="administrarJugadores.php">
+         <i class='bx bx-group' ></i>
+         <span class="links_name">Jugadores</span>
+       </a>
+       <span class="tooltip">Jugadores</span>
+     </li>
+      <li>
+        <a href="calendarioEntrenador.php">
           <i class='bx bx-calendar'></i>
           <span class="links_name">Calendario</span>
         </a>

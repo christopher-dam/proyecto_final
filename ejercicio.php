@@ -1,22 +1,21 @@
 <?php
 session_start();
-include("db_connect.php");
+include("conexion_BD.php");
 
 ?>
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aplicación Gestión Dual</title>
 
     <!-- hoja de estilos -->
-    <link type="text/css" href="css/estilo.css" rel="stylesheet" />
-    <link type="text/css" href="css/sydebar.css" rel="stylesheet" />
+    <link type="text/css" href="../include/estilo.css" rel="stylesheet" />
 
     <!-- script de validaciones -->
-    <script type="text/javascript" src="js/validaciones.js"></script>
+    <script type="text/javascript" src="../scripts/validaciones.js"></script>
 
     <!-- sweetalert -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -34,12 +33,9 @@ include("db_connect.php");
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-     <!-- Boxicons CDN Link -->
-     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-
 </head>
 
-<body style="margin-top: 200px;">
+<body>
 
     <!-- Sydebar para navegar por la aplicación -->
 
@@ -71,13 +67,6 @@ include("db_connect.php");
                 <span class="tooltip">Jugadores</span>
             </li>
             <li>
-                <a href="ejercicio.php">
-                    <i class='bx bx-ball'></i>
-                    <span class="links_name">Ejercicios</span>
-                </a>
-                <span class="tooltip">Ejercicios</span>
-            </li>
-            <li>
                 <a href="salir.php">
                     <i class='bx bx-log-out' id="log_out"></i>
                     <span class="links_name">Cerrar sesión</span>
@@ -86,65 +75,93 @@ include("db_connect.php");
         </ul>
     </div>
 
-    <?php
-    $id_jugador = htmlspecialchars($_GET["id_jugador"]);
-    //Conectamos con la BD
-    $link = conectar();
+    <div class="container">
 
-    $query = "SELECT * FROM jugador WHERE id=" . $id_jugador . ";";
-    $queryEquipo = "SELECT * FROM equipo;";
-    //Ejecutar consulta
-    $result = mysqli_query($link, $query);
-    $resultEquipo = mysqli_query($link, $queryEquipo);
-    //Extraemos datos de la consulta 
-    $fila = mysqli_fetch_array($result);
+        <h2 style="margin-top: 30px;"><b>Ejercicios</b></h2>
+        <div class="card-deck">
 
-    mysqli_close($link);
-    ?>
+            <?php
+            //Conectamos con la BD
+            $link = conectar();
+            $query = "SELECT * FROM ejercicio;";
 
-    <!-- Formulario con propiedades flotantes -->
+            //Ejecutar consulta
+            $result = mysqli_query($link, $query);
 
-    <div id="content" style="padding:10px 20px;">
-        <div class="container mt-3">
-            <h2>Datos del Jugador</h2>
-            <form id="formEditar" name="formEditar" method="post" action="editarJugador.php" onsubmit="return validarRegistro()" enctype="multipart/form-data">
-                <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" placeholder="a" name="nombre" id="nombre" value="<?php echo utf8_encode($fila["nombre"]); ?>" />
-                    <label for="nombre">Nombre</label>
-                </div>
-                <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" placeholder="a" name="apellidos" id="apellidos" value="<?php echo utf8_encode($fila["apellidos"]); ?>" />
-                    <label for="apellidos">Apellidos</label>
-                </div>
-                <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" name="dni" id="dni" placeholder="a" value="<?php echo utf8_encode($fila["dni"]); ?>" />
-                    <label for="dni">DNI</label>
-                </div>
-                <div class="form-floating mb-3 mt-3">
-                    <input class="form-control" id="telefono" name="telefono" placeholder="a" value="<?php echo utf8_encode($fila["telefono"]); ?>" />
-                    <label for="telefono">Telefono</label>
-                </div>
-                <div class="form-floating mb-3 mt-3">
-                    <input class="form-control" id="email" name="email" placeholder="a" value="<?php echo utf8_encode($fila["email"]); ?>" />
-                    <label for="email">Email</label>
-                </div>
+            while ($fila = mysqli_fetch_array($result)) {
+                echo '
+                        <div class="card">
+                            <img class="card-img-top" src=../imagenes/' . utf8_encode($fila['foto']) . '>
+                            <div class="card-body">
+                                <h5 class="card-title">' . utf8_encode($fila['nombre']) . '</h5>
+                                <p class="card-text">' . utf8_encode($fila['descripcion']) . '</p>
+                                </div>
+                                </div>';
+            }
+            mysqli_close($link);
+            ?>
         </div>
-        <input type="hidden" name="id" id="id" value="<?php echo utf8_encode($fila["id"]); ?>">
-        <button style="margin-bottom:10px;" type="submit" class="btn btn-primary">Editar</button>
-    </div>
-    </div>
+        <div id="centrado">
+            <form id="form1" name="form1" method="post" action="insertarEjercicioFormulario.php">
+                <input type="submit" class="btn btn-primary" style="font-weight:bold; color:white; margin-bottom:20px; margin-top:30px;" name="enviar" id="enviar" value="Añadir ejercicio" />
+            </form>
+        </div>
 
-    <script src="js/sydebar.js"></script>
+        <?php
 
+        if (isset($_SESSION["exito"])) {
+            echo '<script language="javascript">
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: "top-end",
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                          })
+                          
+                          Toast.fire({
+                            icon: "success",
+                            title: "' . $_SESSION["exito"] . '"
+                          })
+                        </script>';
+            unset($_SESSION["exito"]);
+        }
+        if (isset($_SESSION["error"])) {
+            echo '<script language="javascript">
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: "top-end",
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                          })
+                          
+                          Toast.fire({
+                            icon: "error",
+                            title: "' . $_SESSION["error"] . '"
+                          })
+                        </script>';
+            unset($_SESSION["error"]);
+        }
+        ?>
+    </div>
     <!-- Bootstrap JS, Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+    <!-- jQuery -->
+    <script src="../jquery/jquery-3.3.1.min.js"></script>
+
+    <!-- datatables JS -->
+    <script type="text/javascript" src="../datatables/datatables.min.js"></script>
+    <script type="text/javascript" src="../scripts/main.js"></script>
 
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
-    </div>
+    <script type="text/javascript" src="../scripts/validaciones.js"></script>
+
 </body>
 
 </html>
