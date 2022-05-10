@@ -11,9 +11,10 @@ include("db_connect.php");
 <head>
   <title>Calendar Demo</title>
   <link rel="stylesheet" href="css/calendar.css">
+
+  <!-- hoja de estilos -->
   <link type="text/css" href="css/estilo.css" rel="stylesheet" />
   <link type="text/css" href="css/sydebar.css" rel="stylesheet" />
-  <script src="calendar.js"></script>
   
   <!-- Boxicons CDN Link -->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -101,7 +102,7 @@ include("db_connect.php");
     </form>
   </div>
 
-
+  <script src="calendar.js"></script>
   <script src="js/sydebar.js"></script>
 
 </body>

@@ -33,7 +33,7 @@ var cal = {
 
   // (B) SUPPORT FUNCTION - AJAX FETCH
   ajax : (data, load) => {
-    fetch("ajax.php", { method:"POST", body:data })
+    fetch("ajaxEntrenador.php", { method:"POST", body:data })
     .then(res=>res.text()).then(load);
   },
 

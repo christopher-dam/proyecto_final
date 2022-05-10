@@ -15,9 +15,6 @@ include("conexion_BD.php");
     <link type="text/css" href="../include/estilo.css" rel="stylesheet" />
     <link type="text/css" href="css/sydebar.css" rel="stylesheet" />
 
-    <!-- script de validaciones -->
-    <script type="text/javascript" src="../scripts/validaciones.js"></script>
-
     <!-- sweetalert -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="sweetalert2.min.js"></script>
@@ -47,25 +44,18 @@ include("conexion_BD.php");
         </div>
         <ul class="nav-list">
             <li>
-                <a href="inicioAdmin.php">
+                <a href="inicioJugador.php">
                     <i class='bx bx-user'></i>
                     <span class="links_name">Inicio</span>
                 </a>
                 <span class="tooltip">Inicio</span>
             </li>
             <li>
-                <a href="entrenador.php">
+                <a href="calendarioJugador.php">
                     <i class='bx bx-group'></i>
-                    <span class="links_name">Entrenadores</span>
+                    <span class="links_name">Calendario</span>
                 </a>
-                <span class="tooltip">Entrenadores</span>
-            </li>
-            <li>
-                <a href="jugador.php">
-                    <i class='bx bx-group'></i>
-                    <span class="links_name">Jugadores</span>
-                </a>
-                <span class="tooltip">Jugadores</span>
+                <span class="tooltip">Calendario</span>
             </li>
             <li>
                 <a href="salir.php">
@@ -102,12 +92,7 @@ include("conexion_BD.php");
             mysqli_close($link);
             ?>
         </div>
-        <div id="centrado">
-            <form id="form1" name="form1" method="post" action="insertarEjercicioFormulario.php">
-                <input type="submit" class="btn btn-primary" style="font-weight:bold; color:white; margin-bottom:20px; margin-top:30px;" name="enviar" id="enviar" value="Añadir ejercicio" />
-            </form>
-        </div>
-
+        
         <?php
 
         if (isset($_SESSION["exito"])) {
@@ -161,8 +146,8 @@ include("conexion_BD.php");
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
+    <script type="text/javascript" src="../scripts/validaciones.js"></script>
     <script src="js/sydebar.js"></script>
-    <script type="text/javascript" src="js/validaciones.js"></script>
 
 </body>
 

@@ -45,7 +45,7 @@ include("db_connect.php");
        <span class="tooltip">Eventos</span>
      </li>
      <li>
-     <a href="sarchivos/manual_entrenador.pdf" download="manual_entrenador.pdf">
+     <a href="archivos/manual_entrenador.pdf" download="manual_entrenador.pdf">
          <i class='bx bx-book'></i>
          <span class="links_name">Manual</span>
        </a>

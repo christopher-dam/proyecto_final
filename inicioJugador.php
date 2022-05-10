@@ -9,6 +9,8 @@ include("db_connect.php");
 <head>
   <meta charset="UTF-8">
   <title>JustApp</title>
+
+  <!-- hoja de estilos -->
   <link type="text/css" href="css/estilo.css" rel="stylesheet" />
   <link type="text/css" href="css/sydebar.css" rel="stylesheet" />
 
@@ -17,9 +19,10 @@ include("db_connect.php");
 
   <!-- Boxicons CDN Link -->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
   <style>
-    .mb-0{
-      font-size:18px;
+    .mb-0 {
+      font-size: 18px;
       font-weight: bold;
     }
   </style>
@@ -41,6 +44,13 @@ include("db_connect.php");
           <span class="links_name">Calendario</span>
         </a>
         <span class="tooltip">Calendario</span>
+      </li>
+      <li>
+        <a href="ejercicioJugador.php">
+          <i class='bx bx-ball'></i>
+          <span class="links_name">Ejercicios</span>
+        </a>
+        <span class="tooltip">Ejercicios</span>
       </li>
       <li>
         <a href="archivos/manual_jugador.pdf" download="manual_jugador.pdf">
@@ -153,9 +163,9 @@ include("db_connect.php");
     </div>
   </div>
 
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="js/sydebar.js"></script>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
@@ -164,6 +174,8 @@ include("db_connect.php");
   <!-- Font Awesome JS -->
   <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
   <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+  <script src="js/sydebar.js"></script>
 </body>
 
 </html>

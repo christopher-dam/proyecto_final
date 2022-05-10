@@ -1,7 +1,7 @@
 <?php
 // (A) INVALID AJAX REQUEST
 if (!isset($_POST["req"])) { exit("INVALID REQUEST"); }
-require "cal-core.php";
+require "cal-coreJugador.php";
 switch ($_POST["req"]) {
   // (B) DRAW CALENDAR FOR MONTH
   case "draw":

@@ -10,11 +10,15 @@ include("db_connect.php");
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JustApp</title>
+  
+  <!-- Hoja de estilos -->
+  <link type="text/css" href="css/sydebar.css" rel="stylesheet" />
+  <link type="text/css" href="css/estilo.css" rel="stylesheet" />
+
+  <!-- SweetAlert -->
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="sweetalert2.min.js"></script>
   <link rel="stylesheet" href="sweetalert2.min.css">
-  <link type="text/css" href="css/sydebar.css" rel="stylesheet" />
-  <link type="text/css" href="css/estilo.css" rel="stylesheet" />
 
   <!-- Bootstrap de CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -41,6 +45,13 @@ include("db_connect.php");
           <span class="links_name">Inicio</span>
         </a>
         <span class="tooltip">Inicio</span>
+      </li>
+      <li>
+        <a href="ejercicioJugador.php">
+          <i class='bx bx-ball'></i>
+          <span class="links_name">Ejercicios</span>
+        </a>
+        <span class="tooltip">Ejercicios</span>
       </li>
       <li>
         <a href="calendarioJugador.php">
@@ -96,13 +107,12 @@ include("db_connect.php");
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
-
-  <script src="js/sydebar.js"></script>
-  <script type="text/javascript" src="js/validaciones.js"></script>
-
   <!-- Font Awesome JS -->
   <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
   <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+  <script src="js/sydebar.js"></script>
+  <script type="text/javascript" src="js/validaciones.js"></script>
 
   </div>
 
