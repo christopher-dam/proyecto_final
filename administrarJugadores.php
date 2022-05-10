@@ -89,7 +89,6 @@ include("db_connect.php");
                 <th>Nombre</th>
                 <th>Observaciones</th>
                 <th>Lesiones</th>
-                <th>Eliminar</th>
               </tr>
             </thead>
             <tbody style="background-color:white">
@@ -102,8 +101,6 @@ include("db_connect.php");
                   <td>" . utf8_encode($fila['nombre']) . "</td>
                   <td>" . utf8_encode($fila['observaciones']) . "</td>
                   <td>" . utf8_encode($fila['lesiones']) . "</td>
-                  <td><a onclick='return confirmarJugador(" . $fila['id'] . ")'>
-                  <img src='img/delete.png' width='20'></a></td>
                   </tr>";
               }
 

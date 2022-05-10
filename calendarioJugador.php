@@ -102,7 +102,7 @@ include("db_connect.php");
     </form>
   </div>
 
-  <script src="calendar.js"></script>
+  <script src="calendarJugador.js"></script>
   <script src="js/sydebar.js"></script>
 
 </body>

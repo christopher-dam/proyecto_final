@@ -39,7 +39,7 @@ include("db_connect.php");
     </div>
     <ul class="nav-list">
       <li>
-        <a href="calendario.php">
+        <a href="calendarioJugador.php">
           <i class='bx bx-calendar'></i>
           <span class="links_name">Calendario</span>
         </a>

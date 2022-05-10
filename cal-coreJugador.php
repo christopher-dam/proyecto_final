@@ -64,7 +64,7 @@ class Calendar
 
     // (D2) SQL - INSERT OR UPDATE
     if ($id == null) {
-      $sql = "INSERT INTO `events` (`evt_start`, `evt_end`, `evt_text`, `evt_color`, `id_entrenador`) VALUES (?,?,?,?, ". $_SESSION['id_entrenador'] .")";
+      // $sql = "INSERT INTO `events` (`evt_start`, `evt_end`, `evt_text`, `evt_color`, `id_entrenador`) VALUES (?,?,?,?, ". $_SESSION['id_entrenador'] .")";
       $data = [$start, $end, $txt, $color];
     } else {
       $sql = "UPDATE `events` SET `evt_start`=?, `evt_end`=?, `evt_text`=?, `evt_color`=? WHERE `evt_id`=?";
