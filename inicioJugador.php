@@ -47,7 +47,7 @@ include("db_connect.php");
       </li>
       <li>
         <a href="ejercicioJugador.php">
-          <i class='bx bx-ball'></i>
+          <i class='bx bx-basketball'></i>
           <span class="links_name">Ejercicios</span>
         </a>
         <span class="tooltip">Ejercicios</span>

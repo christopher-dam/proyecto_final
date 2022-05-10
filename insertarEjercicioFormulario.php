@@ -59,7 +59,7 @@ include("conexion_BD.php");
             </li>
             <li>
                 <a href="ejercicio.php">
-                    <i class='bx bx-ball'></i>
+                    <i class='bx bx-basketball'></i>
                     <span class="links_name">Ejercicios</span>
                 </a>
                 <span class="tooltip">Ejercicios</span>
