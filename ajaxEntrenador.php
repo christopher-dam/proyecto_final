@@ -15,13 +15,13 @@ switch ($_POST["req"]) {
     $dayFirst = (new DateTime($dateFirst))->format("w");
     $dayLast = (new DateTime($dateLast))->format("w");
 
-    // (B2) DAY NAMES
-    $sunFirst = true; // CHANGE THIS IF YOU WANT MON FIRST
-    $days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-    if ($sunFirst) { array_unshift($days, "Sun"); }
-    else { $days[] = "Sun"; }
-    foreach ($days as $d) { echo "<div class='calsq head'>$d</div>"; }
-    unset($days);
+ // (B2) DAY NAMES
+ $sunFirst = false; // CHANGE THIS IF YOU WANT MON FIRST
+ $days = ["Lun", "Mar", "Mie", "Jue", "Vie", "Sab"];
+ if ($sunFirst) { array_unshift($days, "Dom"); }
+ else { $days[] = "Dom"; }
+ foreach ($days as $d) { echo "<div class='calsq head'>$d</div>"; }
+ unset($days);
 
     // (B3) PAD EMPTY SQUARES BEFORE FIRST DAY OF MONTH
     if ($sunFirst) { $pad = $dayFirst; }
@@ -57,7 +57,7 @@ switch ($_POST["req"]) {
   case "save":
     if (!is_numeric($_POST["eid"])) { $_POST["eid"] = null; }
     echo $_CAL->save(
-      $_POST["start"], $_POST["end"], $_POST["txt"], $_POST["color"],
+      $_POST["start"], $_POST["end"], $_POST["txt"], $_POST["color"], $_POST["id_entrenador"],
       isset($_POST["eid"]) ? $_POST["eid"] : null
     ) ? "OK" : $_CAL->error ;
     break;

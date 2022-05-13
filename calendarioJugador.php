@@ -10,7 +10,7 @@ include("db_connect.php");
 
 <head>
   <title>Calendar Demo</title>
-  <link rel="stylesheet" href="css/calendar.css">
+  <link rel="stylesheet" href="css/calendarJugador.css">
 
   <!-- hoja de estilos -->
   <link type="text/css" href="css/estilo.css" rel="stylesheet" />
@@ -60,9 +60,9 @@ include("db_connect.php");
                       // (A1) MONTH SELECTOR
                       // NOTE: DEFAULT TO CURRENT SERVER MONTH YEAR
                       $months = [
-                        1 => "January", 2 => "Febuary", 3 => "March", 4 => "April",
-                        5 => "May", 6 => "June", 7 => "July", 8 => "August",
-                        9 => "September", 10 => "October", 11 => "November", 12 => "December"
+                        1 => "Enero", 2 => "Febrero", 3 => "Marzo", 4 => "Abril",
+                        5 => "Mayo", 6 => "Junio", 7 => "Julio", 8 => "Agosto",
+                        9 => "Septiembre", 10 => "Octubre", 11 => "Noviembre", 12 => "Diciembre"
                       ];
                       $monthNow = date("m");
                       echo "<select id='calmonth'>";
@@ -97,8 +97,8 @@ include("db_connect.php");
       <label for="color">Color</label>
       <input type="color" id="evtcolor" name="color" value="#e4edff" required />
       <input type="submit" id="calformsave" value="Save" />
-      <input type="button" id="calformdel" value="Delete" />
       <input type="button" id="calformcx" value="Cancel" />
+      <input type="button" id="calformdel" value="Delete" />
     </form>
   </div>
 

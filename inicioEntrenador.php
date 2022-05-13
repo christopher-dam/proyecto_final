@@ -38,7 +38,7 @@ include("db_connect.php");
        <span class="tooltip">Jugadores</span>
      </li>
      <li>
-       <a href="calendario.php">
+       <a href="calendarioEntrenador.php">
          <i class='bx bx-calendar' ></i>
          <span class="links_name">Eventos</span>
        </a>

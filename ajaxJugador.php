@@ -16,10 +16,10 @@ switch ($_POST["req"]) {
     $dayLast = (new DateTime($dateLast))->format("w");
 
     // (B2) DAY NAMES
-    $sunFirst = true; // CHANGE THIS IF YOU WANT MON FIRST
-    $days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-    if ($sunFirst) { array_unshift($days, "Sun"); }
-    else { $days[] = "Sun"; }
+    $sunFirst = false; // CHANGE THIS IF YOU WANT MON FIRST
+    $days = ["Lun", "Mar", "Mie", "Jue", "Vie", "Sab"];
+    if ($sunFirst) { array_unshift($days, "Dom"); }
+    else { $days[] = "Dom"; }
     foreach ($days as $d) { echo "<div class='calsq head'>$d</div>"; }
     unset($days);
 

@@ -60,9 +60,9 @@ include("db_connect.php");
                       // (A1) MONTH SELECTOR
                       // NOTE: DEFAULT TO CURRENT SERVER MONTH YEAR
                       $months = [
-                        1 => "January", 2 => "Febuary", 3 => "March", 4 => "April",
-                        5 => "May", 6 => "June", 7 => "July", 8 => "August",
-                        9 => "September", 10 => "October", 11 => "November", 12 => "December"
+                        1 => "Enero", 2 => "Febrero", 3 => "Marzo", 4 => "Abril",
+                        5 => "Mayo", 6 => "Junio", 7 => "Julio", 8 => "Agosto",
+                        9 => "Septiembre", 10 => "Octubre", 11 => "Noviembre", 12 => "Diciembre"
                       ];
                       $monthNow = date("m");
                       echo "<select id='calmonth'>";
