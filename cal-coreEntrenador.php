@@ -133,11 +133,11 @@ class Calendar
 }
 
 // (G) DATABASE SETTINGS - CHANGE TO YOUR OWN!
-define("DB_HOST", "185.42.104.113");
-define("DB_NAME", "justvoley");
+define("DB_HOST", "localhost");
+define("DB_NAME", "club");
 define("DB_CHARSET", "utf8");
-define("DB_USER", "myjustvole");
-define("DB_PASSWORD", "admin123+");
+define("DB_USER", "root");
+define("DB_PASSWORD", "");
 
 // (H) NEW CALENDAR OBJECT
 $_CAL = new Calendar();
