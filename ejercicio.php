@@ -11,18 +11,18 @@ include("db_connect.php");
     <meta http-equiv="Content-type" content="text/html" charset="UTF-8">
     <title>Aplicación Gestión Dual</title>
 
-    <!-- hoja de estilos -->
-    <link type="text/css" href="../include/estilo.css" rel="stylesheet" />
+    <!--hoja de estilos -->
+    <link type="text/css" href="css/estilo.css" rel="stylesheet" />
     <link type="text/css" href="css/sydebar.css" rel="stylesheet" />
 
-    <!-- script de validaciones -->
-    <script type="text/javascript" src="../scripts/validaciones.js"></script>
+    <!--estilo de datatables -->
+    <link rel="stylesheet" type="text/css" href="datatables/datatables.min.css" />
+    <link rel="stylesheet" type="text/css" href="datatables/DataTables-1.11.4/css/dataTables.bootstrap5.min.css" />
 
-    <!-- sweetalert -->
+    <!--estilos de sweetalert2 -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="sweetalert2.min.js"></script>
     <link rel="stylesheet" href="sweetalert2.min.css">
-
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -33,8 +33,8 @@ include("db_connect.php");
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-     <!-- Boxicons CDN Link -->
-     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
 
@@ -50,7 +50,7 @@ include("db_connect.php");
         <ul class="nav-list">
             <li>
                 <a href="inicioAdmin.php">
-                    <i class='bx bx-user'></i>
+                    <i class='bx bx-home'></i>
                     <span class="links_name">Inicio</span>
                 </a>
                 <span class="tooltip">Inicio</span>
@@ -68,6 +68,20 @@ include("db_connect.php");
                     <span class="links_name">Jugadores</span>
                 </a>
                 <span class="tooltip">Jugadores</span>
+            </li>
+            <li>
+                <a href="equipo.php">
+                    <i class='bx bx-group'></i>
+                    <span class="links_name">Equipos</span>
+                </a>
+                <span class="tooltip">Equipos</span>
+            </li>
+            <li>
+                <a href="ejercicio.php">
+                    <i class='bx bx-basketball'></i>
+                    <span class="links_name">Ejercicios</span>
+                </a>
+                <span class="tooltip">Ejercicios</span>
             </li>
             <li>
                 <a href="salir.php">

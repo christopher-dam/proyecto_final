@@ -11,11 +11,15 @@ include("db_connect.php");
     <meta charset="UTF-8">
     <title>Aplicación Gestión Dual</title>
 
-    <!-- hoja de estilos -->
-    <link type="text/css" href="../include/estilo.css" rel="stylesheet" />
+    <!--hoja de estilos -->
+    <link type="text/css" href="css/estilo.css" rel="stylesheet" />
     <link type="text/css" href="css/sydebar.css" rel="stylesheet" />
 
-    <!-- sweetalert -->
+    <!--estilo de datatables -->
+    <link rel="stylesheet" type="text/css" href="datatables/datatables.min.css" />
+    <link rel="stylesheet" type="text/css" href="datatables/DataTables-1.11.4/css/dataTables.bootstrap5.min.css" />
+
+    <!--estilos de sweetalert2 -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="sweetalert2.min.js"></script>
     <link rel="stylesheet" href="sweetalert2.min.css">
@@ -29,8 +33,8 @@ include("db_connect.php");
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-     <!-- Boxicons CDN Link -->
-     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
 
@@ -46,7 +50,7 @@ include("db_connect.php");
         <ul class="nav-list">
             <li>
                 <a href="inicioJugador.php">
-                    <i class='bx bx-user'></i>
+                    <i class='bx bx-home'></i>
                     <span class="links_name">Inicio</span>
                 </a>
                 <span class="tooltip">Inicio</span>
@@ -57,6 +61,13 @@ include("db_connect.php");
                     <span class="links_name">Calendario</span>
                 </a>
                 <span class="tooltip">Calendario</span>
+            </li>
+            <li>
+                <a href="ejercicioJugador.php">
+                    <i class='bx bx-basketball'></i>
+                    <span class="links_name">Ejercicios</span>
+                </a>
+                <span class="tooltip">Ejercicios</span>
             </li>
             <li>
                 <a href="salir.php">
@@ -93,7 +104,7 @@ include("db_connect.php");
             mysqli_close($link);
             ?>
         </div>
-        
+
         <?php
 
         if (isset($_SESSION["exito"])) {

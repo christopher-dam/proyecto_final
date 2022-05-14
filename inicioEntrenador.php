@@ -15,8 +15,8 @@ include("db_connect.php");
     <!-- Bootstrap de CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-     <!-- Boxicons CDN Link -->
-     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
 
@@ -25,40 +25,47 @@ include("db_connect.php");
     <!-- Sydebar para navegar por la aplicación -->
 
     <div class="sidebar">
-    <div class="logo-details">
-        <div class="logo_name">JustVoley</div>
-        <i class='bx bx-menu' id="btn" ></i>
+        <div class="logo-details">
+            <div class="logo_name">JustVoley</div>
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav-list">
+            <li>
+                <a href="inicioEntrenador.php">
+                    <i class='bx bx-home'></i>
+                    <span class="links_name">Inicio</span>
+                </a>
+                <span class="tooltip">Inicio</span>
+            </li>
+            <li>
+                <a href="administrarJugadores.php">
+                    <i class='bx bx-group'></i>
+                    <span class="links_name">Jugadores</span>
+                </a>
+                <span class="tooltip">Jugadores</span>
+            </li>
+            <li>
+                <a href="calendarioEntrenador.php">
+                    <i class='bx bx-calendar'></i>
+                    <span class="links_name">Eventos</span>
+                </a>
+                <span class="tooltip">Eventos</span>
+            </li>
+            <li>
+                <a href="archivos/manual_entrenador.pdf" download="manual_entrenador.pdf">
+                    <i class='bx bx-book'></i>
+                    <span class="links_name">Manual</span>
+                </a>
+                <span class="tooltip">Manual</span>
+            </li>
+            <li>
+                <a href="salir.php">
+                    <i class='bx bx-log-out' id="log_out"></i>
+                    <span class="links_name">Cerrar sesión</span>
+                </a>
+                <span class="tooltip">Cerrar sesión</span>
+        </ul>
     </div>
-    <ul class="nav-list">
-    <li>
-       <a href="administrarJugadores.php">
-         <i class='bx bx-group' ></i>
-         <span class="links_name">Jugadores</span>
-       </a>
-       <span class="tooltip">Jugadores</span>
-     </li>
-     <li>
-       <a href="calendarioEntrenador.php">
-         <i class='bx bx-calendar' ></i>
-         <span class="links_name">Eventos</span>
-       </a>
-       <span class="tooltip">Eventos</span>
-     </li>
-     <li>
-     <a href="archivos/manual_entrenador.pdf" download="manual_entrenador.pdf">
-         <i class='bx bx-book'></i>
-         <span class="links_name">Manual</span>
-       </a>
-       <span class="tooltip">Manual</span>
-     </li>
-     <li>
-       <a href="salir.php">
-         <i class='bx bx-log-out' id="log_out" ></i>
-         <span class="links_name">Cerrar sesión</span>
-       </a>
-       <span class="tooltip">Cerrar sesión</span>
-    </ul>
-  </div>
 
     <!-- Contenedor donde se muestran los datos -->
 
@@ -101,7 +108,7 @@ include("db_connect.php");
                                 <h4 class="text-right">Perfil</h4>
                             </div>
                             <div class="row mt-2">
-                                <div class="col-md-4"><label class="labels"><b>Nombre</b></label><p>'. $fila['nombre'] .' </p></div>
+                                <div class="col-md-4"><label class="labels"><b>Nombre</b></label><p>' . $fila['nombre'] . ' </p></div>
                                 <div class="col-md-4"><label class="labels"><b>Apellidos</b></label><p> ' . $fila['apellidos'] . '</p></div>
                                 <div class="col-md-4"><label class="labels"><b>Email</b></label><p> ' . $fila['email'] . '</p></div>
                             </div>

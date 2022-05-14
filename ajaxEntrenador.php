@@ -29,7 +29,7 @@ switch ($_POST["req"]) {
     for ($i=0; $i<$pad; $i++) { echo "<div class='calsq blank'></div>"; }
 
     // (B4) DRAW DAYS IN MONTH
-    $events = $_CAL->get($_POST["month"], $_POST["year"]);
+    $events = $_CAL->get($_POST["month"], $_POST["year"], $_SESSION['id_entrenador']);
     $nowMonth = date("n");
     $nowYear = date("Y");
     $nowDay = ($nowMonth==$_POST["month"] && $nowYear==$_POST["year"]) ? date("j") : 0 ;
@@ -57,7 +57,7 @@ switch ($_POST["req"]) {
   case "save":
     if (!is_numeric($_POST["eid"])) { $_POST["eid"] = null; }
     echo $_CAL->save(
-      $_POST["start"], $_POST["end"], $_POST["txt"], $_POST["color"], $_POST["id_entrenador"],
+      $_POST["start"], $_POST["end"], $_POST["txt"], $_POST["detalles"], $_POST["color"], $_SESSION["id_entrenador"],
       isset($_POST["eid"]) ? $_POST["eid"] : null
     ) ? "OK" : $_CAL->error ;
     break;

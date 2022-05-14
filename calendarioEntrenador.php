@@ -31,7 +31,7 @@ include("db_connect.php");
     <ul class="nav-list" style="padding-left:25px">
     <li>
         <a href="inicioEntrenador.php">
-          <i class='bx bx-user'></i>
+          <i class='bx bx-home'></i>
           <span class="links_name">Inicio</span>
         </a>
         <span class="tooltip">Inicio</span>
@@ -44,6 +44,13 @@ include("db_connect.php");
         <span class="tooltip">Jugadores</span>
       </li>
       <li>
+        <a href="calendarioEntrenador.php">
+          <i class='bx bx-calendar'></i>
+          <span class="links_name">Eventos</span>
+        </a>
+        <span class="tooltip">Eventos</span>
+      </li>
+      <li>
         <a href="salir.php">
           <i class='bx bx-log-out' id="log_out"></i>
           <span class="links_name">Cerrar sesión</span>
@@ -51,9 +58,6 @@ include("db_connect.php");
         <span class="tooltip">Cerrar sesión</span>
     </ul>
   </div>
-
-
-
 
   <!-- (A) PERIOD SELECTOR -->
   <div id="calPeriod"><?php
@@ -94,6 +98,8 @@ include("db_connect.php");
       <input type="datetime-local" id="evtend" name="end" required />
       <label for="txt">Event</label>
       <textarea id="evttxt" name="txt" required></textarea>
+      <label for="detalles">Detalles</label>
+      <textarea id="detalles" name="detalles" ></textarea>
       <label for="color">Color</label>
       <input type="color" id="evtcolor" name="color" value="#e4edff" required />
       <input type="submit" id="calformsave" value="Save" />

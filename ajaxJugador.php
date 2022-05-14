@@ -52,18 +52,4 @@ switch ($_POST["req"]) {
     else { $pad = $dayLast==0 ? 0 : 7-$dayLast ; }
     for ($i=0; $i<$pad; $i++) { echo "<div class='calsq blank'></div>"; }
     break;
-
-  // (C) SAVE EVENT
-  case "save":
-    if (!is_numeric($_POST["eid"])) { $_POST["eid"] = null; }
-    echo $_CAL->save(
-      $_POST["start"], $_POST["end"], $_POST["txt"], $_POST["color"],
-      isset($_POST["eid"]) ? $_POST["eid"] : null
-    ) ? "OK" : $_CAL->error ;
-    break;
-
-  // (D) DELETE EVENT
-  case "del":
-    echo $_CAL->del($_POST["eid"])  ? "OK" : $_CAL->error ;
-    break;
 }

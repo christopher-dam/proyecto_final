@@ -10,7 +10,7 @@ include("db_connect.php");
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JustApp</title>
-  
+
   <!-- Hoja de estilos -->
   <link type="text/css" href="css/sydebar.css" rel="stylesheet" />
   <link type="text/css" href="css/estilo.css" rel="stylesheet" />
@@ -41,17 +41,10 @@ include("db_connect.php");
     <ul class="nav-list">
       <li>
         <a href="inicioJugador.php">
-          <i class='bx bx-user'></i>
+          <i class='bx bx-home'></i>
           <span class="links_name">Inicio</span>
         </a>
         <span class="tooltip">Inicio</span>
-      </li>
-      <li>
-        <a href="ejercicioJugador.php">
-          <i class='bx bx-basketball'></i>
-          <span class="links_name">Ejercicios</span>
-        </a>
-        <span class="tooltip">Ejercicios</span>
       </li>
       <li>
         <a href="calendarioJugador.php">
@@ -59,6 +52,13 @@ include("db_connect.php");
           <span class="links_name">Calendario</span>
         </a>
         <span class="tooltip">Calendario</span>
+      </li>
+      <li>
+        <a href="ejercicioJugador.php">
+          <i class='bx bx-basketball'></i>
+          <span class="links_name">Ejercicios</span>
+        </a>
+        <span class="tooltip">Ejercicios</span>
       </li>
       <li>
         <a href="salir.php">

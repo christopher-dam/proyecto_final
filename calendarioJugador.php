@@ -31,10 +31,17 @@ include("db_connect.php");
     <ul class="nav-list" style="padding-left:25px">
     <li>
         <a href="inicioJugador.php">
-          <i class='bx bx-user'></i>
+          <i class='bx bx-home'></i>
           <span class="links_name">Inicio</span>
         </a>
         <span class="tooltip">Inicio</span>
+      </li>
+      <li>
+        <a href="calendarioJugador.php">
+          <i class='bx bx-calendar'></i>
+          <span class="links_name">Calendario</span>
+        </a>
+        <span class="tooltip">Calendario</span>
       </li>
       <li>
         <a href="ejercicioJugador.php">
@@ -94,9 +101,10 @@ include("db_connect.php");
       <input type="datetime-local" id="evtend" name="end" required />
       <label for="txt">Event</label>
       <textarea id="evttxt" name="txt" required></textarea>
+      <label for="detalles">Detalles</label>
+      <textarea id="detalles" name="detalles" ></textarea>
       <label for="color">Color</label>
       <input type="color" id="evtcolor" name="color" value="#e4edff" required />
-      <input type="submit" id="calformsave" value="Save" />
       <input type="button" id="calformcx" value="Cancel" />
       <input type="button" id="calformdel" value="Delete" />
     </form>

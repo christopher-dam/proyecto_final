@@ -42,7 +42,7 @@ include("db_connect.php");
         <ul class="nav-list">
             <li>
                 <a href="inicioAdmin.php">
-                    <i class='bx bx-user'></i>
+                    <i class='bx bx-home'></i>
                     <span class="links_name">Inicio</span>
                 </a>
                 <span class="tooltip">Inicio</span>
@@ -60,6 +60,13 @@ include("db_connect.php");
                     <span class="links_name">Jugadores</span>
                 </a>
                 <span class="tooltip">Jugadores</span>
+            </li>
+            <li>
+                <a href="equipo.php">
+                    <i class='bx bx-group'></i>
+                    <span class="links_name">Equipos</span>
+                </a>
+                <span class="tooltip">Equipos</span>
             </li>
             <li>
                 <a href="ejercicio.php">

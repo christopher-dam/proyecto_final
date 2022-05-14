@@ -39,6 +39,13 @@ include("db_connect.php");
     </div>
     <ul class="nav-list">
       <li>
+        <a href="inicioJugador.php">
+          <i class='bx bx-home'></i>
+          <span class="links_name">Inicio</span>
+        </a>
+        <span class="tooltip">Inicio</span>
+      </li>
+      <li>
         <a href="calendarioJugador.php">
           <i class='bx bx-calendar'></i>
           <span class="links_name">Calendario</span>
@@ -163,7 +170,7 @@ include("db_connect.php");
     </div>
   </div>
 
-  
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
