@@ -112,7 +112,7 @@ include("db_connect.php");
                             <div class="card-body">
                               <div class="row">
                                 <div class="col-sm-3">
-                                  <h6 class="mb-0">Nombre</h6>
+                                  <h6 class="mb-0">Nombre completo</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                 <p style="color:black;">' . $fila['nombre'] . ' ' . $fila['apellidos'] . ' </p>

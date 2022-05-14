@@ -32,7 +32,7 @@ html, body { font-family: arial, sans-serif; }
   height: 120px;
   overflow-y: auto;
   border: 1px solid #eee;
-  background-color: #cdcdcd;
+  background-color: rgb(205, 205, 205, 0.8);
 }
 .calsq.blank { background: transparent; border: none; }
 .calsq.today { background: #fbffde; }
