@@ -52,7 +52,7 @@ class Calendar
   }
 
   // (D) SAVE EVENT
-  function save($start, $end, $txt, $color, $id = null)
+  function save($start, $end, $txt, $detalles, $color, $id = null)
   {
     // (D1) START & END DATE QUICK CHECK
     $uStart = strtotime($start);
@@ -64,11 +64,11 @@ class Calendar
 
     // (D2) SQL - INSERT OR UPDATE
     if ($id == null) {
-      $sql = "INSERT INTO `events` (`evt_start`, `evt_end`, `evt_text`, `evt_color`, `id_entrenador`) VALUES (?,?,?,?, ". $_SESSION['id_entrenador'] .")";
-      $data = [$start, $end, $txt, $color];
+      $sql = "INSERT INTO `events` (`evt_start`, `evt_end`, `evt_text`, `detalles`, `evt_color`, `id_entrenador`) VALUES (?,?,?,?,?, ". $_SESSION['id_entrenador'] .")";
+      $data = [$start, $end, $txt, $detalles, $color];
     } else {
-      $sql = "UPDATE `events` SET `evt_start`=?, `evt_end`=?, `evt_text`=?, `evt_color`=? WHERE `evt_id`=?";
-      $data = [$start, $end, $txt, $color, $id];
+      $sql = "UPDATE `events` SET `evt_start`=?, `evt_end`=?, `evt_text`=?, `detalles`=?, `evt_color`=? WHERE `evt_id`=?";
+      $data = [$start, $end, $txt, $detalles, $color, $id];
     }
 
     // (D3) EXECUTE
@@ -90,12 +90,6 @@ class Calendar
     $dayLast = "{$year}-{$month}-{$daysInMonth} 23:59:59";
 
     // (F2) GET EVENTS
-    // $link = conectar();
-    // $queryJugador = "SELECT id_entrenador FROM jugador WHERE id=" . $_SESSION['id_jugador'] . ";";
-    // $resultJugador = mysqli_query($link, $queryJugador);
-    // $idEntrenador = mysqli_fetch_array($resultJugador);
-    // $queryFallida = "SELECT id, tipo, start_date, end_date FROM evento WHERE id_entrenador=" . $idEntrenador['id_entrenador'] . ";";
-    // -- AND id_entrenador=" . $idEntrenador['id_entrenador'] . "
     if (!$this->exec($query=
       "SELECT * FROM `events` WHERE (
         (`evt_start` BETWEEN ? AND ?)
@@ -106,7 +100,7 @@ class Calendar
     )) {
       return false;
     }
-    // echo $query;
+  
     // $events = [
     //  "e" => [ EVENT ID => [DATA], EVENT ID => [DATA], ... ],
     //  "d" => [ DAY => [EVENT IDS], DAY => [EVENT IDS], ... ]

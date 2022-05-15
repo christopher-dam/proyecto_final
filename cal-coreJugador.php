@@ -51,36 +51,6 @@ class Calendar
     }
   }
 
-  // (D) SAVE EVENT
-  function save($start, $end, $txt, $color, $id = null)
-  {
-    // (D1) START & END DATE QUICK CHECK
-    $uStart = strtotime($start);
-    $uEnd = strtotime($end);
-    if ($uEnd < $uStart) {
-      $this->error = "End date cannot be earlier than start date";
-      return false;
-    }
-
-    // (D2) SQL - INSERT OR UPDATE
-    if ($id == null) {
-      // $sql = "INSERT INTO `events` (`evt_start`, `evt_end`, `evt_text`, `evt_color`, `id_entrenador`) VALUES (?,?,?,?, ". $_SESSION['id_entrenador'] .")";
-      $data = [$start, $end, $txt, $color];
-    } else {
-      $sql = "UPDATE `events` SET `evt_start`=?, `evt_end`=?, `evt_text`=?, `evt_color`=? WHERE `evt_id`=?";
-      $data = [$start, $end, $txt, $color, $id];
-    }
-
-    // (D3) EXECUTE
-    return $this->exec($sql, $data);
-  }
-
-  // (E) DELETE EVENT
-  function del($id)
-  {
-    return $this->exec("DELETE FROM `events` WHERE `evt_id`=?", [$id]);
-  }
-
   // (F) GET EVENTS FOR SELECTED MONTH
   function get($month, $year)
   {

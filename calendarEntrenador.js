@@ -4,7 +4,7 @@ var cal = {
   hWrap:null, // DAYS WRAPPER
   // EVENT FORM
   hBlock:null, hForm:null, hFormDel:null, hFormCX:null,
-  hID:null, hStart:null, hEnd:null, hTxt:null, hColor:null,
+  hID:null, hStart:null, hEnd:null, hTxt:null, dTxt:null, hColor:null,
   init : () => {
     // (A1) GET HTML ELEMENTS
     cal.hMth = document.getElementById("calmonth");
@@ -18,6 +18,7 @@ var cal = {
     cal.hStart = document.getElementById("evtstart");
     cal.hEnd = document.getElementById("evtend");
     cal.hTxt = document.getElementById("evttxt");
+    cal.dTxt = document.getElementById("detalles");
     cal.hColor = document.getElementById("evtcolor");
 
     // (A2) ATTACH CONTROLS
@@ -85,6 +86,7 @@ var cal = {
       cal.hStart.value = edata["evt_start"].replaceAll(" ", "T");
       cal.hEnd.value = edata["evt_end"].replaceAll(" ", "T");
       cal.hTxt.value = edata["evt_text"];
+      cal.dTxt.value = edata["detalles"];
       cal.hColor.value = edata["evt_color"];
       cal.hFormDel.style.display = "block";
     }

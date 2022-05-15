@@ -42,7 +42,7 @@ include("db_connect.php");
     <ul class="nav-list">
       <li>
         <a href="inicioEntrenador.php">
-          <i class='bx bx-user'></i>
+          <i class='bx bx-home'></i>
           <span class="links_name">Inicio</span>
         </a>
         <span class="tooltip">Inicio</span>

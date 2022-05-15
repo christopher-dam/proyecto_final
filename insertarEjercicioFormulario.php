@@ -11,11 +11,11 @@ include("db_connect.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aplicación Gestión Dual</title>
 
-    <!-- hoja de estilos -->
-    <link type="text/css" href="../include/estilo.css" rel="stylesheet" />
+    <!--hoja de estilos -->
+    <link type="text/css" href="css/estilo.css" rel="stylesheet" />
     <link type="text/css" href="css/sydebar.css" rel="stylesheet" />
 
-    <!-- sweetalert -->
+    <!--estilos de sweetalert2 -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="sweetalert2.min.js"></script>
     <link rel="stylesheet" href="sweetalert2.min.css">
@@ -41,7 +41,7 @@ include("db_connect.php");
         <ul class="nav-list">
             <li>
                 <a href="inicioAdmin.php">
-                    <i class='bx bx-user'></i>
+                    <i class='bx bx-home'></i>
                     <span class="links_name">Inicio</span>
                 </a>
                 <span class="tooltip">Inicio</span>
@@ -55,10 +55,17 @@ include("db_connect.php");
             </li>
             <li>
                 <a href="jugador.php">
-                    <i class='bx bx-group'></i>
+                    <i class='bx bx-user'></i>
                     <span class="links_name">Jugadores</span>
                 </a>
                 <span class="tooltip">Jugadores</span>
+            </li>
+            <li>
+                <a href="equipo.php">
+                    <i class='bx bx-group'></i>
+                    <span class="links_name">Equipos</span>
+                </a>
+                <span class="tooltip">Equipos</span>
             </li>
             <li>
                 <a href="ejercicio.php">

@@ -20,13 +20,13 @@ include("db_connect.php");
     <script src="sweetalert2.min.js"></script>
     <link rel="stylesheet" href="sweetalert2.min.css">
 
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap de CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-     <!-- Boxicons CDN Link -->
-     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
 
@@ -85,60 +85,42 @@ include("db_connect.php");
     </div>
 
     <?php
-    $id_entrenador = htmlspecialchars($_GET["id_entrenador"]);
     //Conectamos con la BD
     $link = conectar();
+    $queryEquipo = "SELECT * FROM equipo;";
 
-    $query = "SELECT * FROM entrenador WHERE id=" . $id_entrenador . ";";
-    
     //Ejecutar consulta
-    $result = mysqli_query($link, $query);
-    
-    //Extraemos datos de la consulta 
-    $fila = mysqli_fetch_array($result);
-
-    mysqli_close($link);
+    $resultEquipo = mysqli_query($link, $queryEquipo);
     ?>
 
     <!-- Formulario con propiedades flotantes -->
 
     <div id="content" style="padding:10px 20px;">
         <div class="container mt-3">
-            <h2>Datos del entrenador</h2>
-            <form id="formEditar" name="formEditar" method="post" action="editarEntrenador.php" onsubmit="return validarRegistro()" enctype="multipart/form-data">
+            <h2>Datos del equipo</h2>
+            <form id="formInsertar" name="formInsertar" method="post" action="insertarEquipo.php" onsubmit="return validarRegistro();" enctype="multipart/form-data">
+
                 <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" placeholder="a" name="nombre" id="nombre" value="<?php echo utf8_encode($fila["nombre"]); ?>" />
-                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del equipo" name="nombre">
+                    <label for="nombre">Nombre del equipo</label>
                 </div>
-                <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" placeholder="a" name="apellidos" id="apellidos" value="<?php echo utf8_encode($fila["apellidos"]); ?>" />
-                    <label for="apellidos">Apellidos</label>
+                <div class="form-floating mt-3 mb-3">
+                    <input type="text" class="form-control" id="instagram" placeholder="Introduce el instagram del equipo" name="instagram">
+                    <label for="instagram">Instagram</label>
                 </div>
-                <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" name="dni" id="dni" placeholder="a" value="<?php echo utf8_encode($fila["dni"]); ?>" />
-                    <label for="dni">DNI</label>
+                <div class="form-floating mt-3 mb-3">
+                    <input type="text" class="form-control" id="email" placeholder="Ingrese el email de contacto del equipo" name="email">
+                    <label for="email">Email de contacto del equipo</label>
                 </div>
-                <div class="form-floating mb-3 mt-3">
-                    <input class="form-control" id="telefono" name="telefono" placeholder="a" value="<?php echo utf8_encode($fila["telefono"]); ?>" />
-                    <label for="telefono">Telefono</label>
+                <div class="form-floating mt-3 mb-3">
+                    <input type="text" class="form-control" id="sede" placeholder="Introduce la sede del equipo" name="sede">
+                    <label for="sede">Sede del equipo</label>
                 </div>
-                <div class="form-floating mb-3 mt-3">
-                    <input class="form-control" id="email" name="email" placeholder="a" value="<?php echo utf8_encode($fila["email"]); ?>" />
-                    <label for="email">Email</label>
-                </div>
-                <div>
-                    <label class="my-1 mr-2" for="titulacion">Nivel de titulación del entrenador</label>
-                    <select class="custom-select" name="titulacion" id="titulacion">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                    </select>
-                </div>
+                <button style="margin:8px 0px;" type="submit" class="btn btn-primary">Enviar</button>
+            </form>
         </div>
-        <input type="hidden" name="id" id="id" value="<?php echo utf8_encode($fila["id"]); ?>">
-        <button style="margin:10px 0px;" type="submit" class="btn btn-primary">Editar</button>
     </div>
-    </div>
+
 
     <!-- Bootstrap JS, Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
@@ -148,9 +130,9 @@ include("db_connect.php");
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
+
     <script type="text/javascript" src="js/validaciones.js"></script>
     <script src="js/sydebar.js"></script>
-
     </div>
 </body>
 

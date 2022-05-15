@@ -1,3 +1,21 @@
+/*utilizado cuando vamos a borrar un equipo*/
+function confirmarEquipo(id) {
+
+	Swal.fire({  
+		title: '¿Esta seguro de eliminar este equipo?',  
+		showDenyButton: true,
+		confirmButtonText: 'Confirmar',
+		denyButtonText: 'Cancelar',
+	  }).then((result) => {  
+		  if (result.isConfirmed) {
+			window.location.href = "borrarEquipo.php?id=" + id;
+		  } else if (result.isDenied) {
+			return false
+		   }
+	  });
+		
+}
+
 /*utilizado cuando vamos a borrar un entrenador*/
 function confirmarEntrenador(id) {
 
@@ -27,6 +45,24 @@ function confirmarJugador(id) {
 	  }).then((result) => {  
 		  if (result.isConfirmed) {
 			window.location.href = "borrarJugador.php?id_jugador=" + id;
+		  } else if (result.isDenied) {
+			return false
+		   }
+	  });
+		
+}
+
+/*utilizado cuando vamos a borrar un ejercicio*/
+function confirmarEjercicio(id) {
+
+	Swal.fire({  
+		title: '¿Esta seguro de eliminar este ejercicio?',  
+		showDenyButton: true,
+		confirmButtonText: 'Confirmar',
+		denyButtonText: 'Cancelar',
+	  }).then((result) => {  
+		  if (result.isConfirmed) {
+			window.location.href = "borrarEjercicio.php?id=" + id;
 		  } else if (result.isDenied) {
 			return false
 		   }

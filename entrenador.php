@@ -12,7 +12,7 @@ include("db_connect.php");
     <title>Aplicación Gestión Dual</title>
 
     <!--hoja de estilos -->
-    <link type="text/css" href="ccs/estilo.css" rel="stylesheet" />
+    <link type="text/css" href="css/estilo.css" rel="stylesheet" />
     <link type="text/css" href="css/sydebar.css" rel="stylesheet" />
 
     <!--estilo de datatables -->
@@ -27,8 +27,8 @@ include("db_connect.php");
     <!--estilos de boostrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <!-- Boxicons CDN Link -->
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <!-- Boxicons CDN Link -->
+     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
 
@@ -53,17 +53,31 @@ include("db_connect.php");
         <ul class="nav-list">
             <li>
                 <a href="inicioAdmin.php">
-                    <i class='bx bx-user'></i>
+                    <i class='bx bx-home'></i>
                     <span class="links_name">Inicio</span>
                 </a>
                 <span class="tooltip">Inicio</span>
             </li>
             <li>
-                <a href="jugador.php">
+                <a href="entrenador.php">
                     <i class='bx bx-group'></i>
+                    <span class="links_name">Entrenadores</span>
+                </a>
+                <span class="tooltip">Entrenadores</span>
+            </li>
+            <li>
+                <a href="jugador.php">
+                    <i class='bx bx-user'></i>
                     <span class="links_name">Jugadores</span>
                 </a>
                 <span class="tooltip">Jugadores</span>
+            </li>
+            <li>
+                <a href="equipo.php">
+                    <i class='bx bx-group'></i>
+                    <span class="links_name">Equipos</span>
+                </a>
+                <span class="tooltip">Equipos</span>
             </li>
             <li>
                 <a href="ejercicio.php">
@@ -91,7 +105,6 @@ include("db_connect.php");
                     <table id="example" class="table table-striped table-bordered" style="width:100%">
                         <thead style="background-color:white">
                             <tr>
-                                <th>Editar</th>
                                 <th>Nombre</th>
                                 <th>Apellidos</th>
                                 <th>DNI</th>
@@ -107,8 +120,6 @@ include("db_connect.php");
 
                             while ($fila = mysqli_fetch_array($result)) {
                                 echo "<tr>
-                                <td><a href='editarEntrenadorFormulario.php?id_entrenador=" . $fila["id"] . "'>
-                                <img src='img/edit.png' width='20'></a></td>
                                 <td>" . utf8_encode($fila['nombre']) . "</td>
                                 <td>" . utf8_encode($fila['apellidos']) . "</td>
                                 <td>" . utf8_encode($fila['dni']) . "</td>
@@ -124,7 +135,7 @@ include("db_connect.php");
                                 $nombreEquipo = mysqli_fetch_array($resultEquipo);
 
                                 echo $nombreEquipo['nombre']     .  "</td>
-                                <td><a onclick='return confirmarEntrenador(" . $fila['id'] . ")'>
+                                <td><a style='cursor: pointer;' onclick='return confirmarEntrenador(" . $fila['id'] . ")'>
                                 <img src='img/delete.png' width='20'></a></td>
                                 </tr>";
                             }
