@@ -12,7 +12,7 @@ $queryEquipo = "SELECT * FROM equipo WHERE nombre= '" .($_POST["equipos"]) . "';
 $resultEquipo = mysqli_query($link, $queryEquipo);
 $nombreEquipo = mysqli_fetch_array($resultEquipo);
 
-//Insertamos dentro de la tabla actividades
+//Insertamos dentro de la tabla entrenador
 
 $query = "INSERT INTO entrenador
             (nombre,apellidos,dni,telefono,email,titulacion,password, id_equipo)

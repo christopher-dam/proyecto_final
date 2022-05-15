@@ -37,7 +37,7 @@ include("db_connect.php");
     <?php
     //Conectamos con la BD
     $link = conectar();
-    $query = "SELECT * FROM jugador;";
+    $query = "SELECT * FROM equipo;";
 
     //Ejecutar consulta
     $result = mysqli_query($link, $query);
@@ -59,18 +59,18 @@ include("db_connect.php");
                 <span class="tooltip">Inicio</span>
             </li>
             <li>
-                <a href="jugador.php">
-                    <i class='bx bx-group'></i>
-                    <span class="links_name">Jugadores</span>
-                </a>
-                <span class="tooltip">Jugadores</span>
-            </li>
-            <li>
                 <a href="entrenador.php">
                     <i class='bx bx-group'></i>
                     <span class="links_name">Entrenadores</span>
                 </a>
                 <span class="tooltip">Entrenadores</span>
+            </li>
+            <li>
+                <a href="jugador.php">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">Jugadores</span>
+                </a>
+                <span class="tooltip">Jugadores</span>
             </li>
             <li>
                 <a href="equipo.php">
@@ -94,24 +94,22 @@ include("db_connect.php");
                 <span class="tooltip">Cerrar sesión</span>
         </ul>
     </div>
-
+    
     <!-- Contenedor del datatable -->
 
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="table-responsive">
-                    <h2 style="margin-top: 30px;"><b>Jugadores</b></h2>
+                    <h2 style="margin-top: 30px;"><b>Equipos</b></h2>
                     <table id="example" class="table table-striped table-bordered" style="width:100%">
                         <thead style="background-color:white">
                             <tr>
                                 <th>Nombre</th>
-                                <th>Apellidos</th>
-                                <th>DNI</th>
-                                <th>Telefono</th>
+                                <th>Instagram</th>
                                 <th>Email</th>
-                                <th>Equipo</th>
-                                <th>Entrenador</th>
+                                <th>Sede</th>
+                                <th>Jugadores</th>
                                 <th>Eliminar</th>
                             </tr>
                         </thead>
@@ -121,30 +119,19 @@ include("db_connect.php");
                             while ($fila = mysqli_fetch_array($result)) {
                                 echo "<tr>
                                 <td>" . utf8_encode($fila['nombre']) . "</td>
-                                <td>" . utf8_encode($fila['apellidos']) . "</td>
-                                <td>" . utf8_encode($fila['dni']) . "</td>
-                                <td>" . utf8_encode($fila['telefono']) . "</td>
+                                <td>" . utf8_encode($fila['instagram']) . "</td>
                                 <td>" . utf8_encode($fila['email']) . "</td>
+                                <td>" . utf8_encode($fila['sede']) . "</td>
                                 <td>";
 
-                                $queryEquipo = "SELECT nombre FROM equipo WHERE id=" . utf8_encode($fila['id_equipo']) . ";";
+                                $queryCount = "SELECT COUNT(*) as total FROM jugador WHERE id_equipo=" . utf8_encode($fila['id']) . ";";
 
-                                $resultEquipo = mysqli_query($link, $queryEquipo);
+                                $resultCount = mysqli_query($link, $queryCount);
 
-                                $nombreEquipo = mysqli_fetch_array($resultEquipo);
+                                $count = mysqli_fetch_array($resultCount);
 
-                                echo $nombreEquipo['nombre']     .  "</td>
-                                <td>";
-
-                                $queryEntrenador = "SELECT nombre FROM entrenador WHERE id=" . utf8_encode($fila['id_entrenador']) . ";";
-
-                                $resultEntrenador = mysqli_query($link, $queryEntrenador);
-
-                                $nombreEntrenador = mysqli_fetch_array($resultEntrenador);
-
-                                echo $nombreEntrenador['nombre'] . "</td>
-
-                                <td><a style='cursor: pointer;' onclick='return confirmarJugador(" . $fila['id'] . ")'>
+                                echo $count['total']    .  "</td>
+                                <td><a style='cursor: pointer;' onclick='return confirmarEquipo(" . $fila['id'] . ")'>
                                 <img src='img/delete.png' width='20'></a></td>
                                 </tr>";
                             }
@@ -155,8 +142,8 @@ include("db_connect.php");
                     </table>
 
                     <div id="centrado">
-                        <form id="form1" name="form1" method="post" action="insertarJugadorFormulario.php">
-                            <input type="submit" class="btn btn-primary" style="font-weight:bold; color:white; margin-bottom:20px;" name="enviar" id="enviar" value="Insertar jugador" />
+                        <form id="form1" name="form1" method="post" action="insertarEquipoFormulario.php">
+                            <input type="submit" class="btn btn-primary" style="font-weight:bold; color:white; margin-bottom:20px;" name="enviar" id="enviar" value="Insertar equipo" />
                         </form>
                     </div>
 

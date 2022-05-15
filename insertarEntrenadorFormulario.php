@@ -56,7 +56,7 @@ include("db_connect.php");
             </li>
             <li>
                 <a href="jugador.php">
-                    <i class='bx bx-group'></i>
+                    <i class='bx bx-user'></i>
                     <span class="links_name">Jugadores</span>
                 </a>
                 <span class="tooltip">Jugadores</span>

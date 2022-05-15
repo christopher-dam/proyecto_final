@@ -57,7 +57,7 @@ switch ($_POST["req"]) {
   case "save":
     if (!is_numeric($_POST["eid"])) { $_POST["eid"] = null; }
     echo $_CAL->save(
-      $_POST["start"], $_POST["end"], $_POST["txt"], $_POST["detalles"], $_POST["color"], $_SESSION["id_entrenador"],
+      $_POST["start"], $_POST["end"], $_POST["txt"], $_POST["detalles"], $_POST["color"],
       isset($_POST["eid"]) ? $_POST["eid"] : null
     ) ? "OK" : $_CAL->error ;
     break;

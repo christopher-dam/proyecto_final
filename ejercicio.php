@@ -23,10 +23,6 @@ include("db_connect.php");
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="sweetalert2.min.js"></script>
     <link rel="stylesheet" href="sweetalert2.min.css">
-    <!-- JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <!-- Bootstrap de CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -64,7 +60,7 @@ include("db_connect.php");
             </li>
             <li>
                 <a href="jugador.php">
-                    <i class='bx bx-group'></i>
+                    <i class='bx bx-user'></i>
                     <span class="links_name">Jugadores</span>
                 </a>
                 <span class="tooltip">Jugadores</span>
@@ -112,6 +108,8 @@ include("db_connect.php");
                             <div class="card-body">
                                 <h5 class="card-title">' . utf8_decode($fila['nombre']) . '</h5>
                                 <p class="card-text">' . utf8_decode($fila['descripcion']) . '</p>
+                                <a style="cursor: pointer;" onclick="return confirmarEjercicio(' . $fila["id"] . ')">
+                                <img src="img/delete.png" width="20"></a>
                                 </div>
                                 </div>';
             }

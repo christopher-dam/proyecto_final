@@ -67,7 +67,7 @@ include("db_connect.php");
             </li>
             <li>
                 <a href="jugador.php">
-                    <i class='bx bx-group'></i>
+                    <i class='bx bx-user'></i>
                     <span class="links_name">Jugadores</span>
                 </a>
                 <span class="tooltip">Jugadores</span>
@@ -105,7 +105,6 @@ include("db_connect.php");
                     <table id="example" class="table table-striped table-bordered" style="width:100%">
                         <thead style="background-color:white">
                             <tr>
-                                <th>Editar</th>
                                 <th>Nombre</th>
                                 <th>Apellidos</th>
                                 <th>DNI</th>
@@ -121,8 +120,6 @@ include("db_connect.php");
 
                             while ($fila = mysqli_fetch_array($result)) {
                                 echo "<tr>
-                                <td><a href='editarEntrenadorFormulario.php?id_entrenador=" . $fila["id"] . "'>
-                                <img src='img/edit.png' width='20'></a></td>
                                 <td>" . utf8_encode($fila['nombre']) . "</td>
                                 <td>" . utf8_encode($fila['apellidos']) . "</td>
                                 <td>" . utf8_encode($fila['dni']) . "</td>
@@ -138,7 +135,7 @@ include("db_connect.php");
                                 $nombreEquipo = mysqli_fetch_array($resultEquipo);
 
                                 echo $nombreEquipo['nombre']     .  "</td>
-                                <td><a onclick='return confirmarEntrenador(" . $fila['id'] . ")'>
+                                <td><a style='cursor: pointer;' onclick='return confirmarEntrenador(" . $fila['id'] . ")'>
                                 <img src='img/delete.png' width='20'></a></td>
                                 </tr>";
                             }
