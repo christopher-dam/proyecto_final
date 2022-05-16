@@ -92,20 +92,25 @@ include("db_connect.php");
         // $resultTutor = mysqli_query($link, $queryTutor);
         // $nombreTutor = mysqli_fetch_array($resultTutor);
 
-        echo '<div class="container">
-        <div class="main-body">
-              <div class="row gutters-sm">
-                <div class="col-md-4 mb-3">
-                  <div class="card">
-                    <div class="card-body">
-                      <div class="d-flex flex-column align-items-center text-center">
-                        <img src=img/' . utf8_encode($fila['foto']) . ' class="rounded-circle" width="150">
-                        <div class="mt-3">
-                          <p class="text-secondary mb-1">Just Voley</p>
-                          <p class="text-muted font-size-sm">More than just a game</p>
-                          <a href="editarPerfilEntrenadorFormulario.php">
-                          <button class="btn btn-primary">Editar</button>
-                          </a>
+                echo '<div class="container">
+                <div class="main-body">
+                      <div class="row gutters-sm">
+                        <div class="col-md-4 mb-3">
+                          <div class="card">
+                            <div class="card-body">
+                              <div class="d-flex flex-column align-items-center text-center">
+                                <img src=img/' . utf8_encode($fila['foto']) . ' class="rounded-circle" width="150">
+                                <div class="mt-3">
+                                  <h4 id="nick"><p> ' . $fila['nombre'] . '</p></h4>
+                                  <p class="text-secondary mb-1">Just Voley</p>
+                                  <p class="text-muted font-size-sm">More than just a game</p>
+                                  <a href="editarPerfilEntrenadorFormulario.php">
+                                  <button class="btn btn-primary">Editar</button>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
