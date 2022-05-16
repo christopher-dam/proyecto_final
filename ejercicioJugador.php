@@ -96,8 +96,8 @@ include("db_connect.php");
                         <div class="card">
                             <img class="card-img-top" src=img/' . utf8_encode($fila['foto']) . '>
                             <div class="card-body">
-                                <h5 class="card-title">' . utf8_encode($fila['nombre']) . '</h5>
-                                <p class="card-text">' . utf8_encode($fila['descripcion']) . '</p>
+                                <h5 class="card-title">' . $fila['nombre'] . '</h5>
+                                <p class="card-text">' . $fila['descripcion'] . '</p>
                                 </div>
                                 </div>';
             }
