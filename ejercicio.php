@@ -106,8 +106,8 @@ include("db_connect.php");
                         <div class="card">
                             <img class="card-img-top" src=img/' . utf8_encode($fila['foto']) . '>
                             <div class="card-body">
-                                <h5 class="card-title">' . utf8_decode($fila['nombre']) . '</h5>
-                                <p class="card-text">' . utf8_decode($fila['descripcion']) . '</p>
+                                <h5 class="card-title">' .$fila['nombre'] . '</h5>
+                                <p class="card-text">' . $fila['descripcion'] . '</p>
                                 <a style="cursor: pointer;" onclick="return confirmarEjercicio(' . $fila["id"] . ')">
                                 <img src="img/delete.png" width="20"></a>
                                 </div>

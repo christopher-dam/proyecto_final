@@ -105,6 +105,7 @@ include("db_connect.php");
                     <table id="example" class="table table-striped table-bordered" style="width:100%">
                         <thead style="background-color:white">
                             <tr>
+                                <th>Editar</th>
                                 <th>Nombre</th>
                                 <th>Apellidos</th>
                                 <th>DNI</th>
@@ -120,8 +121,10 @@ include("db_connect.php");
 
                             while ($fila = mysqli_fetch_array($result)) {
                                 echo "<tr>
-                                <td>" . utf8_encode($fila['nombre']) . "</td>
-                                <td>" . utf8_encode($fila['apellidos']) . "</td>
+                                <td><a href='editarEntrenadorFormulario.php?id_entrenador=" . $fila["id"] . "'>
+                                <img src='img/edit.png' width='20'></a></td>
+                                <td>" . $fila['nombre'] . "</td>
+                                <td>" . $fila['apellidos'] . "</td>
                                 <td>" . utf8_encode($fila['dni']) . "</td>
                                 <td>" . utf8_encode($fila['telefono']) . "</td>
                                 <td>" . utf8_encode($fila['email']) . "</td>

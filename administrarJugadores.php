@@ -105,8 +105,8 @@ include("db_connect.php");
                 echo "<tr>
                   <td><a href='editarJugadorEntrenadorForm.php?id_jugador=" . $fila["id"] . "'>
                   <img src='img/edit.png' width='20'></a></td>
-                  <td>" . utf8_encode($fila['nombre']) . "</td>
-                  <td>" . ($fila['observaciones']) . "</td>
+                  <td>" . $fila['nombre'] . "</td>
+                  <td>" . $fila['observaciones'] . "</td>
                   <td>" . utf8_encode($fila['lesiones']) . "</td>
                   </tr>";
               }

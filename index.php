@@ -51,7 +51,7 @@
 			background-color: rgb(255,255,255,0.5);
 		}
 		.pass:hover{
-			color: #ffff00 !important;
+			color: black !important;
 		}
 	</style>
 </head>
@@ -92,7 +92,7 @@
 
 					<!--- Recordar --->
 					<div class="mb-4 form-check">
-						<label style="margin: top 20px; font-size: 24px;"><a class="pass" style="position: absolute;" href="mailto:justvoley@gmail.com?Subject=No%20puedo%20acceder%20a%20la%20aplicacion">Olvidé la contraseña</a></label>
+						<label style="margin: top 20px; font-size: 24px;"><a class="pass" style="position: absolute;" href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=CllgCJqbQxrwfQLlFHbZvxcxRFQVJSLKGCkfMZztNvgsrSfmpwbbSRGfqkwFKHrGmXDBNCNNNJB">Olvidé la contraseña</a></label>
 					</div>
 					<img class="logologin" src= img/logo.png></img>
 				</form>
