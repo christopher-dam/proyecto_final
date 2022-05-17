@@ -27,6 +27,8 @@ $resultAdmin = mysqli_query($link, $queryAdmin);
 
 if ($fila = mysqli_fetch_array($resultAlumno)) {
     $_SESSION["id_jugador"] = $fila["id"];
+    $_SESSION["id_equipo"] = $fila["id_equipo"];
+    $_SESSION["id_jugador_entrenador"] = $fila["id_entrenador"];
     header("Location:inicioJugador.php");
 
 } elseif ($fila = mysqli_fetch_array($resultEntrenador)) {
