@@ -59,13 +59,6 @@ include("db_connect.php");
                 <span class="tooltip">Inicio</span>
             </li>
             <li>
-                <a href="jugador.php">
-                    <i class='bx bx-group'></i>
-                    <span class="links_name">Jugadores</span>
-                </a>
-                <span class="tooltip">Jugadores</span>
-            </li>
-            <li>
                 <a href="entrenador.php">
                     <i class='bx bx-group'></i>
                     <span class="links_name">Entrenadores</span>
@@ -73,8 +66,15 @@ include("db_connect.php");
                 <span class="tooltip">Entrenadores</span>
             </li>
             <li>
+                <a href="jugador.php">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">Jugadores</span>
+                </a>
+                <span class="tooltip">Jugadores</span>
+            </li>
+            <li>
                 <a href="equipo.php">
-                    <i class='bx bx-group'></i>
+                    <i class='bx bx-shield'></i>
                     <span class="links_name">Equipos</span>
                 </a>
                 <span class="tooltip">Equipos</span>

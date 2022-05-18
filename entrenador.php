@@ -74,7 +74,7 @@ include("db_connect.php");
             </li>
             <li>
                 <a href="equipo.php">
-                    <i class='bx bx-group'></i>
+                    <i class='bx bx-shield'></i>
                     <span class="links_name">Equipos</span>
                 </a>
                 <span class="tooltip">Equipos</span>
@@ -112,7 +112,6 @@ include("db_connect.php");
                                 <th>Teléfono</th>
                                 <th>Email</th>
                                 <th>Titulación</th>
-                                <th>Equipo</th>
                                 <th>Eliminar</th>
                             </tr>
                         </thead>
@@ -129,15 +128,6 @@ include("db_connect.php");
                                 <td>" . utf8_encode($fila['telefono']) . "</td>
                                 <td>" . utf8_encode($fila['email']) . "</td>
                                 <td>" . utf8_encode($fila['titulacion']) . "</td>
-                                <td>";
-
-                                $queryEquipo = "SELECT nombre FROM equipo WHERE id=" . utf8_encode($fila['id_equipo']) . ";";
-
-                                $resultEquipo = mysqli_query($link, $queryEquipo);
-
-                                $nombreEquipo = mysqli_fetch_array($resultEquipo);
-
-                                echo $nombreEquipo['nombre']     .  "</td>
                                 <td><a style='cursor: pointer;' onclick='return confirmarEntrenador(" . $fila['id'] . ")'>
                                 <img src='img/delete.png' width='20'></a></td>
                                 </tr>";

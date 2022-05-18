@@ -63,7 +63,7 @@ include("db_connect.php");
             </li>
             <li>
                 <a href="equipo.php">
-                    <i class='bx bx-group'></i>
+                    <i class='bx bx-shield'></i>
                     <span class="links_name">Equipos</span>
                 </a>
                 <span class="tooltip">Equipos</span>
@@ -95,18 +95,23 @@ include("db_connect.php");
 
     <!-- Formulario con propiedades flotantes -->
 
-    <div id="content" style="padding:10px 20px;">
+    <div id="content" style="padding:10px 20px; background-color: rgb(0,0,0,0.5) !important;">
         <div class="container mt-3">
-            <h2>Datos del equipo</h2>
+            <h2 style="color:#efef26;">Datos del equipo</h2>
             <form id="formInsertar" name="formInsertar" method="post" action="insertarEquipo.php" onsubmit="return validarRegistro();" enctype="multipart/form-data">
-
-                <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del equipo" name="nombre">
-                    <label for="nombre">Nombre del equipo</label>
-                </div>
-                <div class="form-floating mt-3 mb-3">
-                    <input type="text" class="form-control" id="instagram" placeholder="Introduce el instagram del equipo" name="instagram">
-                    <label for="instagram">Instagram</label>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-floating mb-3 mt-3">
+                            <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del equipo" name="nombre">
+                            <label for="nombre">Nombre del equipo</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating mt-3 mb-3">
+                            <input type="text" class="form-control" id="instagram" placeholder="Introduce el instagram del equipo" name="instagram">
+                            <label for="instagram">Instagram</label>
+                        </div>
+                    </div>
                 </div>
                 <div class="form-floating mt-3 mb-3">
                     <input type="text" class="form-control" id="email" placeholder="Ingrese el email de contacto del equipo" name="email">
@@ -116,7 +121,8 @@ include("db_connect.php");
                     <input type="text" class="form-control" id="sede" placeholder="Introduce la sede del equipo" name="sede">
                     <label for="sede">Sede del equipo</label>
                 </div>
-                <button style="margin:8px 0px;" type="submit" class="btn btn-primary">Enviar</button>
+                <button style="margin-bottom:20px;" type="submit" class="btn btn-primary">Guardar</button>
+                <button onclick="history.go(-1);" style="margin-bottom:20px;" type="volver" class="btn btn-danger float-right">Cancelar</button>
             </form>
         </div>
     </div>

@@ -34,8 +34,8 @@ include("db_connect.php");
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-     <!-- Boxicons CDN Link -->
-     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
 
@@ -72,7 +72,7 @@ include("db_connect.php");
             </li>
             <li>
                 <a href="equipo.php">
-                    <i class='bx bx-group'></i>
+                    <i class='bx bx-shield'></i>
                     <span class="links_name">Equipos</span>
                 </a>
                 <span class="tooltip">Equipos</span>
@@ -111,34 +111,48 @@ include("db_connect.php");
 
     <!-- Formulario con propiedades flotantes -->
 
-    <div id="content" style="padding:10px 20px;">
+    <div id="content" style="padding:10px 20px; background-color: rgb(0,0,0,0.5) !important;">
         <div class="container mt-3">
-            <h2>Datos del Jugador</h2>
+            <h2 style="color:#efef26;">Datos del Jugador</h2>
             <form id="formEditar" name="formEditar" method="post" action="editarJugador.php" onsubmit="return validarRegistro()" enctype="multipart/form-data">
-                <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" placeholder="a" name="nombre" id="nombre" value="<?php echo utf8_encode($fila["nombre"]); ?>" />
-                    <label for="nombre">Nombre</label>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-floating mb-3 mt-3">
+                            <input type="text" class="form-control" placeholder="a" name="nombre" id="nombre" value="<?php echo utf8_encode($fila["nombre"]); ?>" />
+                            <label for="nombre">Nombre</label>
+                        </div>
+                    </div>
+                    <div class="col">
+
+                        <div class="form-floating mb-3 mt-3">
+                            <input type="text" class="form-control" placeholder="a" name="apellidos" id="apellidos" value="<?php echo utf8_encode($fila["apellidos"]); ?>" />
+                            <label for="apellidos">Apellidos</label>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" placeholder="a" name="apellidos" id="apellidos" value="<?php echo utf8_encode($fila["apellidos"]); ?>" />
-                    <label for="apellidos">Apellidos</label>
-                </div>
-                <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" name="dni" id="dni" placeholder="a" value="<?php echo utf8_encode($fila["dni"]); ?>" />
-                    <label for="dni">DNI</label>
-                </div>
-                <div class="form-floating mb-3 mt-3">
-                    <input class="form-control" id="telefono" name="telefono" placeholder="a" value="<?php echo utf8_encode($fila["telefono"]); ?>" />
-                    <label for="telefono">Telefono</label>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-floating mb-3 mt-3">
+                            <input type="text" class="form-control" name="dni" id="dni" placeholder="a" value="<?php echo utf8_encode($fila["dni"]); ?>" />
+                            <label for="dni">DNI</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating mb-3 mt-3">
+                            <input class="form-control" id="telefono" name="telefono" placeholder="a" value="<?php echo utf8_encode($fila["telefono"]); ?>" />
+                            <label for="telefono">Telefono</label>
+                        </div>
+                    </div>
                 </div>
                 <div class="form-floating mb-3 mt-3">
                     <input class="form-control" id="email" name="email" placeholder="a" value="<?php echo utf8_encode($fila["email"]); ?>" />
                     <label for="email">Email</label>
                 </div>
+                <input type="hidden" name="id" id="id" value="<?php echo utf8_encode($fila["id"]); ?>">
+                <button style="margin-top:20px;" type="submit" class="btn btn-primary">Guardar</button>
+                <button onclick="history.back()" style="margin-top:20px;" class="btn btn-danger float-right">Cancelar</button>
+            </form>
         </div>
-        <input type="hidden" name="id" id="id" value="<?php echo utf8_encode($fila["id"]); ?>">
-        <button style="margin-bottom:10px;" type="submit" class="btn btn-primary">Editar</button>
-    </div>
     </div>
 
     <script src="js/sydebar.js"></script>

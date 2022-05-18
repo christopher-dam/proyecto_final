@@ -14,6 +14,8 @@ include("db_connect.php");
             titulacion='".utf8_decode($_POST["titulacion"])."'
             WHERE id=".$_POST["id"].";";
     
+            echo $query;
+
     //Ejecutar consulta
  
    if (mysqli_query($link,$query))
