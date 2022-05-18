@@ -95,11 +95,11 @@ include("db_connect.php");
     <form id="calform">
       <input type="hidden" name="req" value="save" />
       <input type="hidden" id="evtid" name="eid" />
-      <label for="start">Date Start</label>
+      <label for="start">Fecha inicio</label>
       <input type="datetime-local" id="evtstart" name="start" required />
-      <label for="end">Date End</label>
+      <label for="end">Fecha fin</label>
       <input type="datetime-local" id="evtend" name="end" required />
-      <label for="txt">Event</label>
+      <label for="txt">Nombre</label>
       <textarea id="evttxt" name="txt" required></textarea>
       <label for="detalles">Detalles</label>
       <textarea id="detalles" name="detalles" ></textarea>

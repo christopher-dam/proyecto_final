@@ -47,14 +47,28 @@ include("db_connect.php");
         <span class="tooltip">Inicio</span>
       </li>
       <li>
-        <a href="calendarioEntrenador.php">
-          <i class='bx bx-calendar'></i>
-          <span class="links_name">Calendario</span>
+        <a href="administrarJugadores.php">
+          <i class='bx bx-group'></i>
+          <span class="links_name">Jugadores</span>
         </a>
-        <span class="tooltip">Calendario</span>
+        <span class="tooltip">Jugadores</span>
       </li>
       <li>
-        <a href="ejercicioJugador.php">
+        <a href="calendarioEntrenador.php">
+          <i class='bx bx-calendar'></i>
+          <span class="links_name">Eventos</span>
+        </a>
+        <span class="tooltip">Eventos</span>
+      </li>
+      <li>
+        <a href="convocatoria.php">
+          <i class='bx bx-list-check'></i>
+          <span class="links_name">Convocatorias</span>
+        </a>
+        <span class="tooltip">Convocatorias</span>
+      </li>
+      <li>
+        <a href="ejercicioEntrenador.php">
           <i class='bx bx-basketball'></i>
           <span class="links_name">Ejercicios</span>
         </a>
@@ -73,41 +87,45 @@ include("db_connect.php");
   <?php
   //Conectamos con la BD
   $link = conectar();
-  $queryEntrenador = "SELECT * FROM entrenador WHERE id=" . $_SESSION['id_entrenador'] . ";";
-  $queryEquipo = "SELECT nombre, apellidos FROM jugador WHERE id_entrenador=" . $_SESSION['id_entrenador'] . "AND id_equipo=" .";";
+  $query = "SELECT * FROM equipo where id_entrenador = {$_SESSION['id_entrenador']};";
+  $equipos = [];
 
   //Ejecutar consulta
-  $result = mysqli_query($link, $queryJugador);
-  $fila = mysqli_fetch_array($result)
+  $result = mysqli_query($link, $query);
+
+  while ($fila = mysqli_fetch_array($result)) {
+    $equipos[$fila['id']] = $fila['nombre'];
+  }
+  mysqli_close($link);
+
+  //Ejecutar consulta
+
   ?>
 
   <!-- Formulario con propiedades flotantes -->
 
   <div id="content" style="padding:10px 20px; background-color: rgb(0,0,0,0.5) !important;">
     <div class="container mt-3">
-      <h2 style="font-size: 40px; color:#ffff00;">Datos de la cuenta</h2>
-      <form id="formEditar" name="formEditar" method="post" action="editarPerfilJugador.php" onsubmit="return validarperfil()" enctype="multipart/form-data">
-        <div class="form-floating mb-3 mt-3">
-          <input type="text" class="form-control" placeholder="Cambia tu email" name="email" id="email" value="<?php echo utf8_encode($fila["email"]); ?>" />
-          <label for="email">Email</label>
-        </div>
-        <div class="form-floating mb-3 mt-3">
-          <input type="text" class="form-control" placeholder="Cambia tu nick" name="nick" id="nick" value="<?php echo utf8_encode($fila["nick"]); ?>" />
-          <label for="nick">Nick</label>
-        </div>
-        <div class="form-floating mb-3 mt-3">
-          <input type="password" class="form-control" name="password" placeholder="Introduce la nueva contraseña" id="password" />
-          <label for="password">Contraseña</label>
-        </div>
-        <div class="form-floating mb-3 mt-3">
-          <input type="text" class="form-control" name="passwordConfirm" id="passwordConfirm" placeholder="Confirme la nueva contraseña" />
-          <label for="password">Confirmar contraseña</label>
-        </div>
-
-        <button style="margin-bottom:20px; margin-left: 88%" type="submit" class="btn btn-primary">Guardar</button>
+      <form method="post" action="ajaxmensaje.php">
+        <select id="equipo" name="id_equipo">
+        <?php
+          foreach ($equipos as $id_equipo => $nombre_equipo) {
+            printf(
+              "<option value='%s'>%s</option>",
+              $id_equipo,
+              $nombre_equipo
+            );
+          }
+        ?>
+      </select>
+      <br>
+      <p style="font-weight: bold; color: #ffff00">Introduce un titulo: <input type="text" name = "cabecera"></p>
+      <div id="jugadores"></div>
+      <button class="btn btn-primary" type="submit">Enviar</button>
+      </form>
     </div>
   </div>
-
+</div>
   <!-- Bootstrap JS, Popper.js -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
@@ -118,8 +136,38 @@ include("db_connect.php");
 
   <script src="js/sydebar.js"></script>
   <script type="text/javascript" src="js/validaciones.js"></script>
+  <script src="jquery/jquery-3.3.1.min.js"></script>
+  <script>
+    let equipo = document.getElementById("equipo");
+    let jugadores = $("#jugadores");
+    equipo.onchange = function(e){
+      let id_equipo = e.target.value
+      $.ajax({
+        type: "POST",
+        url: "ajaxConvocatoriaJugador.php",
+        data: {id_equipo:id_equipo},
+        success: function (response) {
+          jugadores.html(response)
+        }
+      });
+    }
+    $.ajax({
+        type: "POST",
+        url: "ajaxConvocatoriaJugador.php",
+        data: {id_equipo:equipo.value},
+        success: function (response) {
+          jugadores.html(response)
+        }
+      });
+    <?php
+      if(!empty($_GET["resultado"])):
+    ?>
+    Swal.fire("¡Exito!", "La convocatoria se ha creado correctamente", "success")
+    <?php
+      endif;
+    ?>
+  </script>
 
-  </div>
 
 </body>
 

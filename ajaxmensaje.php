@@ -2,30 +2,26 @@
 session_start();
 include("db_connect.php");
 
-?>
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JustApp</title>
-  
-  <!-- Hoja de estilos -->
-  <link type="text/css" href="css/sydebar.css" rel="stylesheet" />
-  <link type="text/css" href="css/estilo.css" rel="stylesheet" />
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-</head>
-<body>
-    <button onclick="curl_init()"><p>Enviar</p></button>
-</body>
-<?php 
     $token = "5308297051:AAGzm_cGt0MQYBQOGXMuyH5BZ7hfa4hX2l4";
-    $id = "-793336326";
     $urlMsg = "https://api.telegram.org/bot{$token}/sendMessage";
-    $msg = "Chris amore"."\n"."hola";
+
+    $link = conectar();
+    $jugadores = implode(",", $_POST["jugadores"]);
+    $query = "SELECT * FROM jugador where id in ($jugadores)";
+    $msg = empty($_POST["cabecera"])?"":$_POST["cabecera"]."\n\n";
+
+    //Ejecutar consulta
+    $result = mysqli_query($link, $query);
+
+    while ($fila = mysqli_fetch_array($result)) {
+      $msg .= "{$fila['nombre']} {$fila['apellidos']} \n";
+    }
+
+    $query = "SELECT * FROM equipo where id = {$_POST['id_equipo']}";
+    $result = mysqli_query($link, $query);
+    $id = mysqli_fetch_array($result)["chat"];
+
+    mysqli_close($link);
      
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $urlMsg);
@@ -34,5 +30,5 @@ include("db_connect.php");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
      
     $server_output = curl_exec($ch);
-    curl_close($ch); 
-?>
+    curl_close($ch);
+    header("Location: convocatoria.php?resultado=ok"); 

@@ -36,13 +36,13 @@ include("db_connect.php");
 
 <body>
 
-  <div class="sidebar">
+<div class="sidebar">
     <div class="logo-details">
       <div class="logo_name">JustVoley</div>
       <i class='bx bx-menu' id="btn"></i>
     </div>
     <ul class="nav-list" style="padding-left:25px">
-    <li>
+      <li>
         <a href="inicioEntrenador.php">
           <i class='bx bx-home'></i>
           <span class="links_name">Inicio</span>
@@ -62,6 +62,20 @@ include("db_connect.php");
           <span class="links_name">Eventos</span>
         </a>
         <span class="tooltip">Eventos</span>
+      </li>
+      <li>
+        <a href="convocatoria.php">
+          <i class='bx bx-list-check'></i>
+          <span class="links_name">Convocatorias</span>
+        </a>
+        <span class="tooltip">Convocatorias</span>
+      </li>
+      <li>
+        <a href="ejercicioEntrenador.php">
+          <i class='bx bx-basketball'></i>
+          <span class="links_name">Ejercicios</span>
+        </a>
+        <span class="tooltip">Ejercicios</span>
       </li>
       <li>
         <a href="salir.php">
@@ -105,9 +119,9 @@ include("db_connect.php");
     <form id="calform">
       <input type="hidden" name="req" value="save" />
       <input type="hidden" id="evtid" name="eid" />
-      <label for="start">Date Start</label>
+      <label for="start">Fecha inicio</label>
       <input type="datetime-local" id="evtstart" name="start" required />
-      <label for="end">Date End</label>
+      <label for="end">Fecha fin</label>
       <input type="datetime-local" id="evtend" name="end" required />
       <label for="equipo">Equipo</label>
       <select id="equipo" name="id_equipo">
@@ -121,7 +135,7 @@ include("db_connect.php");
           }
         ?>
       </select>
-      <label for="txt">Event</label>
+      <label for="txt">Nombre</label>
       <textarea id="evttxt" name="txt" required></textarea>
       <label for="detalles">Detalles</label>
       <textarea id="detalles" name="detalles" ></textarea>
