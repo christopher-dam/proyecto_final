@@ -2,6 +2,19 @@
 session_start();
 include("db_connect.php");
 
+            //Conectamos con la BD
+            $link = conectar();
+            $query = "SELECT * FROM equipo where id_entrenador = {$_SESSION['id_entrenador']};";
+            $equipos = [];
+
+            //Ejecutar consulta
+            $result = mysqli_query($link, $query);
+
+            while ($fila = mysqli_fetch_array($result)) {
+              $equipos[$fila['id']] = $fila['nombre'];
+            }
+            mysqli_close($link);
+            
 ?>
 <!-- Sydebar para navegar por la aplicación -->
 
@@ -96,6 +109,18 @@ include("db_connect.php");
       <input type="datetime-local" id="evtstart" name="start" required />
       <label for="end">Date End</label>
       <input type="datetime-local" id="evtend" name="end" required />
+      <label for="equipo">Equipo</label>
+      <select id="equipo" name="id_equipo">
+        <?php
+          foreach ($equipos as $id_equipo => $nombre_equipo) {
+            printf(
+              "<option value='%s'>%s</option>",
+              $id_equipo,
+              $nombre_equipo
+            );
+          }
+        ?>
+      </select>
       <label for="txt">Event</label>
       <textarea id="evttxt" name="txt" required></textarea>
       <label for="detalles">Detalles</label>

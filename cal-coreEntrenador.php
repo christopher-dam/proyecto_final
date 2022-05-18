@@ -52,7 +52,7 @@ class Calendar
   }
 
   // (D) SAVE EVENT
-  function save($start, $end, $txt, $detalles, $color, $id = null)
+  function save($start, $end, $txt, $detalles, $color, $id_equipo ,$id = null)
   {
     // (D1) START & END DATE QUICK CHECK
     $uStart = strtotime($start);
@@ -64,11 +64,11 @@ class Calendar
 
     // (D2) SQL - INSERT OR UPDATE
     if ($id == null) {
-      $sql = "INSERT INTO `events` (`evt_start`, `evt_end`, `evt_text`, `detalles`, `evt_color`, `id_entrenador`) VALUES (?,?,?,?,?, ". $_SESSION['id_entrenador'] .")";
-      $data = [$start, $end, $txt, $detalles, $color];
+      $sql = "INSERT INTO `events` (`evt_start`, `evt_end`, `evt_text`, `detalles`, `evt_color`, `id_equipo`) VALUES (?,?,?,?,?,?)";
+      $data = [$start, $end, $txt, $detalles, $color, $id_equipo];
     } else {
-      $sql = "UPDATE `events` SET `evt_start`=?, `evt_end`=?, `evt_text`=?, `detalles`=?, `evt_color`=? WHERE `evt_id`=?";
-      $data = [$start, $end, $txt, $detalles, $color, $id];
+      $sql = "UPDATE `events` SET `evt_start`=?, `evt_end`=?, `evt_text`=?, `detalles`=?, `evt_color`=?, `id_equipo`=? WHERE `evt_id`=?";
+      $data = [$start, $end, $txt, $detalles, $color, $id_equipo, $id];
     }
 
     // (D3) EXECUTE
@@ -88,6 +88,7 @@ class Calendar
     $daysInMonth = cal_days_in_month(CAL_GREGORIAN, $month, $year);
     $dayFirst = "{$year}-{$month}-01 00:00:00";
     $dayLast = "{$year}-{$month}-{$daysInMonth} 23:59:59";
+    $id = $_SESSION["id_entrenador"];
 
     // (F2) GET EVENTS
     if (!$this->exec($query=
@@ -95,8 +96,8 @@ class Calendar
         (`evt_start` BETWEEN ? AND ?)
         OR (`evt_end` BETWEEN ? AND ?)
         OR (`evt_start` <= ? AND `evt_end` >= ?)
-      )",
-      [$dayFirst, $dayLast, $dayFirst, $dayLast, $dayFirst, $dayLast]
+      ) AND id_equipo in (select id from equipo where id_entrenador = ?)",
+      [$dayFirst, $dayLast, $dayFirst, $dayLast, $dayFirst, $dayLast, $id]
     )) {
       return false;
     }

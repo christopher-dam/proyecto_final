@@ -16,6 +16,7 @@ var cal = {
     cal.hFormCX = document.getElementById("calformcx");
     cal.hID = document.getElementById("evtid");
     cal.hStart = document.getElementById("evtstart");
+    cal.hEquipo = document.getElementById("equipo");
     cal.hEnd = document.getElementById("evtend");
     cal.hTxt = document.getElementById("evttxt");
     cal.dTxt = document.getElementById("detalles");
@@ -73,6 +74,7 @@ var cal = {
       if (d.length==1) { d = "0" + d; }
       let ymd = `${y}-${m}-${d}T00:00:00`; // RFC 3339
       cal.hForm.reset();
+      cal.hEquipo.selectedIndex = 0;
       cal.hID.value = "";
       cal.hStart.value = ymd;
       cal.hEnd.value = ymd;
@@ -86,6 +88,7 @@ var cal = {
       cal.hStart.value = edata["evt_start"].replaceAll(" ", "T");
       cal.hEnd.value = edata["evt_end"].replaceAll(" ", "T");
       cal.hTxt.value = edata["evt_text"];
+      cal.hEquipo.value = edata["id_equipo"];
       cal.dTxt.value = edata["detalles"];
       cal.hColor.value = edata["evt_color"];
       cal.hFormDel.style.display = "block";
