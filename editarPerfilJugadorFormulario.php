@@ -103,7 +103,7 @@ include("db_connect.php");
           <label for="password">Confirmar contraseña</label>
         </div>
 
-        <button style="margin-bottom:20px; margin-left: 88%" type="submit" class="btn btn-primary">Guardar</button>
+        <button style="margin-bottom:20px;" type="submit" class="btn btn-primary float-right">Guardar</button>
     </div>
   </div>
 

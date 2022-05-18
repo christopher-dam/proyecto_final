@@ -82,16 +82,6 @@ include("db_connect.php");
       $result = mysqli_query($link, $queryEntrenador);
       if ($fila = mysqli_fetch_array($result)) {
 
-        // //Sacamos los datos del equipo
-        // $queryEquipo = "SELECT * FROM equipo WHERE id=" . $fila['id_equipo'] . ";";
-        // $resultEquipo = mysqli_query($link, $queryEquipo);
-        // $nombreEquipo = mysqli_fetch_array($resultEquipo);
-
-        // //Sacamos los datos del tutor
-        // $queryTutor = "SELECT * FROM profesor WHERE id=" . $fila['profesor_id'] . ";";
-        // $resultTutor = mysqli_query($link, $queryTutor);
-        // $nombreTutor = mysqli_fetch_array($resultTutor);
-
                 echo '<div class="container">
                 <div class="main-body">
                       <div class="row gutters-sm">
@@ -112,10 +102,6 @@ include("db_connect.php");
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
                         <div class="col-md-8">
                           <div class="card mb-3">
                             <div class="card-body">
