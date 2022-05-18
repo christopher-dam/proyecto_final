@@ -9,7 +9,7 @@ include("db_connect.php");
 
 <head>
   <meta charset="UTF-8">
-  <title>Aplicación Gestión Dual</title>
+  <title>JustApp</title>
 
   <!--hoja de estilos -->
   <link type="text/css" href="css/estilo.css" rel="stylesheet" />
@@ -60,18 +60,32 @@ include("db_connect.php");
         <span class="tooltip">Inicio</span>
       </li>
       <li>
-       <a href="administrarJugadores.php">
-         <i class='bx bx-group' ></i>
-         <span class="links_name">Jugadores</span>
-       </a>
-       <span class="tooltip">Jugadores</span>
-     </li>
+        <a href="administrarJugadores.php">
+          <i class='bx bx-group'></i>
+          <span class="links_name">Jugadores</span>
+        </a>
+        <span class="tooltip">Jugadores</span>
+      </li>
       <li>
         <a href="calendarioEntrenador.php">
           <i class='bx bx-calendar'></i>
           <span class="links_name">Eventos</span>
         </a>
         <span class="tooltip">Eventos</span>
+      </li>
+      <li>
+        <a href="convocatoria.php">
+          <i class='bx bx-list-check'></i>
+          <span class="links_name">Convocatorias</span>
+        </a>
+        <span class="tooltip">Convocatorias</span>
+      </li>
+      <li>
+        <a href="ejercicioEntrenador.php">
+          <i class='bx bx-basketball'></i>
+          <span class="links_name">Ejercicios</span>
+        </a>
+        <span class="tooltip">Ejercicios</span>
       </li>
       <li>
         <a href="salir.php">

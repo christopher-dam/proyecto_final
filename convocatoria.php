@@ -47,14 +47,28 @@ include("db_connect.php");
         <span class="tooltip">Inicio</span>
       </li>
       <li>
-        <a href="calendarioEntrenador.php">
-          <i class='bx bx-calendar'></i>
-          <span class="links_name">Calendario</span>
+        <a href="administrarJugadores.php">
+          <i class='bx bx-group'></i>
+          <span class="links_name">Jugadores</span>
         </a>
-        <span class="tooltip">Calendario</span>
+        <span class="tooltip">Jugadores</span>
       </li>
       <li>
-        <a href="ejercicioJugador.php">
+        <a href="calendarioEntrenador.php">
+          <i class='bx bx-calendar'></i>
+          <span class="links_name">Eventos</span>
+        </a>
+        <span class="tooltip">Eventos</span>
+      </li>
+      <li>
+        <a href="convocatoria.php">
+          <i class='bx bx-list-check'></i>
+          <span class="links_name">Convocatorias</span>
+        </a>
+        <span class="tooltip">Convocatorias</span>
+      </li>
+      <li>
+        <a href="ejercicioEntrenador.php">
           <i class='bx bx-basketball'></i>
           <span class="links_name">Ejercicios</span>
         </a>

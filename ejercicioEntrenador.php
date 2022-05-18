@@ -42,41 +42,55 @@ include("db_connect.php");
 
     <!-- Sydebar para navegar por la aplicación -->
 
-    <div class="sidebar">
-        <div class="logo-details">
-            <div class="logo_name">JustVoley</div>
-            <i class='bx bx-menu' id="btn"></i>
-        </div>
-        <ul class="nav-list">
-            <li>
-                <a href="inicioJugador.php">
-                    <i class='bx bx-home'></i>
-                    <span class="links_name">Inicio</span>
-                </a>
-                <span class="tooltip">Inicio</span>
-            </li>
-            <li>
-                <a href="calendarioJugador.php">
-                    <i class='bx bx-calendar'></i>
-                    <span class="links_name">Calendario</span>
-                </a>
-                <span class="tooltip">Calendario</span>
-            </li>
-            <li>
-                <a href="ejercicioJugador.php">
-                    <i class='bx bx-basketball'></i>
-                    <span class="links_name">Ejercicios</span>
-                </a>
-                <span class="tooltip">Ejercicios</span>
-            </li>
-            <li>
-                <a href="salir.php">
-                    <i class='bx bx-log-out' id="log_out"></i>
-                    <span class="links_name">Cerrar sesión</span>
-                </a>
-                <span class="tooltip">Cerrar sesión</span>
-        </ul>
+  <div class="sidebar">
+    <div class="logo-details">
+      <div class="logo_name">JustVoley</div>
+      <i class='bx bx-menu' id="btn"></i>
     </div>
+    <ul class="nav-list">
+      <li>
+        <a href="inicioEntrenador.php">
+          <i class='bx bx-home'></i>
+          <span class="links_name">Inicio</span>
+        </a>
+        <span class="tooltip">Inicio</span>
+      </li>
+      <li>
+        <a href="administrarJugadores.php">
+          <i class='bx bx-group'></i>
+          <span class="links_name">Jugadores</span>
+        </a>
+        <span class="tooltip">Jugadores</span>
+      </li>
+      <li>
+        <a href="calendarioEntrenador.php">
+          <i class='bx bx-calendar'></i>
+          <span class="links_name">Eventos</span>
+        </a>
+        <span class="tooltip">Eventos</span>
+      </li>
+      <li>
+        <a href="convocatoria.php">
+          <i class='bx bx-list-check'></i>
+          <span class="links_name">Convocatorias</span>
+        </a>
+        <span class="tooltip">Convocatorias</span>
+      </li>
+      <li>
+        <a href="ejercicioEntrenador.php">
+          <i class='bx bx-basketball'></i>
+          <span class="links_name">Ejercicios</span>
+        </a>
+        <span class="tooltip">Ejercicios</span>
+      </li>
+      <li>
+        <a href="salir.php">
+          <i class='bx bx-log-out' id="log_out"></i>
+          <span class="links_name">Cerrar sesión</span>
+        </a>
+        <span class="tooltip">Cerrar sesión</span>
+    </ul>
+  </div>
 
     <div class="container">
 

@@ -8,7 +8,7 @@ include("db_connect.php");
 
 <head>
   <meta charset="UTF-8">
-  <title>Aplicación Gestión Dual</title>
+  <title>JustApp</title>
   <link type="text/css" href="css/estilo.css" rel="stylesheet" />
   <link type="text/css" href="css/sydebar.css" rel="stylesheet" />
 
@@ -18,6 +18,13 @@ include("db_connect.php");
   <!-- Boxicons CDN Link -->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
+
+  <style>
+    .mb-0 {
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 
 <body>
@@ -53,10 +60,17 @@ include("db_connect.php");
       </li>
       <li>
         <a href="convocatoria.php">
-          <i class='bx bx-group'></i>
+          <i class='bx bx-list-check'></i>
           <span class="links_name">Convocatorias</span>
         </a>
         <span class="tooltip">Convocatorias</span>
+      </li>
+      <li>
+        <a href="ejercicioEntrenador.php">
+          <i class='bx bx-basketball'></i>
+          <span class="links_name">Ejercicios</span>
+        </a>
+        <span class="tooltip">Ejercicios</span>
       </li>
       <li>
         <a href="archivos/manual_entrenador.pdf" download="manual_entrenador.pdf">
@@ -111,7 +125,7 @@ include("db_connect.php");
                                   <h4 id="nick"><p> ' . $fila['nombre'] . '</p></h4>
                                   <p class="text-secondary mb-1">Just Voley</p>
                                   <p class="text-muted font-size-sm">More than just a game</p>
-                                  <a href="editarPerfilEntrenadorFormulario.php">
+                                  <a href="editarPerfilJugadorFormulario.php">
                                   <button class="btn btn-primary">Editar</button>
                                   </a>
                                 </div>
@@ -119,10 +133,6 @@ include("db_connect.php");
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
                         <div class="col-md-8">
                           <div class="card mb-3">
                             <div class="card-body">
