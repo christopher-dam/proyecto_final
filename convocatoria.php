@@ -119,9 +119,9 @@ include("db_connect.php");
         ?>
       </select>
       <br>
-      <input type="text" name = "cabecera">
+      <p style="font-weight: bold; color: #ffff00">Introduce un titulo: <input type="text" name = "cabecera"></p>
       <div id="jugadores"></div>
-      <button type="submit">Enviar</button>
+      <button class="btn btn-primary" type="submit">Enviar</button>
       </form>
     </div>
   </div>

@@ -41,7 +41,7 @@ include("db_connect.php");
       <div class="logo_name">JustVoley</div>
       <i class='bx bx-menu' id="btn"></i>
     </div>
-    <ul class="nav-list">
+    <ul class="nav-list" style="padding-left:25px">
       <li>
         <a href="inicioEntrenador.php">
           <i class='bx bx-home'></i>
