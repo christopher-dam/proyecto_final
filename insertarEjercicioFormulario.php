@@ -88,10 +88,10 @@ include("db_connect.php");
     <div id="content" style="padding:10px 20px; background-color: rgb(0,0,0,0.5) !important;">
         <div class="container mt-3">
             <h2 style="color:#efef26;">Datos del equipo</h2>
-            <form id="formInsertar" name="formInsertar" method="post" action="insertarEjercicio.php" onsubmit="return validarEjercicio();" enctype="multipart/form-data">
+            <form id="formInsertar" name="formInsertar" method="post" action="insertarEjercicio.php" onsubmit="return validarRegistro();" enctype="multipart/form-data">
 
                 <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del ejercicio" name="nombre">
+                    <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del ejercicio" name="nombre" required>
                     <label for="nombre">Nombre del ejercicio</label>
                 </div>
                 <div class="form-floating mt-3 mb-3">
@@ -117,7 +117,7 @@ include("db_connect.php");
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
-    <script type="text/javascript" src="../scripts/validaciones.js"></script>
+    <script type="text/javascript" src="js/validaciones.js"></script>
     <script src="js/sydebar.js"></script>
 
     </div>

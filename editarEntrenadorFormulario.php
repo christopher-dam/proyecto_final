@@ -149,7 +149,7 @@ include("db_connect.php");
 
                 <input type="hidden" name="id" id="id" value="<?php echo utf8_encode($fila["id"]); ?>">
                 <button style="margin-top:20px;" type="submit" class="btn btn-primary">Guardar</button>
-                <button onclick="history.back()" style="margin-top:20px;" class="btn btn-danger float-right">Cancelar</button>
+                <button onclick="history.back()" style="margin-top:20px;" type="submit" class="btn btn-danger float-right">Cancelar</button>
             </form>
         </div>
     </div>

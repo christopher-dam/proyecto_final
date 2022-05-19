@@ -139,10 +139,10 @@ function validarperfil() {
 
 	var ok = true;
 
-	if(password.length < 8) {
+	if (!/^(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/.test(password)) {
 		Swal.fire({
 			title: 'Error',
-			text: 'La contraseña debe tener al menos 8 caracteres',
+			text: 'La contraseña debe tener entre 8 y 16 caracteres una mayúscula y una minúscula',
 			icon: 'error',
 			confirmButtonText: 'Reintentar'
 		})
