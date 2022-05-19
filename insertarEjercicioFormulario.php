@@ -40,13 +40,6 @@ include("db_connect.php");
         </div>
         <ul class="nav-list">
             <li>
-                <a href="inicioAdmin.php">
-                    <i class='bx bx-home'></i>
-                    <span class="links_name">Inicio</span>
-                </a>
-                <span class="tooltip">Inicio</span>
-            </li>
-            <li>
                 <a href="entrenador.php">
                     <i class='bx bx-group'></i>
                     <span class="links_name">Entrenadores</span>
@@ -88,10 +81,10 @@ include("db_connect.php");
     <div id="content" style="padding:10px 20px; background-color: rgb(0,0,0,0.5) !important;">
         <div class="container mt-3">
             <h2 style="color:#efef26;">Datos del equipo</h2>
-            <form id="formInsertar" name="formInsertar" method="post" action="insertarEjercicio.php" onsubmit="return validarRegistro();" enctype="multipart/form-data">
+            <form id="formInsertar" name="formInsertar" method="post" action="insertarEjercicio.php" onsubmit="return validarEjercicio();" enctype="multipart/form-data">
 
                 <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del ejercicio" name="nombre" required>
+                    <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del ejercicio" name="nombre">
                     <label for="nombre">Nombre del ejercicio</label>
                 </div>
                 <div class="form-floating mt-3 mb-3">

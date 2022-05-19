@@ -41,13 +41,6 @@ include("db_connect.php");
         </div>
         <ul class="nav-list">
             <li>
-                <a href="inicioAdmin.php">
-                    <i class='bx bx-home'></i>
-                    <span class="links_name">Inicio</span>
-                </a>
-                <span class="tooltip">Inicio</span>
-            </li>
-            <li>
                 <a href="entrenador.php">
                     <i class='bx bx-group'></i>
                     <span class="links_name">Entrenadores</span>
@@ -149,7 +142,7 @@ include("db_connect.php");
 
                 <input type="hidden" name="id" id="id" value="<?php echo utf8_encode($fila["id"]); ?>">
                 <button style="margin-top:20px;" type="submit" class="btn btn-primary">Guardar</button>
-                <button onclick="history.back()" style="margin-top:20px;" type="submit" class="btn btn-danger float-right">Cancelar</button>
+                <button onclick="GoBackWithRefresh();return false;" style="margin-top:20px;" type="submit" class="btn btn-danger float-right">Cancelar</button>
             </form>
         </div>
     </div>

@@ -47,13 +47,6 @@ include("db_connect.php");
         </div>
         <ul class="nav-list">
             <li>
-                <a href="inicioAdmin.php">
-                    <i class='bx bx-home'></i>
-                    <span class="links_name">Inicio</span>
-                </a>
-                <span class="tooltip">Inicio</span>
-            </li>
-            <li>
                 <a href="entrenador.php">
                     <i class='bx bx-group'></i>
                     <span class="links_name">Entrenadores</span>
