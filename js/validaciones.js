@@ -132,6 +132,64 @@ function validarRegistro() {
 	return ok;
 }
 
+/*usado para asegurar que los datos de los formularios son correctos*/
+function validarEquipo() {
+	var nombre = document.getElementById("nombre").value;
+	var sede = document.getElementById("sede").value;
+	var email = document.getElementById("email").value;
+	var ok = true;
+
+	if (nombre.length==0) {
+		Swal.fire({
+			title: 'Error',
+			text: 'El nombre no puede estar vacío',
+			icon: 'error',
+			confirmButtonText: 'Reintentar'
+		})
+		ok = false;
+	}
+
+	if (sede.length==0) {
+		Swal.fire({
+			title: 'Error',
+			text: 'La sede no puede estar vacía',
+			icon: 'error',
+			confirmButtonText: 'Reintentar'
+		})
+		ok = false;
+	}
+
+	if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)) {
+		Swal.fire({
+			title: 'Error',
+			text: 'Inserte una dirección email válida',
+			icon: 'error',
+			confirmButtonText: 'Reintentar'
+		})
+		ok = false;
+	}
+
+	return ok;
+}
+
+/*usado para asegurar que los datos de los formularios son correctos*/
+function validarEjercicio() {
+	var nombre = document.getElementById("nombre").value;
+	var ok = true;
+
+	if (nombre.length==0) {
+		Swal.fire({
+			title: 'Error',
+			text: 'El nombre no puede estar vacío',
+			icon: 'error',
+			confirmButtonText: 'Reintentar'
+		})
+		ok = false;
+	}
+
+	return ok;
+}
+
 /*usado para validar los datos del perfil*/
 function validarperfil() {
 	var password = document.getElementById("password").value;
@@ -139,10 +197,10 @@ function validarperfil() {
 
 	var ok = true;
 
-	if(password.length < 8) {
+	if (!/^(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/.test(password)) {
 		Swal.fire({
 			title: 'Error',
-			text: 'La contraseña debe tener al menos 8 caracteres',
+			text: 'La contraseña debe tener entre 8 y 16 caracteres una mayúscula y una minúscula',
 			icon: 'error',
 			confirmButtonText: 'Reintentar'
 		})
@@ -158,4 +216,14 @@ function validarperfil() {
 		ok = false;
 	}
 	return ok;
+}
+
+function GoBackWithRefresh(event) {
+    if ('referrer' in document) {
+        window.location = document.referrer;
+        /* OR */
+        //location.replace(document.referrer);
+    } else {
+        window.history.back();
+    }
 }

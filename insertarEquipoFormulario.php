@@ -41,13 +41,6 @@ include("db_connect.php");
         </div>
         <ul class="nav-list">
             <li>
-                <a href="inicioAdmin.php">
-                    <i class='bx bx-home'></i>
-                    <span class="links_name">Inicio</span>
-                </a>
-                <span class="tooltip">Inicio</span>
-            </li>
-            <li>
                 <a href="entrenador.php">
                     <i class='bx bx-group'></i>
                     <span class="links_name">Entrenadores</span>
@@ -88,9 +81,12 @@ include("db_connect.php");
     //Conectamos con la BD
     $link = conectar();
     $queryEquipo = "SELECT * FROM equipo;";
+    $queryEntrenador = "SELECT * FROM entrenador;";
 
     //Ejecutar consulta
     $resultEquipo = mysqli_query($link, $queryEquipo);
+    $resultEntrenador = mysqli_query($link, $queryEntrenador);
+
     ?>
 
     <!-- Formulario con propiedades flotantes -->
@@ -98,7 +94,7 @@ include("db_connect.php");
     <div id="content" style="padding:10px 20px; background-color: rgb(0,0,0,0.5) !important;">
         <div class="container mt-3">
             <h2 style="color:#efef26;">Datos del equipo</h2>
-            <form id="formInsertar" name="formInsertar" method="post" action="insertarEquipo.php" onsubmit="return validarRegistro();" enctype="multipart/form-data">
+            <form id="formInsertar" name="formInsertar" method="post" action="insertarEquipo.php" onsubmit="return validarEquipo();" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col">
                         <div class="form-floating mb-3 mt-3">
@@ -117,9 +113,24 @@ include("db_connect.php");
                     <input type="text" class="form-control" id="email" placeholder="Ingrese el email de contacto del equipo" name="email">
                     <label for="email">Email de contacto del equipo</label>
                 </div>
-                <div class="form-floating mt-3 mb-3">
-                    <input type="text" class="form-control" id="sede" placeholder="Introduce la sede del equipo" name="sede">
-                    <label for="sede">Sede del equipo</label>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-floating mt-3 mb-3">
+                            <input type="text" class="form-control" id="sede" placeholder="Introduce la sede del equipo" name="sede">
+                            <label for="sede">Sede del equipo</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label style="font-size:18px; color:#efef26" class="my-1 mr-2" for="entrenador">Entrenador</label>
+                        <select class="custom-select" name="entrenador" id="entrenador">
+                            <?php
+                            while ($nombreEntrenador = mysqli_fetch_array($resultEntrenador)) {
+                                echo '
+                        <option value="' . utf8_encode($nombreEntrenador['nombre']) . '">' . utf8_encode($nombreEntrenador['nombre']) . '</option>';
+                            }
+                            ?>
+                        </select>
+                    </div>
                 </div>
                 <button style="margin-bottom:20px;" type="submit" class="btn btn-primary">Guardar</button>
                 <button onclick="history.go(-1);" style="margin-bottom:20px;" type="volver" class="btn btn-danger float-right">Cancelar</button>

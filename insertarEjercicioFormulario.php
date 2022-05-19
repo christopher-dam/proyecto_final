@@ -40,13 +40,6 @@ include("db_connect.php");
         </div>
         <ul class="nav-list">
             <li>
-                <a href="inicioAdmin.php">
-                    <i class='bx bx-home'></i>
-                    <span class="links_name">Inicio</span>
-                </a>
-                <span class="tooltip">Inicio</span>
-            </li>
-            <li>
                 <a href="entrenador.php">
                     <i class='bx bx-group'></i>
                     <span class="links_name">Entrenadores</span>
@@ -117,7 +110,7 @@ include("db_connect.php");
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
-    <script type="text/javascript" src="../scripts/validaciones.js"></script>
+    <script type="text/javascript" src="js/validaciones.js"></script>
     <script src="js/sydebar.js"></script>
 
     </div>

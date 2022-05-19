@@ -52,13 +52,6 @@ include("db_connect.php");
         </div>
         <ul class="nav-list">
             <li>
-                <a href="inicioAdmin.php">
-                    <i class='bx bx-home'></i>
-                    <span class="links_name">Inicio</span>
-                </a>
-                <span class="tooltip">Inicio</span>
-            </li>
-            <li>
                 <a href="entrenador.php">
                     <i class='bx bx-group'></i>
                     <span class="links_name">Entrenadores</span>
@@ -110,6 +103,7 @@ include("db_connect.php");
                                 <th>Email</th>
                                 <th>Sede</th>
                                 <th>Jugadores</th>
+                                <th>Entrenador</th>
                                 <th>Eliminar</th>
                             </tr>
                         </thead>
@@ -131,6 +125,17 @@ include("db_connect.php");
                                 $count = mysqli_fetch_array($resultCount);
 
                                 echo $count['total']    .  "</td>
+                                
+                                <td>";
+
+                                $queryEntrenador = "SELECT nombre FROM entrenador WHERE id=" . utf8_encode($fila['id_entrenador']) . ";";
+
+                                $resultEntrenador = mysqli_query($link, $queryEntrenador);
+
+                                $nombreEntrenador = mysqli_fetch_array($resultEntrenador);
+
+                                echo $nombreEntrenador['nombre'] . "</td>
+
                                 <td><a style='cursor: pointer;' onclick='return confirmarEquipo(" . $fila['id'] . ")'>
                                 <img src='img/delete.png' width='20'></a></td>
                                 </tr>";

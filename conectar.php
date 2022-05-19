@@ -37,7 +37,7 @@ if ($fila = mysqli_fetch_array($resultAlumno)) {
 
 } elseif ($fila = mysqli_fetch_array($resultAdmin)) {
     $_SESSION["id_admin"] = $fila["id"];
-    header("Location:inicioAdmin.php");
+    header("Location:entrenador.php");
     
 } else {
     $_SESSION["error"] = "Email o contraseña erróneos";
