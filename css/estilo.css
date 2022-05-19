@@ -14,17 +14,19 @@
    -o-box-shadow: 10px -10px 5px rgba(0, 0, 0, 0.3);
 }
 
+#abs-center {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   min-height: 100vh;
+ }
+ 
+ #form {
+   width: 450px;
+ }
+
 body {
    background-image: url(../img/fondo_mixto.jpg)
-}
-
-/* sidebar */
-
-a:link {
-   text-decoration: none !important;
-   font-family: "Arial", sans-serif;
-   font-weight: bold;
-   color: #000;
 }
 
 /* titulos */ 

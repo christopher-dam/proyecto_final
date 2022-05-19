@@ -10,7 +10,7 @@ $jugadores = "";
 $result = mysqli_query($link, $query);
 
 while ($fila = mysqli_fetch_array($result)) {
-  $jugadores .= "<input type='checkbox' name='jugadores[]' value='{$fila['id']}'>{$fila['nombre']} {$fila['apellidos']}</input><br>";
+  $jugadores .= "<input type='checkbox' style='margin-right:18px' name='jugadores[]' value='{$fila['id']}'>{$fila['nombre']} {$fila['apellidos']}</input><br>";
 }
 mysqli_close($link);
 

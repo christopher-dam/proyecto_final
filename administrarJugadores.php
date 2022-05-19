@@ -37,20 +37,16 @@ include("db_connect.php");
   <?php
   //Conectamos con la BD
   $link = conectar();
-  $queryOtra = "SELECT * FROM equipo where id_entrenador = {$_SESSION['id_entrenador']};";
+  $query = "SELECT * FROM equipo WHERE id_entrenador = {$_SESSION['id_entrenador']};";
+  $result = mysqli_query($link, $query);
   $equipos = [];
-  // $queryEquipo = "SELECT nombre FROM equipo WHERE id=" . utf8_encode($fila['id_equipo']) . ";";
-  
+
   while ($fila = mysqli_fetch_array($result)) {
     $equipos[$fila['id']] = $fila['nombre'];
   }
-  mysqli_close($link);
-  $query = "SELECT id, nombre, observaciones, lesiones FROM jugador WHERE id_equipo=" . $equipos . ";";
 
-
-
-  //Ejecutar consulta
-  $result = mysqli_query($link, $query);
+  $queryJugador = "SELECT id, nombre, observaciones, lesiones FROM jugador;";
+  $resultJugador = mysqli_query($link, $queryJugador);
   ?>
 
   <!-- Sydebar para navegar por la aplicación -->
@@ -113,15 +109,16 @@ include("db_connect.php");
         <div class="table-responsive">
           <h2 style="margin-top: 30px;"><b>Jugadores</b></h2>
           <select id="equipo" name="id_equipo">
-        <?php
-          foreach ($equipos as $id_equipo => $nombre_equipo) {
-            printf(
-              "<option value='%s'>%s</option>",
-              $id_equipo,
-              $nombre_equipo
-            );
-          }
-        ?>
+            <?php
+            foreach ($equipos as $id_equipo => $nombre_equipo) {
+              printf(
+                "<option value='%s'>%s</option>",
+                $id_equipo,
+                $nombre_equipo
+              );
+            }
+            ?>
+          </select>
           <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead style="background-color:white">
               <tr>
@@ -132,20 +129,23 @@ include("db_connect.php");
               </tr>
             </thead>
             <tbody style="background-color:white">
-              <?php
-
-              while ($fila = mysqli_fetch_array($result)) {
-                echo "<tr>
-                  <td><a href='editarJugadorEntrenadorForm.php?id_jugador=" . $fila["id"] . "'>
+              <script>
+                $( "#equipo" ).change(function() {
+                  <?php
+                  while ($filaJugador = mysqli_fetch_array($resultJugador)) {
+                    echo "<tr>
+                  <td><a href='editarJugadorEntrenadorForm.php?id_jugador=" . $filaJugador["id"] . "'>
                   <img src='img/edit.png' width='20'></a></td>
-                  <td>" . $fila['nombre'] . "</td>
-                  <td>" . $fila['observaciones'] . "</td>
-                  <td>" . utf8_encode($fila['lesiones']) . "</td>
+                  <td>" . $filaJugador['nombre'] . "</td>
+                  <td>" . $filaJugador['observaciones'] . "</td>
+                  <td>" . utf8_encode($filaJugador['lesiones']) . "</td>
                   </tr>";
-              }
+                  }
 
-              mysqli_close($link);
-              ?>
+                  mysqli_close($link);
+                  ?>
+                });
+              </script>
             </tbody>
           </table>
 
@@ -164,7 +164,7 @@ include("db_connect.php");
                             icon: "success",
                             title: "' . $_SESSION["exito"] . '"
                           })
-                        </script>';
+                        </scr>';
             unset($_SESSION["exito"]);
           }
           if (isset($_SESSION["error"])) {

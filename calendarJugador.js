@@ -67,7 +67,6 @@ var cal = {
       cal.hEnd.value = edata["evt_end"].replaceAll(" ", "T");
       cal.hTxt.value = edata["evt_text"];
       cal.dTxt.value = edata["detalles"];
-      cal.hColor.value = edata["evt_color"];
       cal.hFormDel.style.display = "block";
 
     // (D3) SHOW EVENT FORM
