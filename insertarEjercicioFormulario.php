@@ -62,7 +62,7 @@ include("db_connect.php");
             </li>
             <li>
                 <a href="equipo.php">
-                    <i class='bx bx-group'></i>
+                    <i class='bx bx-shield'></i>
                     <span class="links_name">Equipos</span>
                 </a>
                 <span class="tooltip">Equipos</span>
@@ -85,9 +85,9 @@ include("db_connect.php");
 
     <!-- Formulario con propiedades flotantes -->
 
-    <div id="content" style="padding:10px 20px;">
+    <div id="content" style="padding:10px 20px; background-color: rgb(0,0,0,0.5) !important;">
         <div class="container mt-3">
-            <h2>Datos del ejercicio</h2>
+            <h2 style="color:#efef26;">Datos del equipo</h2>
             <form id="formInsertar" name="formInsertar" method="post" action="insertarEjercicio.php" onsubmit="return validarEjercicio();" enctype="multipart/form-data">
 
                 <div class="form-floating mb-3 mt-3">
@@ -99,10 +99,11 @@ include("db_connect.php");
                     <label for="descripcion">Descripción del ejercicio</label>
                 </div>
                 <div>
-                    <label>Elige fotografía</label>
+                    <label style="font-size:18px; color:#efef26">Elige fotografía</label>
                     <input type="file" name="fotosubida" id="fotosubida" />
                 </div>
-                <button style="margin:20px 0px;" type="submit" class="btn btn-primary">Enviar</button>
+                <button style="margin-bottom:20px;" type="submit" class="btn btn-primary">Guardar</button>
+                <button onclick="history.go(-1);" style="margin-bottom:20px;" type="volver" class="btn btn-danger float-right">Cancelar</button>
             </form>
         </div>
     </div>

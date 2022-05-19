@@ -63,7 +63,7 @@ include("db_connect.php");
             </li>
             <li>
                 <a href="equipo.php">
-                    <i class='bx bx-group'></i>
+                    <i class='bx bx-shield'></i>
                     <span class="links_name">Equipos</span>
                 </a>
                 <span class="tooltip">Equipos</span>
@@ -95,55 +95,73 @@ include("db_connect.php");
 
     <!-- Formulario con propiedades flotantes -->
 
-    <div id="content" style="padding:10px 20px;">
+    <div id="content" style="padding:10px 20px; background-color: rgb(0,0,0,0.5) !important;">
         <div class="container mt-3">
-            <h2>Datos del entrenador</h2>
+            <h2 style="color:#efef26;">Datos del entrenador</h2>
             <form id="formInsertar" name="formInsertar" method="post" action="insertarEntrenador.php" onsubmit="return validarRegistro();" enctype="multipart/form-data">
-
-                <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del entrenador" name="nombre">
-                    <label for="nombre">Nombre del entrenador</label>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-floating mb-3 mt-3">
+                            <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del entrenador" name="nombre">
+                            <label for="nombre">Nombre del entrenador</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating mt-3 mb-3">
+                            <input type="text" class="form-control" id="apellidos" placeholder="Introduce los apellidos del entrenador" name="apellidos">
+                            <label for="apellidos">Apellidos del entrenador</label>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-floating mt-3 mb-3">
-                    <input type="text" class="form-control" id="apellidos" placeholder="Introduce los apellidos del entrenador" name="apellidos">
-                    <label for="apellidos">Apellidos del entrenador</label>
-                </div>
-                <div class="form-floating mt-3 mb-3">
-                    <input type="text" class="form-control" id="dni" placeholder="Ingrese el dni del entrenador" name="dni">
-                    <label for="dni">DNI del entrenador</label>
-                </div>
-                <div class="form-floating mt-3 mb-3">
-                    <input type="tel" class="form-control" id="telefono" placeholder="Ingrese el teléfono del entrenador" name="telefono">
-                    <label for="telefono">Teléfono del entrenador</label>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-floating mt-3 mb-3">
+                            <input type="text" class="form-control" id="dni" placeholder="Ingrese el dni del entrenador" name="dni">
+                            <label for="dni">DNI del entrenador</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating mt-3 mb-3">
+                            <input type="tel" class="form-control" id="telefono" placeholder="Ingrese el teléfono del entrenador" name="telefono">
+                            <label for="telefono">Teléfono del entrenador</label>
+                        </div>
+                    </div>
                 </div>
                 <div class="form-floating mt-3 mb-3">
                     <input type="text" class="form-control" id="email" placeholder="Ingrese el email del entrenador" name="email">
                     <label for="email">Email del entrenador</label>
                 </div>
-                <div>
-                    <label class="my-1 mr-2" for="titulacion">Nivel de titulación del entrenador</label>
-                    <select class="custom-select" name="titulacion" id="titulacion">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="my-1 mr-2" for="equipos">Equipo al que va inscrito</label>
-                    <select class="custom-select" name="equipos" id="equipos">
-                        <?php
-                        while ($nombreEquipo = mysqli_fetch_array($resultEquipo)) {
-                            echo '
+                <div class="row">
+                    <div class="col">
+                        <div>
+                            <label style="font-size:18px; color:#efef26" class="my-1 mr-2" for="titulacion">Nivel de titulación del entrenador</label>
+                            <select class="custom-select" name="titulacion" id="titulacion">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <label style="font-size:18px; color:#efef26" class="my-1 mr-2" for="equipos">Equipo al que va inscrito</label>
+                            <select class="custom-select" name="equipos" id="equipos">
+                                <?php
+                                while ($nombreEquipo = mysqli_fetch_array($resultEquipo)) {
+                                    echo '
                         <option value="' . utf8_encode($nombreEquipo['nombre']) . '">' . utf8_encode($nombreEquipo['nombre']) . '</option>';
-                        }
-                        ?>
-                    </select>
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
                 </div>
                 <div class="form-floating mt-3 mb-3">
                     <input type="text" class="form-control" id="password" placeholder="Ingrese la contraseña del entrenador" name="password">
                     <label for="password">Contraseña del entrenador</label>
                 </div>
-                <button style="margin:8px 0px;" type="submit" class="btn btn-primary">Enviar</button>
+                <button style="margin-bottom:20px;" type="submit" class="btn btn-primary">Guardar</button>
+                <button onclick="history.go(-1);" style="margin-bottom:20px;" type="volver" class="btn btn-danger float-right">Cancelar</button>
             </form>
         </div>
     </div>

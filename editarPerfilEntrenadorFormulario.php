@@ -81,26 +81,28 @@ include("db_connect.php");
 
      <!-- Formulario con propiedades flotantes -->
 
-    <div id="content" style="padding:10px 20px;">
-        <div class="container mt-3">
-            <h2>Datos de la cuenta</h2>
-            <form id="formEditar" name="formEditar" method="post" action="editarPerfilEntrenador.php" onsubmit="return validarperfil()" enctype="multipart/form-data">
-                <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" placeholder="Cambia tu email" name="email" id="email" value="<?php echo utf8_encode($fila["email"]); ?>" />
-                    <label for="email">Email</label>
-                </div>
-                <div class="form-floating mb-3 mt-3">
-                    <input type="password" class="form-control" name="password" placeholder="Introduce la nueva contraseña" id="password" />
-                    <label for="password">Contraseña</label>
-                </div>
-                <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" name="passwordConfirm" id="passwordConfirm" placeholder="Confirme la nueva contraseña" />
-                    <label for="password">Confirmar contraseña</label>
-                </div>
-
-                <button style="margin-bottom:20px;" type="submit" class="btn btn-primary">Guardar</button>
+    <div id="content" style="padding:10px 20px; background-color: rgb(0,0,0,0.5) !important;">
+    <div class="container mt-3">
+      <h2 style="font-size: 40px; color:#ffff00;">Datos de la cuenta</h2>
+      <form id="formEditar" name="formEditar" method="post" action="editarPerfilJugador.php" onsubmit="return validarperfil()" enctype="multipart/form-data">
+        <div class="form-floating mb-3 mt-3">
+          <input type="text" class="form-control" placeholder="Cambia tu email" name="email" id="email" value="<?php echo utf8_encode($fila["email"]); ?>" />
+          <label for="email">Email</label>
         </div>
+        <div class="form-floating mb-3 mt-3">
+          <input type="password" class="form-control" name="password" placeholder="Introduce la nueva contraseña" id="password" />
+          <label for="password">Contraseña</label>
+        </div>
+        <div class="form-floating mb-3 mt-3">
+          <input type="text" class="form-control" name="passwordConfirm" id="passwordConfirm" placeholder="Confirme la nueva contraseña" />
+          <label for="password">Confirmar contraseña</label>
+        </div>
+
+        <button style="margin-bottom:20px;" type="submit" class="btn btn-primary float-left">Guardar</button>
+        <button onclick="history.go(-1);" style="margin-bottom:20px; float:right" type="volver" class="btn btn-danger float-right">Cancelar</button>
     </div>
+  </div>
+
 
     <!-- Bootstrap JS, Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

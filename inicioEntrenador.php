@@ -103,16 +103,6 @@ include("db_connect.php");
       $result = mysqli_query($link, $queryEntrenador);
       if ($fila = mysqli_fetch_array($result)) {
 
-        // //Sacamos los datos del equipo
-        // $queryEquipo = "SELECT * FROM equipo WHERE id=" . $fila['id_equipo'] . ";";
-        // $resultEquipo = mysqli_query($link, $queryEquipo);
-        // $nombreEquipo = mysqli_fetch_array($resultEquipo);
-
-        // //Sacamos los datos del tutor
-        // $queryTutor = "SELECT * FROM profesor WHERE id=" . $fila['profesor_id'] . ";";
-        // $resultTutor = mysqli_query($link, $queryTutor);
-        // $nombreTutor = mysqli_fetch_array($resultTutor);
-
                 echo '<div class="container">
                 <div class="main-body">
                       <div class="row gutters-sm">
@@ -125,7 +115,7 @@ include("db_connect.php");
                                   <h4 id="nick"><p> ' . $fila['nombre'] . '</p></h4>
                                   <p class="text-secondary mb-1">Just Voley</p>
                                   <p class="text-muted font-size-sm">More than just a game</p>
-                                  <a href="editarPerfilJugadorFormulario.php">
+                                  <a href="editarPerfilEntrenadorFormulario.php">
                                   <button class="btn btn-primary">Editar</button>
                                   </a>
                                 </div>

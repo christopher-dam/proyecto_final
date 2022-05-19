@@ -90,16 +90,16 @@ include("db_connect.php");
 
   <!-- Formulario con propiedades flotantes -->
 
-  <div id="content" style="padding:10px 20px;">
+  <div id="content" style="padding:10px 20px; background-color: rgb(0,0,0,0.5) !important;">
     <div class="container mt-3">
-      <h2>Datos del Jugador</h2>
+    <h2 style="font-size: 40px; color:#ffff00;">Datos del jugador</h2>
       <form id="formEditar" name="formEditar" method="post" action="editarJugadorEntrenador.php" onsubmit="return validarRegistro()" enctype="multipart/form-data">
         <div class="form-floating mb-3 mt-3">
-          <input type="text" class="form-control" placeholder="a" name="observaciones" id="observaciones" value="<?php echo utf8_encode($fila["observaciones"]); ?>" />
+          <textarea type="text" class="form-control" placeholder="a" name="observaciones" id="observaciones"><?php echo $fila["observaciones"]; ?></textarea>
           <label for="observaciones">Observaciones</label>
         </div>
         <div class="form-floating mb-3 mt-3">
-          <input type="text" class="form-control" placeholder="a" name="lesiones" id="lesiones" value="<?php echo utf8_encode($fila["lesiones"]); ?>" />
+          <textarea type="text" class="form-control" placeholder="a" name="lesiones" id="lesiones"><?php echo $fila["lesiones"]; ?></textarea>
           <label for="lesiones">Lesiones</label>
         </div>
     </div>
