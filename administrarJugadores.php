@@ -37,7 +37,16 @@ include("db_connect.php");
   <?php
   //Conectamos con la BD
   $link = conectar();
-  $query = "SELECT id, nombre, observaciones, lesiones FROM jugador WHERE id_entrenador=" . $_SESSION['id_entrenador'] . ";";
+  $queryOtra = "SELECT * FROM equipo where id_entrenador = {$_SESSION['id_entrenador']};";
+  $equipos = [];
+  // $queryEquipo = "SELECT nombre FROM equipo WHERE id=" . utf8_encode($fila['id_equipo']) . ";";
+  
+  while ($fila = mysqli_fetch_array($result)) {
+    $equipos[$fila['id']] = $fila['nombre'];
+  }
+  mysqli_close($link);
+  $query = "SELECT id, nombre, observaciones, lesiones FROM jugador WHERE id_equipo=" . $equipos . ";";
+
 
 
   //Ejecutar consulta
@@ -103,6 +112,16 @@ include("db_connect.php");
       <div class="col-lg-12">
         <div class="table-responsive">
           <h2 style="margin-top: 30px;"><b>Jugadores</b></h2>
+          <select id="equipo" name="id_equipo">
+        <?php
+          foreach ($equipos as $id_equipo => $nombre_equipo) {
+            printf(
+              "<option value='%s'>%s</option>",
+              $id_equipo,
+              $nombre_equipo
+            );
+          }
+        ?>
           <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead style="background-color:white">
               <tr>

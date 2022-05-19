@@ -53,13 +53,6 @@ include("db_connect.php");
         <span class="tooltip">Calendario</span>
       </li>
       <li>
-        <a href="ejercicioJugador.php">
-          <i class='bx bx-basketball'></i>
-          <span class="links_name">Ejercicios</span>
-        </a>
-        <span class="tooltip">Ejercicios</span>
-      </li>
-      <li>
         <a href="archivos/manual_jugador.pdf" download="manual_jugador.pdf">
           <i class='bx bx-book'></i>
           <span class="links_name">Manual</span>

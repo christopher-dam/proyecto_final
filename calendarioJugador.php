@@ -44,13 +44,6 @@ include("db_connect.php");
         <span class="tooltip">Calendario</span>
       </li>
       <li>
-        <a href="ejercicioJugador.php">
-          <i class='bx bx-basketball'></i>
-          <span class="links_name">Ejercicios</span>
-        </a>
-        <span class="tooltip">Ejercicios</span>
-      </li>
-      <li>
         <a href="salir.php">
           <i class='bx bx-log-out' id="log_out"></i>
           <span class="links_name">Cerrar sesión</span>
