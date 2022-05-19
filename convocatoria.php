@@ -104,8 +104,9 @@ include("db_connect.php");
 
   <!-- Formulario con propiedades flotantes -->
 
-  <div id="content" style="padding:10px 20px; background-color: rgb(0,0,0,0.5) !important;">
+  <div id="content" style="padding:10px 20px; background-color: rgb(0,0,0,0.5) !important; width: 690px !important;">
     <div class="container mt-3">
+    <h2 style="color:#efef26;">Convocatoria</h2>
       <form method="post" action="ajaxmensaje.php">
         <select id="equipo" name="id_equipo">
         <?php
@@ -120,8 +121,8 @@ include("db_connect.php");
       </select>
       <br>
       <p style="font-weight: bold; color: #ffff00">Introduce un titulo: <input type="text" name = "cabecera"></p>
-      <div id="jugadores"></div>
-      <button class="btn btn-primary" type="submit">Enviar</button>
+      <div id="jugadores" style="color: white;"></div>
+      <button class="btn btn-primary" type="submit" style="margin-top: 20px;">Enviar</button>
       </form>
     </div>
   </div>
