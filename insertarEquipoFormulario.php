@@ -30,7 +30,7 @@ include("db_connect.php");
 
 </head>
 
-<body style="margin-top: 200px;">
+<body>
 
     <!-- Sydebar para navegar por la aplicación -->
 
@@ -91,10 +91,10 @@ include("db_connect.php");
 
     <!-- Formulario con propiedades flotantes -->
 
-    <div id="content" style="padding:10px 20px; background-color: rgb(0,0,0,0.5) !important;">
-        <div class="container mt-3">
-            <h2 style="color:#efef26;">Datos del equipo</h2>
-            <form id="formInsertar" name="formInsertar" method="post" action="insertarEquipo.php" onsubmit="return validarEquipo();" enctype="multipart/form-data">
+    <div class="container">
+        <div style="justify-content: center; align-items:center; min-height:100vh; display:flex;">
+            <form id="formInsertar" style="padding:10px 20px; background-color: rgb(0,0,0,0.5) !important; border-radius: 25px;" name="formInsertar" method="post" action="insertarEquipo.php" onsubmit="return validarEquipo();" enctype="multipart/form-data">
+                <h2 style="color:#efef26;">Datos del equipo</h2>
                 <div class="row">
                     <div class="col">
                         <div class="form-floating mb-3 mt-3">
@@ -113,27 +113,24 @@ include("db_connect.php");
                     <input type="text" class="form-control" id="email" placeholder="Ingrese el email de contacto del equipo" name="email">
                     <label for="email">Email de contacto del equipo</label>
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-floating mt-3 mb-3">
-                            <input type="text" class="form-control" id="sede" placeholder="Introduce la sede del equipo" name="sede">
-                            <label for="sede">Sede del equipo</label>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <label style="font-size:18px; color:#efef26" class="my-1 mr-2" for="entrenador">Entrenador</label>
-                        <select class="custom-select" name="entrenador" id="entrenador">
-                            <?php
-                            while ($nombreEntrenador = mysqli_fetch_array($resultEntrenador)) {
-                                echo '
-                        <option value="' . utf8_encode($nombreEntrenador['nombre']) . '">' . utf8_encode($nombreEntrenador['nombre']) . '</option>';
-                            }
-                            ?>
-                        </select>
-                    </div>
+                <div class="form-floating mt-3 mb-3">
+                    <input type="text" class="form-control" id="sede" placeholder="Introduce la sede del equipo" name="sede">
+                    <label for="sede">Sede del equipo</label>
                 </div>
-                <button style="margin-bottom:20px;" type="submit" class="btn btn-primary">Guardar</button>
-                <button onclick="history.go(-1);" style="margin-bottom:20px;" type="volver" class="btn btn-danger float-right">Cancelar</button>
+                <div>
+                    <label style="font-size:18px; color:#efef26" class="my-1 mr-2" for="entrenador">Entrenador</label>
+                    <select class="custom-select" name="entrenador" id="entrenador">
+                        <?php
+                        while ($nombreEntrenador = mysqli_fetch_array($resultEntrenador)) {
+                            echo '
+                        <option value="' . utf8_encode($nombreEntrenador['nombre']) . '">' . utf8_encode($nombreEntrenador['nombre']) . '</option>';
+                        }
+                        ?>
+                    </select>
+
+                </div>
+                <button style="margin-bottom:20px; margin-top:20px;" type="submit" class="btn btn-primary">Guardar</button>
+                <button onclick="history.go(-1);" style="margin-bottom:20px; margin-top:20px;" type="volver" class="btn btn-danger float-right">Cancelar</button>
             </form>
         </div>
     </div>

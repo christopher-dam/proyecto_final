@@ -3,7 +3,7 @@ var cal = {
   hMth:null, hYr:null, // MONTH & YEAR
   hWrap:null, // DAYS WRAPPER
   // EVENT FORM
-  hBlock:null, hForm:null, hFormDel:null, hFormCX:null,
+  hBlock:null, hForm:null, hFormCX:null,
   hID:null, hStart:null, hEnd:null, hTxt:null, dTxT:null, hColor:null,
   init : () => {
     // (A1) GET HTML ELEMENTS
@@ -12,7 +12,6 @@ var cal = {
     cal.hWrap = document.getElementById("calwrap");
     cal.hBlock = document.getElementById("calblock");
     cal.hForm = document.getElementById("calform");
-    cal.hFormDel = document.getElementById("calformdel");
     cal.hFormCX = document.getElementById("calformcx");
     cal.hID = document.getElementById("evtid");
     cal.hStart = document.getElementById("evtstart");
@@ -67,7 +66,6 @@ var cal = {
       cal.hEnd.value = edata["evt_end"].replaceAll(" ", "T");
       cal.hTxt.value = edata["evt_text"];
       cal.dTxt.value = edata["detalles"];
-      cal.hFormDel.style.display = "block";
 
     // (D3) SHOW EVENT FORM
     cal.hBlock.classList.add("show");

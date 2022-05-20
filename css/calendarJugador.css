@@ -90,7 +90,7 @@ html, body { font-family: arial, sans-serif; }
   margin-top: 10px;
 }
 #calformdel { background: #a22a2a; visibility: hidden; }
-#calformcx { background: #a22a2a; margin-top: 11%; }
+#calformcx { background: #a22a2a;}
 
 /*COSAS NUESTRAS*/
 #calPeriod{

@@ -36,7 +36,7 @@ include("db_connect.php");
 
 </head>
 
-<body style="margin-top: 200px;">
+<body>
 
     <!-- Sydebar para navegar por la aplicación -->
 
@@ -96,10 +96,10 @@ include("db_connect.php");
 
     <!-- Formulario con propiedades flotantes -->
 
-    <div id="content" style="padding:10px 20px; background-color: rgb(0,0,0,0.5) !important;">
-        <div class="container mt-3">
-            <h2 style="color:#efef26;">Datos del jugador</h2>
-            <form id="formInsertar" name="formInsertar" method="post" action="insertarJugador.php" onsubmit="return validarRegistro();" enctype="multipart/form-data">
+    <div class="container">
+        <div style="justify-content: center; align-items:center; min-height:100vh; display:flex;">
+            <form style="padding:10px 20px; background-color: rgb(0,0,0,0.5) !important; border-radius: 25px;" id="formInsertar" name="formInsertar" method="post" action="insertarJugador.php" onsubmit="return validarRegistro();" enctype="multipart/form-data">
+                <h2 style="color:#efef26;">Datos del jugador</h2>
                 <div class="row">
                     <div class="col">
                         <div class="form-floating mb-3 mt-3">
@@ -135,7 +135,7 @@ include("db_connect.php");
                 <div class="row">
                     <div class="col">
                         <div>
-                        <label style="font-size:18px; color:#efef26" class="my-1 mr-2" for="equipos">Equipo al que va inscrito</label>
+                            <label style="font-size:18px; color:#efef26" class="my-1 mr-2" for="equipos">Equipo al que va inscrito</label>
                             <select class="custom-select" name="equipos" id="equipos">
                                 <?php
                                 while ($nombreEquipo = mysqli_fetch_array($resultEquipo)) {
@@ -148,7 +148,7 @@ include("db_connect.php");
                     </div>
                     <div class="col">
                         <div>
-                        <label style="font-size:18px; color:#efef26" class="my-1 mr-2" for="entrenador">Entrenador</label>
+                            <label style="font-size:18px; color:#efef26" class="my-1 mr-2" for="entrenador">Entrenador</label>
                             <select class="custom-select" name="entrenador" id="entrenador">
                                 <?php
                                 while ($nombreEntrenador = mysqli_fetch_array($resultEntrenador)) {

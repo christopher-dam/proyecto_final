@@ -30,7 +30,7 @@ include("db_connect.php");
 
 </head>
 
-<body style="margin-top: 200px;">
+<body>
 
   <!-- Sydebar para navegar por la aplicación -->
 
@@ -90,11 +90,11 @@ include("db_connect.php");
 
   <!-- Formulario con propiedades flotantes -->
 
-  <div id="content" style="padding:10px 20px; background-color: rgb(0,0,0,0.5) !important;">
-    <div class="container mt-3">
-    <h2 style="font-size: 40px; color:#ffff00;">Datos del jugador</h2>
-      <form id="formEditar" name="formEditar" method="post" action="editarJugadorEntrenador.php" onsubmit="return validarRegistro()" enctype="multipart/form-data">
-        <div class="form-floating mb-3 mt-3">
+  <div class="container">
+  <div style="justify-content: center; align-items:center; min-height:100vh; display:flex;">
+      <form style="padding:10px 20px; background-color: rgb(0,0,0,0.5) !important; border-radius: 25px;" id="formEditar" name="formEditar" method="post" action="editarJugadorEntrenador.php" onsubmit="return validarRegistro()" enctype="multipart/form-data">
+      <h2 style="font-size: 40px; color:#ffff00;">Datos del jugador</h2>  
+      <div class="form-floating mb-3 mt-3">
           <textarea type="text" class="form-control" placeholder="a" name="observaciones" id="observaciones"><?php echo $fila["observaciones"]; ?></textarea>
           <label for="observaciones">Observaciones</label>
         </div>

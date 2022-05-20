@@ -104,9 +104,10 @@ include("db_connect.php");
   ?>
 
   <!-- Formulario con propiedades flotantes -->
+
     <div class="container">
-      <div class="abs-center" action="ajaxmensaje.php" enctype="multipart/form-data" style="justify-content: center; align-items:center; min-height:100vh; display:flex;">
-        <form method="post" style="padding:10px 20px; background-color: rgb(0,0,0,0.5) !important; border-radius: 25px; width: 690px !important;">
+      <div style="justify-content: center; align-items:center; min-height:100vh; display:flex;">
+        <form method="post"  enctype="multipart/form-data" style="padding:10px 20px; background-color: rgb(0,0,0,0.5) !important; border-radius: 25px;">
         <h2 style="color:#efef26;">Datos del entrenador</h2>
           <div class="form-group">
             <label style="font-size:18px; color:#efef26" class="my-1 mr-2" for="equipos">Equipo al que va dirigido</label>

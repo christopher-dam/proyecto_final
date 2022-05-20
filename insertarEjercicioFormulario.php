@@ -30,7 +30,7 @@ include("db_connect.php");
 
 </head>
 
-<body style="margin-top: 200px;">
+<body>
     <!-- Sydebar para navegar por la aplicación -->
 
     <div class="sidebar">
@@ -78,17 +78,16 @@ include("db_connect.php");
 
     <!-- Formulario con propiedades flotantes -->
 
-    <div id="content" style="padding:10px 20px; background-color: rgb(0,0,0,0.5) !important;">
-        <div class="container mt-3">
+    <div class="container">
+    <div style="justify-content: center; align-items:center; min-height:100vh; display:flex;">
+            <form id="formInsertar" style="padding:10px 20px; background-color: rgb(0,0,0,0.5) !important; border-radius: 25px;" name="formInsertar" method="post" action="insertarEjercicio.php" onsubmit="return validarEjercicio();" enctype="multipart/form-data">
             <h2 style="color:#efef26;">Datos del equipo</h2>
-            <form id="formInsertar" name="formInsertar" method="post" action="insertarEjercicio.php" onsubmit="return validarEjercicio();" enctype="multipart/form-data">
-
                 <div class="form-floating mb-3 mt-3">
                     <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del ejercicio" name="nombre">
                     <label for="nombre">Nombre del ejercicio</label>
                 </div>
                 <div class="form-floating mt-3 mb-3">
-                    <input type="text" class="form-control" id="descripcion" placeholder="Ingrese la descripcion del ejercicio" name="descripcion">
+                    <textarea class="form-control" id="descripcion" placeholder="Ingrese la descripcion del ejercicio" style="height:100px;" name="descripcion"></textarea>
                     <label for="descripcion">Descripción del ejercicio</label>
                 </div>
                 <div>
