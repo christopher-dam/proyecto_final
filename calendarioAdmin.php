@@ -2,6 +2,19 @@
 session_start();
 include("db_connect.php");
 
+//Conectamos con la BD
+$link = conectar();
+$query = "SELECT * FROM equipo";
+$equipos = [];
+
+//Ejecutar consulta
+$result = mysqli_query($link, $query);
+
+while ($fila = mysqli_fetch_array($result)) {
+  $equipos[$fila['id']] = $fila['nombre'];
+}
+mysqli_close($link);
+
 ?>
 <!-- Sydebar para navegar por la aplicación -->
 
@@ -10,7 +23,7 @@ include("db_connect.php");
 
 <head>
   <title>Calendar Demo</title>
-  <link rel="stylesheet" href="css/calendarJugador.css">
+  <link rel="stylesheet" href="css/calendar.css">
 
   <!-- hoja de estilos -->
   <link type="text/css" href="css/estilo.css" rel="stylesheet" />
@@ -24,36 +37,50 @@ include("db_connect.php");
   <!-- Boxicons CDN Link -->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
-  <style>
-    input:read-only:hover {
-      background-color: grey;
-    }
-    textarea:read-only:hover {
-      background-color: grey;
-    }
-	</style>
-
 </head>
 
 <body>
 
   <div class="sidebar">
+    <div class="logo-details">
       <div class="logo_name">JustVoley</div>
       <i class='bx bx-menu' id="btn"></i>
-    <ul class="nav-list" style="padding-left:32px">
+    </div>
+    <ul class="nav-list">
       <li>
-        <a href="inicioJugador.php">
-          <i class='bx bx-home'></i>
-          <span class="links_name">Inicio</span>
+        <a href="entrenador.php">
+          <i class='bx bx-group'></i>
+          <span class="links_name">Entrenadores</span>
         </a>
-        <span class="tooltip">Inicio</span>
+        <span class="tooltip">Entrenadores</span>
       </li>
       <li>
-        <a href="calendarioJugador.php">
+        <a href="jugador.php">
+          <i class='bx bx-user'></i>
+          <span class="links_name">Jugadores</span>
+        </a>
+        <span class="tooltip">Jugadores</span>
+      </li>
+      <li>
+        <a href="calendarioAdmin.php">
           <i class='bx bx-calendar'></i>
           <span class="links_name">Calendario</span>
         </a>
         <span class="tooltip">Calendario</span>
+      </li>
+      <li>
+        <a href="equipo.php">
+          <i class='bx bx-shield'></i>
+          <span class="links_name">Equipos</span>
+        </a>
+        <span class="tooltip">Equipos</span>
+      </li>
+      <li>
+        <a href="ejercicio.php">
+          <i class='bx bx-basketball'></i>
+          <span class="links_name">Ejercicios</span>
+        </a>
+        <span class="tooltip">Ejercicios</span>
       </li>
       <li>
         <a href="salir.php">
@@ -63,10 +90,6 @@ include("db_connect.php");
         <span class="tooltip">Cerrar sesión</span>
     </ul>
   </div>
-
-
-
-
   <!-- (A) PERIOD SELECTOR -->
   <div id="calPeriod"><?php
                       // (A1) MONTH SELECTOR
@@ -104,30 +127,52 @@ include("db_connect.php");
         <div class="row">
           <div class="col">
             <label for="start"><b>Fecha de inicio</b></label>
-            <input type="datetime-local" class="form-control" id="evtstart" name="start" readonly />
+            <input type="datetime-local" class="form-control" id="evtstart" name="start" required />
           </div>
           <div class="col">
             <label for="start"><b>Fecha finalización</b></label>
-            <input type="datetime-local" class="form-control" id="evtend" name="end" readonly />
+            <input type="datetime-local" class="form-control" id="evtend" name="end" required />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="equipo"><b>Equipo</b></label>
+            <select id="equipo" class="custom-select" name="id_equipo">
+              <?php
+              foreach ($equipos as $id_equipo => $nombre_equipo) {
+                printf(
+                  "<option value='%s'>%s</option>",
+                  $id_equipo,
+                  $nombre_equipo
+                );
+              }
+              ?>
+            </select>
+          </div>
+          <div class="col">
+            <label for="txt"><b>Nombre</b></label>
+            <input type="text" id="evttxt" class="form-control" name="txt"></input>
           </div>
         </div>
         <div>
-          <label for="txt"><b>Nombre</b></label>
-          <input type="text" id="evttxt" class="form-control" name="txt" readonly></input>
+          <label for="detalles"><b>Detalles</b></label>
+          <textarea id="detalles" class="form-control" name="detalles"></textarea>
         </div>
         <div>
-          <label for="detalles"><b>Detalles</b></label>
-          <textarea id="detalles" class="form-control" name="detalles" readonly></textarea>
+          <label for="color"><b>Color</b></label>
+          <input type="color" id="evtcolor" class="form-control" name="color" value="#E1E401" />
         </div>
         <div style="margin-top: 10px;">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3198.086719410939!2d-4.445595084357511!3d36.72047847988219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd72f774b1af9277%3A0x8e1077312e73a165!2sColegio%20Concertado%20San%20Jos%C3%A9!5e0!3m2!1ses!2ses!4v1652616421588!5m2!1ses!2ses" width="100%" height="315" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3198.086719410939!2d-4.445595084357511!3d36.72047847988219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd72f774b1af9277%3A0x8e1077312e73a165!2sColegio%20Concertado%20San%20Jos%C3%A9!5e0!3m2!1ses!2ses!4v1652616421588!5m2!1ses!2ses" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
+        <input type="submit" id="calformsave" value="Guardar" />
+        <input type="button" id="calformdel" value="Borrar" />
         <input type="button" id="calformcx" value="Cancelar" />
       </form>
     </div>
   </div>
 
-  <script src="calendarJugador.js"></script>
+  <script src="calendarAdmin.js"></script>
   <script src="js/sydebar.js"></script>
 
 </body>

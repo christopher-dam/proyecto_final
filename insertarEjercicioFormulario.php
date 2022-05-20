@@ -54,6 +54,13 @@ include("db_connect.php");
                 <span class="tooltip">Jugadores</span>
             </li>
             <li>
+                <a href="calendarioAdmin.php">
+                    <i class='bx bx-calendar'></i>
+                    <span class="links_name">Calendario</span>
+                </a>
+                <span class="tooltip">Calendario</span>
+            </li>
+            <li>
                 <a href="equipo.php">
                     <i class='bx bx-shield'></i>
                     <span class="links_name">Equipos</span>
@@ -79,9 +86,9 @@ include("db_connect.php");
     <!-- Formulario con propiedades flotantes -->
 
     <div class="container">
-    <div style="justify-content: center; align-items:center; min-height:100vh; display:flex;">
+        <div style="justify-content: center; align-items:center; min-height:100vh; display:flex;">
             <form id="formInsertar" style="padding:10px 20px; background-color: rgb(0,0,0,0.5) !important; border-radius: 25px;" name="formInsertar" method="post" action="insertarEjercicio.php" onsubmit="return validarEjercicio();" enctype="multipart/form-data">
-            <h2 style="color:#efef26;">Datos del equipo</h2>
+                <h2 style="color:#efef26;">Datos del equipo</h2>
                 <div class="form-floating mb-3 mt-3">
                     <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del ejercicio" name="nombre">
                     <label for="nombre">Nombre del ejercicio</label>

@@ -1,73 +1,73 @@
 /*utilizado cuando vamos a borrar un equipo*/
 function confirmarEquipo(id) {
 
-	Swal.fire({  
-		title: '¿Esta seguro de eliminar este equipo?',  
+	Swal.fire({
+		title: '¿Esta seguro de eliminar este equipo?',
 		showDenyButton: true,
 		confirmButtonText: 'Confirmar',
 		denyButtonText: 'Cancelar',
-	  }).then((result) => {  
-		  if (result.isConfirmed) {
+	}).then((result) => {
+		if (result.isConfirmed) {
 			window.location.href = "borrarEquipo.php?id=" + id;
-		  } else if (result.isDenied) {
+		} else if (result.isDenied) {
 			return false
-		   }
-	  });
-		
+		}
+	});
+
 }
 
 /*utilizado cuando vamos a borrar un entrenador*/
 function confirmarEntrenador(id) {
 
-	Swal.fire({  
-		title: '¿Esta seguro de eliminar este entrenador?',  
+	Swal.fire({
+		title: '¿Esta seguro de eliminar este entrenador?',
 		showDenyButton: true,
 		confirmButtonText: 'Confirmar',
 		denyButtonText: 'Cancelar',
-	  }).then((result) => {  
-		  if (result.isConfirmed) {
+	}).then((result) => {
+		if (result.isConfirmed) {
 			window.location.href = "borrarEntrenador.php?id_entrenador=" + id;
-		  } else if (result.isDenied) {
+		} else if (result.isDenied) {
 			return false
-		   }
-	  });
-		
+		}
+	});
+
 }
 
 /*utilizado cuando vamos a borrar un jugador*/
 function confirmarJugador(id) {
 
-	Swal.fire({  
-		title: '¿Esta seguro de eliminar este jugador?',  
+	Swal.fire({
+		title: '¿Esta seguro de eliminar este jugador?',
 		showDenyButton: true,
 		confirmButtonText: 'Confirmar',
 		denyButtonText: 'Cancelar',
-	  }).then((result) => {  
-		  if (result.isConfirmed) {
+	}).then((result) => {
+		if (result.isConfirmed) {
 			window.location.href = "borrarJugador.php?id_jugador=" + id;
-		  } else if (result.isDenied) {
+		} else if (result.isDenied) {
 			return false
-		   }
-	  });
-		
+		}
+	});
+
 }
 
 /*utilizado cuando vamos a borrar un ejercicio*/
 function confirmarEjercicio(id) {
 
-	Swal.fire({  
-		title: '¿Esta seguro de eliminar este ejercicio?',  
+	Swal.fire({
+		title: '¿Esta seguro de eliminar este ejercicio?',
 		showDenyButton: true,
 		confirmButtonText: 'Confirmar',
 		denyButtonText: 'Cancelar',
-	  }).then((result) => {  
-		  if (result.isConfirmed) {
+	}).then((result) => {
+		if (result.isConfirmed) {
 			window.location.href = "borrarEjercicio.php?id=" + id;
-		  } else if (result.isDenied) {
+		} else if (result.isDenied) {
 			return false
-		   }
-	  });
-		
+		}
+	});
+
 }
 
 /*usado para asegurar que los datos de los formularios son correctos*/
@@ -79,7 +79,7 @@ function validarRegistro() {
 	var email = document.getElementById("email").value;
 	var ok = true;
 
-	if (nombre.length==0) {
+	if (nombre.length == 0) {
 		Swal.fire({
 			title: 'Error',
 			text: 'El nombre no puede estar vacío',
@@ -89,7 +89,7 @@ function validarRegistro() {
 		ok = false;
 	}
 
-	if (apellidos.length==0) {
+	if (apellidos.length == 0) {
 		Swal.fire({
 			title: 'Error',
 			text: 'Los apellidos no pueden estar vacíos',
@@ -139,7 +139,7 @@ function validarEquipo() {
 	var email = document.getElementById("email").value;
 	var ok = true;
 
-	if (nombre.length==0) {
+	if (nombre.length == 0) {
 		Swal.fire({
 			title: 'Error',
 			text: 'El nombre no puede estar vacío',
@@ -149,7 +149,7 @@ function validarEquipo() {
 		ok = false;
 	}
 
-	if (sede.length==0) {
+	if (sede.length == 0) {
 		Swal.fire({
 			title: 'Error',
 			text: 'La sede no puede estar vacía',
@@ -177,7 +177,7 @@ function validarEjercicio() {
 	var nombre = document.getElementById("nombre").value;
 	var ok = true;
 
-	if (nombre.length==0) {
+	if (nombre.length == 0) {
 		Swal.fire({
 			title: 'Error',
 			text: 'El nombre no puede estar vacío',
@@ -206,7 +206,7 @@ function validarperfil() {
 		})
 		ok = false;
 	}
-	if(password != passwordConfirm) {
+	if (password != passwordConfirm) {
 		Swal.fire({
 			title: 'Error',
 			text: 'La contraseña de confirmación es distinta',
@@ -219,11 +219,11 @@ function validarperfil() {
 }
 
 function GoBackWithRefresh(event) {
-    if ('referrer' in document) {
-        window.location = document.referrer;
-        /* OR */
-        //location.replace(document.referrer);
-    } else {
-        window.history.back();
-    }
+	if ('referrer' in document) {
+		window.location = document.referrer;
+		/* OR */
+		//location.replace(document.referrer);
+	} else {
+		window.history.back();
+	}
 }

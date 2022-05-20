@@ -59,6 +59,13 @@ include("db_connect.php");
                 <span class="tooltip">Jugadores</span>
             </li>
             <li>
+                <a href="calendarioAdmin.php">
+                    <i class='bx bx-calendar'></i>
+                    <span class="links_name">Calendario</span>
+                </a>
+                <span class="tooltip">Calendario</span>
+            </li>
+            <li>
                 <a href="equipo.php">
                     <i class='bx bx-shield'></i>
                     <span class="links_name">Equipos</span>
@@ -99,7 +106,7 @@ include("db_connect.php");
                         <div class="card">
                             <img class="card-img-top" src=img/' . utf8_encode($fila['foto']) . '>
                             <div class="card-body">
-                                <h5 class="card-title">' .$fila['nombre'] . '</h5>
+                                <h5 class="card-title">' . $fila['nombre'] . '</h5>
                                 <p class="card-text">' . $fila['descripcion'] . '</p>
                                 <a style="cursor: pointer;" onclick="return confirmarEjercicio(' . $fila["id"] . ')">
                                 <img src="img/delete.png" width="20"></a>

@@ -3,17 +3,6 @@
 
 /* layout */
 
-#content {
-   width: 50%;
-   margin: auto;
-   background-color: #fff;
-   border-radius: 25px;
-   box-shadow: 10px -10px 5px rgba(0, 0, 0, 0.3);
-   -moz-box-shadow: 10px -10px 5px rgba(0, 0, 0, 0.3);
-   -webkit-box-shadow: 10px -10px 5px rgba(0, 0, 0, 0.3);
-   -o-box-shadow: 10px -10px 5px rgba(0, 0, 0, 0.3);
-}
-
 body {
    background-image: url(../img/fondo_mixto.jpg)
 }
@@ -24,7 +13,6 @@ h2 {
    color: #000;
    font-family: "Arial", sans-serif;
    text-align: center;
-
 }
 
  /* tabla */

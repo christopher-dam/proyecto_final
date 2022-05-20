@@ -55,6 +55,13 @@ include("db_connect.php");
                 <span class="tooltip">Jugadores</span>
             </li>
             <li>
+                <a href="calendarioAdmin.php">
+                    <i class='bx bx-calendar'></i>
+                    <span class="links_name">Calendario</span>
+                </a>
+                <span class="tooltip">Calendario</span>
+            </li>
+            <li>
                 <a href="equipo.php">
                     <i class='bx bx-shield'></i>
                     <span class="links_name">Equipos</span>
@@ -96,10 +103,10 @@ include("db_connect.php");
     <!-- Formulario con propiedades flotantes -->
 
     <div class="container">
-    <div style="justify-content: center; align-items:center; min-height:100vh; display:flex;">
+        <div style="justify-content: center; align-items:center; min-height:100vh; display:flex;">
             <form style="padding:10px 20px; background-color: rgb(0,0,0,0.5) !important; border-radius: 25px;" id="formEditar" name="formEditar" method="post" action="editarEntrenador.php" onsubmit="return validarRegistro()" enctype="multipart/form-data">
-            <h2 style="color:#efef26;">Datos del Entrenador</h2>    
-            <div class="row">
+                <h2 style="color:#efef26;">Datos del Entrenador</h2>
+                <div class="row">
                     <div class="col">
                         <div class="form-floating mb-3 mt-3">
                             <input type="text" class="form-control" placeholder="a" name="nombre" id="nombre" value="<?php echo utf8_encode($fila["nombre"]); ?>" />

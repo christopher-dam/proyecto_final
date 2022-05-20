@@ -1,5 +1,7 @@
 /* (A) FONT */
-html, body { font-family: arial, sans-serif; }
+html, body {
+  font-family: arial, sans-serif;
+}
 
 /* (B) PERIOD SELECTOR */
 #calPeriod input, #calPeriod select {
@@ -8,49 +10,97 @@ html, body { font-family: arial, sans-serif; }
   border: 0;
   outline: none;
   cursor: pointer;
+  margin-top: 10px;
 }
-#calmonth { width: 180px; }
-#calyear { width: 100px; text-align: center; }
+
+#calPeriod {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#calmonth {
+  width: 180px;
+  background-color: #cdcdcd;
+  font-weight: bold;
+  border-top: 2px solid white !important;
+  border-bottom: 2px solid white !important;
+  border-left: 2px solid white !important;
+}
+
+#calyear {
+  width: 100px;
+  text-align: center;
+  background-color: #cdcdcd;
+  font-weight: bold;
+  border-top: 2px solid black !important;
+  border-bottom: 2px solid black !important;
+  border-right: 2px solid black !important;
+}
 
 /* (C) CALENDAR */
 #calwrap {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 15px 0px 15px;
+  width: 80%;
+  margin: auto;
 }
+
 .calsq {
   box-sizing: border-box;
   width: 14.28%;
   padding: 5px;
 }
+
 .calsq.head {
   color: #ffff00;
   background: black;
   font-weight: bold;
   text-align: center;
 }
+
 .calsq.blank, .calsq.day {
   height: 120px;
   overflow-y: auto;
   border: 1px solid #eee;
   background-color: rgb(205, 205, 205, 0.8);
 }
-.calsq.blank { background: transparent; border: none; }
-.calsq.today { background: #fbffde; }
+
+.calsq.blank {
+  background: transparent;
+  border: none;
+}
+
+.calsq.today {
+  background: #fbffde;
+}
+
 /* .calsq.day { background: #cdcdcd; } */
-.calnum { color: #888; }
+.calnum {
+  color: #888;
+}
+
 .calevt {
-  height: 20px;
-  font-size: 0.8em;
+  height: 24px;
+  font-size: 16px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  cursor: pointer;
 }
-.calninja { display: none; }
+
+.calninja {
+  display: none;
+}
 
 /* (D) EVENT FORM */
 #calblock {
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   z-index: 998;
   width: 100vw;
   height: 100vh;
@@ -59,29 +109,31 @@ html, body { font-family: arial, sans-serif; }
   opacity: 0;
   visibility: hidden;
 }
+
 #calblock.show {
   opacity: 1;
   visibility: visible;
 }
+
 #calform {
   padding: 10px;
   width: 50%;
   margin: auto;
   border-radius: 25px;
-  box-shadow: 10px -10px 5px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 10px -10px 5px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 10px -10px 5px rgba(0, 0, 0, 0.3);
-  -o-box-shadow: 10px -10px 5px rgba(0, 0, 0, 0.3);
 }
 
-#calform label, #calform input, #calform textarea {
+#calform input {
   display: block;
   box-sizing: border-box;
   width: 100%;
   padding: 5px;
   resize: none;
 }
-#calform label { margin-top: 10px; }
+
+#calform label {
+  margin-top: 10px;
+}
+
 #calformsave, #calformdel, #calformcx {
   border: 0;
   color: #fff;
@@ -89,35 +141,11 @@ html, body { font-family: arial, sans-serif; }
   padding: 10px 0 !important;
   margin-top: 10px;
 }
-#calformsave { background: #5250da; }
-#calformdel, #calformcx { background: #a22a2a; }
 
+#calformsave {
+  background: #5250da;
+}
 
-/*COSAS NUESTRAS*/
-#calPeriod{
-  display: flex;
-  align-items: center !important;
-  justify-content: center !important;
-}
-#calmonth{
-  background-color: #cdcdcd;
-  font-weight: bold;
-  border-top: 2px solid white !important;
-  border-bottom: 2px solid white !important;
-  border-left: 2px solid white !important;
-}
-#calyear{
-  background-color: #cdcdcd;
-  font-weight: bold;
-  border-top: 2px solid black !important;
-  border-bottom: 2px solid black !important;
-  border-right: 2px solid black !important;
-}
-#calwrap{
-  display: flex;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 15px 15px 0px 15px;
-  width: 80%;
-  margin: auto !important;
+#calformdel, #calformcx {
+  background: #a22a2a;
 }
