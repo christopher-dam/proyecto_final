@@ -105,7 +105,7 @@ include("db_connect.php");
   <div class="container">
     <div style="justify-content: center; align-items:center; min-height:100vh; display:flex;">
       <form method="post" action="ajaxmensaje.php" enctype="multipart/form-data" style="padding:10px 20px; background-color: rgb(0,0,0,0.5) !important; border-radius: 25px;">
-        <h2 style="color:#efef26;">Datos del entrenador</h2>
+        <h2 style="color:#efef26;">Convocatorias</h2>
         <div class="form-group">
           <label style="font-size:18px; color:#efef26" class="my-1 mr-2" for="equipos">Equipo al que va dirigido</label>
           <select class="custom-select" id="equipo" name="id_equipo">
@@ -125,7 +125,7 @@ include("db_connect.php");
           <label for="dni">Ingrese el título</label>
         </div>
         <div class="form-check" id="jugadores" style="color: white;"></div>
-        <button style="margin-top:10px; margin-bottom:10px;" type="submit" class="btn btn-primary">Guardar</button>
+        <button style="margin-top:10px; margin-bottom:10px;" type="submit" class="btn btn-primary">Enviar</button>
       </form>
     </div>
 
