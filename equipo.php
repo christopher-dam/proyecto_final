@@ -9,7 +9,7 @@ include("db_connect.php");
 
 <head>
     <meta charset="UTF-8">
-    <title>Aplicación Gestión Dual</title>
+    <title>JustApp</title>
 
     <!--hoja de estilos -->
     <link type="text/css" href="css/estilo.css" rel="stylesheet" />
@@ -162,32 +162,16 @@ include("db_connect.php");
                     <?php
                     if (isset($_SESSION["exito"])) {
                         echo '<script language="javascript">
-                        const Toast = Swal.mixin({
-                            toast: true,
-                            position: "top-end",
-                            showConfirmButton: false,
-                            timer: 3000,
-                            timerProgressBar: true,
-                          })
-                          
-                          Toast.fire({
+                          Swal.fire({
                             icon: "success",
                             title: "' . $_SESSION["exito"] . '"
                           })
                         </script>';
                         unset($_SESSION["exito"]);
                     }
-                    if (isset($_SESSION["error"])) {
+                    if (!empty($_SESSION["error"])) {
                         echo '<script language="javascript">
-                        const Toast = Swal.mixin({
-                            toast: true,
-                            position: "top-end",
-                            showConfirmButton: false,
-                            timer: 3000,
-                            timerProgressBar: true,
-                          })
-                          
-                          Toast.fire({
+                          Swal.fire({
                             icon: "error",
                             title: "' . $_SESSION["error"] . '"
                           })

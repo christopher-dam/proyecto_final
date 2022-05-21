@@ -9,7 +9,7 @@ include("db_connect.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aplicación Gestión Dual</title>
+    <title>JustApp</title>
 
     <!-- hoja de estilos -->
     <link type="text/css" href="css/estilo.css" rel="stylesheet" />
@@ -153,19 +153,6 @@ include("db_connect.php");
                             </select>
                         </div>
                     </div>
-                    <div class="col">
-                        <div>
-                            <label style="font-size:18px; color:#efef26" class="my-1 mr-2" for="entrenador">Entrenador</label>
-                            <select class="custom-select" name="entrenador" id="entrenador">
-                                <?php
-                                while ($nombreEntrenador = mysqli_fetch_array($resultEntrenador)) {
-                                    echo '
-                        <option value="' . utf8_encode($nombreEntrenador['nombre']) . '">' . utf8_encode($nombreEntrenador['nombre']) . '</option>';
-                                }
-                                ?>
-                            </select>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="form-floating mt-3 mb-3">
@@ -173,7 +160,7 @@ include("db_connect.php");
                     <label for="password">Contraseña del jugador</label>
                 </div>
                 <button style="margin-bottom:20px;" type="submit" class="btn btn-primary">Guardar</button>
-                <button onclick="history.go(-1);" style="margin-bottom:20px;" type="volver" class="btn btn-danger float-right">Cancelar</button>
+                <button onclick="window.location.href= '/'+window.location.pathname.split('/')[1]+'/jugador.php';" style="margin-bottom:20px;" type="button" class="btn btn-danger float-right">Cancelar</button>
             </form>
         </div>
     </div>

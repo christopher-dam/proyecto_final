@@ -9,7 +9,7 @@ include("db_connect.php");
 <html>
 
 <head>
-  <title>Calendar Demo</title>
+  <title>JustApp</title>
   <link rel="stylesheet" href="css/calendarJugador.css">
 
   <!-- hoja de estilos -->

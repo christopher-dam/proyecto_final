@@ -9,7 +9,7 @@ include("db_connect.php");
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aplicación Gestión Dual</title>
+  <title>JustApp</title>
 
   <!-- hoja de estilos -->
   <link type="text/css" href="css/estilo.css" rel="stylesheet" />

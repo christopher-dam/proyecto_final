@@ -22,7 +22,7 @@ mysqli_close($link);
 <html>
 
 <head>
-  <title>Calendar Demo</title>
+  <title>JustApp</title>
   <link rel="stylesheet" href="css/calendar.css">
 
   <!-- hoja de estilos -->

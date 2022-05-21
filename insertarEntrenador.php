@@ -15,7 +15,7 @@ $nombreEquipo = mysqli_fetch_array($resultEquipo);
 //Insertamos dentro de la tabla entrenador
 
 $query = "INSERT INTO entrenador
-            (nombre,apellidos,dni,telefono,email,titulacion,password, id_equipo)
+            (nombre,apellidos,dni,telefono,email,titulacion,`password`)
             VALUES (
                     '" . utf8_decode($_POST["nombre"]) . "',
                     '". utf8_decode($_POST["apellidos"]) . "',
@@ -23,8 +23,7 @@ $query = "INSERT INTO entrenador
                     " . utf8_decode($_POST["telefono"]) . ",
                     '" . utf8_decode($_POST["email"]) . "',
                     " . utf8_decode($_POST["titulacion"]) . ",
-                    '" .$hash = hash("sha512", $pass) . "',
-                    " . utf8_decode($nombreEquipo["id"]) . ");";
+                    '" .$hash = hash("sha512", $pass) . "');";
 
 echo $query;
 

@@ -128,7 +128,7 @@ include("db_connect.php");
                 <th>Lesiones</th>
               </tr>
             </thead>
-            <tbody style='background-color:white'>
+            <tbody id='jugadores' style='background-color:white'>
 
             </tbody>
           </table>
@@ -146,7 +146,7 @@ include("db_connect.php");
 
   <!-- datatables JS -->
   <script type="text/javascript" src="datatables/datatables.min.js"></script>
-  <script type="text/javascript" src="js/main.js"></script>
+  <script type="text/javascript" src="js/mainEntrenador.js"></script>
 
   <!-- Font Awesome JS -->
   <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
@@ -155,31 +155,7 @@ include("db_connect.php");
   <script type="text/javascript" src="js/validaciones.js"></script>
   <script src="js/sydebar.js"></script>
   <script>
-    let equipo = document.getElementById("equipo");
-    let jugadores = $("#jugadores");
-    equipo.onchange = function(e) {
-      let id_equipo = e.target.value
-      $.ajax({
-        type: "POST",
-        url: "ajaxAdministrarJugador.php",
-        data: {
-          id_equipo: id_equipo
-        },
-        success: function(response) {
-          jugadores.html(response)
-        }
-      });
-    }
-    $.ajax({
-      type: "POST",
-      url: "ajaxAdministrarJugador.php",
-      data: {
-        id_equipo: equipo.value
-      },
-      success: function(response) {
-        jugadores.html(response)
-      }
-    });
+   
   </script>
 
 </body>
