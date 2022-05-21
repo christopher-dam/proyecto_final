@@ -157,7 +157,7 @@ mysqli_close($link);
         </div>
         <div>
           <label for="detalles"><b>Detalles</b></label>
-          <textarea id="detalles" class="form-control" name="detalles"></textarea>
+          <textarea style="height: 100px;" id="detalles" class="form-control" name="detalles"></textarea>
         </div>
         <div>
           <label for="color"><b>Color</b></label>

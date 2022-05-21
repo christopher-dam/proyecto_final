@@ -55,12 +55,25 @@ include("db_connect.php");
         <span class="tooltip">Jugadores</span>
       </li>
       <li>
-      <li>
         <a href="calendarioEntrenador.php">
           <i class='bx bx-calendar'></i>
           <span class="links_name">Eventos</span>
         </a>
         <span class="tooltip">Eventos</span>
+      </li>
+      <li>
+        <a href="convocatoria.php">
+          <i class='bx bx-list-check'></i>
+          <span class="links_name">Convocatorias</span>
+        </a>
+        <span class="tooltip">Convocatorias</span>
+      </li>
+      <li>
+        <a href="ejercicioEntrenador.php">
+          <i class='bx bx-basketball'></i>
+          <span class="links_name">Ejercicios</span>
+        </a>
+        <span class="tooltip">Ejercicios</span>
       </li>
       <li>
         <a href="salir.php">
@@ -91,21 +104,21 @@ include("db_connect.php");
   <!-- Formulario con propiedades flotantes -->
 
   <div class="container">
-  <div style="justify-content: center; align-items:center; min-height:100vh; display:flex;">
-      <form style="padding:10px 20px; background-color: rgb(0,0,0,0.5) !important; border-radius: 25px;" id="formEditar" name="formEditar" method="post" action="editarJugadorEntrenador.php" onsubmit="return validarRegistro()" enctype="multipart/form-data">
-      <h2 style="font-size: 40px; color:#ffff00;">Datos del jugador</h2>  
-      <div class="form-floating mb-3 mt-3">
-          <textarea type="text" class="form-control" placeholder="a" name="observaciones" id="observaciones"><?php echo $fila["observaciones"]; ?></textarea>
+    <div style="justify-content: center; align-items:center; min-height:100vh; display:flex;">
+      <form style="padding:10px 20px; background-color: rgb(0,0,0,0.5) !important; border-radius: 25px; width: 50%;" id="formEditar" name="formEditar" method="post" action="editarJugadorEntrenador.php" onsubmit="return validarRegistro()" enctype="multipart/form-data">
+        <h2 style="font-size: 40px; color:#ffff00;">Datos del jugador</h2>
+        <div class="form-floating mb-3 mt-3">
+          <textarea type="text" class="form-control" style="height: 100px;" placeholder="a" name="observaciones" id="observaciones"><?php echo $fila["observaciones"]; ?></textarea>
           <label for="observaciones">Observaciones</label>
         </div>
         <div class="form-floating mb-3 mt-3">
-          <textarea type="text" class="form-control" placeholder="a" name="lesiones" id="lesiones"><?php echo $fila["lesiones"]; ?></textarea>
+          <textarea type="text" class="form-control" style="height: 100px;" placeholder="a" name="lesiones" id="lesiones"><?php echo $fila["lesiones"]; ?></textarea>
           <label for="lesiones">Lesiones</label>
         </div>
+        <input type="hidden" name="id" id="id" value="<?php echo utf8_encode($fila["id"]); ?>">
+        <button style="margin-bottom:10px;" type="submit" class="btn btn-primary">Editar</button>
+      </form>
     </div>
-    <input type="hidden" name="id" id="id" value="<?php echo utf8_encode($fila["id"]); ?>">
-    <button style="margin-bottom:10px;" type="submit" class="btn btn-primary">Editar</button>
-  </div>
   </div>
 
   <!-- Bootstrap JS, Popper.js -->

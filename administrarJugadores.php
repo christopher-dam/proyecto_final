@@ -24,8 +24,10 @@ include("db_connect.php");
   <script src="sweetalert2.min.js"></script>
   <link rel="stylesheet" href="sweetalert2.min.css">
 
-  <!--estilos de boostrap necesario para que funcione la tabla -->
+ <!-- Bootstrap de CSS -->
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <!-- Boxicons CDN Link -->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -108,7 +110,7 @@ include("db_connect.php");
       <div class="col-lg-12">
         <div class="table-responsive">
           <h2 style="margin-top: 30px;"><b>Jugadores</b></h2>
-          <select id="equipo" name="id_equipo">
+          <select id="equipo" style="width: 18%; margin-bottom: 10px;" class="custom-select" name="id_equipo">
             <?php
             foreach ($equipos as $id_equipo => $nombre_equipo) {
               printf(
@@ -146,7 +148,7 @@ include("db_connect.php");
 
   <!-- datatables JS -->
   <script type="text/javascript" src="datatables/datatables.min.js"></script>
-  <script type="text/javascript" src="js/mainEntrenador.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
 
   <!-- Font Awesome JS -->
   <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
@@ -155,7 +157,31 @@ include("db_connect.php");
   <script type="text/javascript" src="js/validaciones.js"></script>
   <script src="js/sydebar.js"></script>
   <script>
-   
+   let equipo = document.getElementById("equipo");
+    let jugadores = $("#jugadores");
+    equipo.onchange = function(e) {
+      let id_equipo = e.target.value
+      $.ajax({
+        type: "POST",
+        url: "ajaxAdministrarJugador.php",
+        data: {
+          id_equipo: id_equipo
+        },
+        success: function(response) {
+          jugadores.html(response)
+        }
+      });
+    }
+    $.ajax({
+      type: "POST",
+      url: "ajaxAdministrarJugador.php",
+      data: {
+        id_equipo: equipo.value
+      },
+      success: function(response) {
+        jugadores.html(response)
+      }
+    });    
   </script>
 
 </body>
