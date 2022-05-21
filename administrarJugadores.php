@@ -129,40 +129,7 @@ include("db_connect.php");
               </tr>
             </thead>
             <tbody style='background-color:white'>
-              <script>
-                let equipo = document.getElementById("equipo");
-                let jugadores = $("#jugadores");
-                equipo.onchange = function(e) {
-                  let id_equipo = e.target.value
-                  $.ajax({
-                    type: "POST",
-                    url: "ajaxAdministrarJugador.php",
-                    data: {
-                      id_equipo: id_equipo
-                    },
-                    success: function(response) {
-                      jugadores.html(response)
-                    }
-                  });
-                }
-                $.ajax({
-                  type: "POST",
-                  url: "ajaxAdministrarJugador.php",
-                  data: {
-                    id_equipo: equipo.value
-                  },
-                  success: function(response) {
-                    jugadores.html(response)
-                  }
-                });
-                <?php
-                if (!empty($_GET["resultado"])) :
-                ?>
-                  Swal.fire("¡Exito!", "La convocatoria se ha creado correctamente", "success")
-                <?php
-                endif;
-                ?>
-              </script>
+
             </tbody>
           </table>
         </div>
@@ -187,6 +154,33 @@ include("db_connect.php");
 
   <script type="text/javascript" src="js/validaciones.js"></script>
   <script src="js/sydebar.js"></script>
+  <script>
+    let equipo = document.getElementById("equipo");
+    let jugadores = $("#jugadores");
+    equipo.onchange = function(e) {
+      let id_equipo = e.target.value
+      $.ajax({
+        type: "POST",
+        url: "ajaxAdministrarJugador.php",
+        data: {
+          id_equipo: id_equipo
+        },
+        success: function(response) {
+          jugadores.html(response)
+        }
+      });
+    }
+    $.ajax({
+      type: "POST",
+      url: "ajaxAdministrarJugador.php",
+      data: {
+        id_equipo: equipo.value
+      },
+      success: function(response) {
+        jugadores.html(response)
+      }
+    });
+  </script>
 
 </body>
 
