@@ -28,18 +28,21 @@ include("db_connect.php");
     input:read-only:hover {
       background-color: grey;
     }
+
     textarea:read-only:hover {
       background-color: grey;
     }
-	</style>
+  </style>
 
 </head>
 
 <body>
 
   <div class="sidebar">
+    <div class="logo-details">
       <div class="logo_name">JustVoley</div>
       <i class='bx bx-menu' id="btn"></i>
+    </div>
     <ul class="nav-list" style="padding-left:32px">
       <li>
         <a href="inicioJugador.php">

@@ -98,52 +98,38 @@ include("db_connect.php");
     $equipos[$fila['id']] = $fila['nombre'];
   }
   mysqli_close($link);
-
-  //Ejecutar consulta
-
   ?>
 
   <!-- Formulario con propiedades flotantes -->
 
-    <div class="container">
-      <div style="justify-content: center; align-items:center; min-height:100vh; display:flex;">
-        <form method="post" action="ajaxmensaje.php" enctype="multipart/form-data" style="padding:10px 20px; background-color: rgb(0,0,0,0.5) !important; border-radius: 25px;">
+  <div class="container">
+    <div style="justify-content: center; align-items:center; min-height:100vh; display:flex;">
+      <form method="post" action="ajaxmensaje.php" enctype="multipart/form-data" style="padding:10px 20px; background-color: rgb(0,0,0,0.5) !important; border-radius: 25px;">
         <h2 style="color:#efef26;">Datos del entrenador</h2>
-          <div class="form-group">
-            <label style="font-size:18px; color:#efef26" class="my-1 mr-2" for="equipos">Equipo al que va dirigido</label>
-            <select class="custom-select" id="equipo" name="id_equipo">
-              <?php
-              foreach ($equipos as $id_equipo => $nombre_equipo) {
-                printf(
-                  "<option value='%s'>%s</option>",
-                  $id_equipo,
-                  $nombre_equipo
-                );
-              }
-              ?>
-            </select>
-          </div>
-          <div class="form-floating mt-3 mb-3 form-group">
-            <input type="text" class="form-control" placeholder="Ingrese el título" name="cabecera">
-            <label for="dni">Ingrese el título</label>
-          </div>
-          <div class="form-check" id="jugadores" style="color: white;"></div>
-          <button style="margin-top:10px; margin-bottom:10px;" type="submit" class="btn btn-primary">Guardar</button>
-        </form>
-      </div>
+        <div class="form-group">
+          <label style="font-size:18px; color:#efef26" class="my-1 mr-2" for="equipos">Equipo al que va dirigido</label>
+          <select class="custom-select" id="equipo" name="id_equipo">
+            <?php
+            foreach ($equipos as $id_equipo => $nombre_equipo) {
+              printf(
+                "<option value='%s'>%s</option>",
+                $id_equipo,
+                $nombre_equipo
+              );
+            }
+            ?>
+          </select>
+        </div>
+        <div class="form-floating mt-3 mb-3 form-group">
+          <input type="text" class="form-control" placeholder="Ingrese el título" name="cabecera">
+          <label for="dni">Ingrese el título</label>
+        </div>
+        <div class="form-check" id="jugadores" style="color: white;"></div>
+        <button style="margin-top:10px; margin-bottom:10px;" type="submit" class="btn btn-primary">Guardar</button>
+      </form>
+    </div>
 
 
-    <!-- Bootstrap JS, Popper.js -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-
-    <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
-
-    <script src="js/sydebar.js"></script>
-    <script type="text/javascript" src="js/validaciones.js"></script>
-    <script src="jquery/jquery-3.3.1.min.js"></script>
     <script>
       let equipo = document.getElementById("equipo");
       let jugadores = $("#jugadores");
@@ -179,7 +165,17 @@ include("db_connect.php");
       ?>
     </script>
 
+    <!-- Bootstrap JS, Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+    <script src="js/sydebar.js"></script>
+    <script type="text/javascript" src="js/validaciones.js"></script>
+    <script src="jquery/jquery-3.3.1.min.js"></script>
 </body>
 
 </html>

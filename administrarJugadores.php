@@ -34,21 +34,6 @@ include("db_connect.php");
 
 <body>
 
-  <?php
-  //Conectamos con la BD
-  $link = conectar();
-  $query = "SELECT * FROM equipo WHERE id_entrenador = {$_SESSION['id_entrenador']};";
-  $result = mysqli_query($link, $query);
-  $equipos = [];
-
-  while ($fila = mysqli_fetch_array($result)) {
-    $equipos[$fila['id']] = $fila['nombre'];
-  }
-
-  $queryJugador = "SELECT id, nombre, observaciones, lesiones FROM jugador;";
-  $resultJugador = mysqli_query($link, $queryJugador);
-  ?>
-
   <!-- Sydebar para navegar por la aplicación -->
 
   <div class="sidebar">
@@ -101,6 +86,21 @@ include("db_connect.php");
     </ul>
   </div>
 
+  <?php
+  //Conectamos con la BD
+  $link = conectar();
+  $query = "SELECT * FROM equipo WHERE id_entrenador = {$_SESSION['id_entrenador']};";
+  $equipos = [];
+
+  $result = mysqli_query($link, $query);
+
+  while ($fila = mysqli_fetch_array($result)) {
+    $equipos[$fila['id']] = $fila['nombre'];
+  }
+
+  mysqli_close($link);
+  ?>
+
   <!-- Contenedor del datatable -->
 
   <div class="container">
@@ -119,8 +119,8 @@ include("db_connect.php");
             }
             ?>
           </select>
-          <table id="example" class="table table-striped table-bordered" style="width:100%">
-            <thead style="background-color:white">
+          <table id='example' class='table table-striped table-bordered' style='width:100%'>
+            <thead style='background-color:white'>
               <tr>
                 <th>Editar</th>
                 <th>Nombre</th>
@@ -128,64 +128,43 @@ include("db_connect.php");
                 <th>Lesiones</th>
               </tr>
             </thead>
-            <tbody style="background-color:white">
+            <tbody style='background-color:white'>
               <script>
-                $( "#equipo" ).change(function() {
-                  <?php
-                  while ($filaJugador = mysqli_fetch_array($resultJugador)) {
-                    echo "<tr>
-                  <td><a href='editarJugadorEntrenadorForm.php?id_jugador=" . $filaJugador["id"] . "'>
-                  <img src='img/edit.png' width='20'></a></td>
-                  <td>" . $filaJugador['nombre'] . "</td>
-                  <td>" . $filaJugador['observaciones'] . "</td>
-                  <td>" . utf8_encode($filaJugador['lesiones']) . "</td>
-                  </tr>";
+                let equipo = document.getElementById("equipo");
+                let jugadores = $("#jugadores");
+                equipo.onchange = function(e) {
+                  let id_equipo = e.target.value
+                  $.ajax({
+                    type: "POST",
+                    url: "ajaxAdministrarJugador.php",
+                    data: {
+                      id_equipo: id_equipo
+                    },
+                    success: function(response) {
+                      jugadores.html(response)
+                    }
+                  });
+                }
+                $.ajax({
+                  type: "POST",
+                  url: "ajaxAdministrarJugador.php",
+                  data: {
+                    id_equipo: equipo.value
+                  },
+                  success: function(response) {
+                    jugadores.html(response)
                   }
-
-                  mysqli_close($link);
-                  ?>
                 });
+                <?php
+                if (!empty($_GET["resultado"])) :
+                ?>
+                  Swal.fire("¡Exito!", "La convocatoria se ha creado correctamente", "success")
+                <?php
+                endif;
+                ?>
               </script>
             </tbody>
           </table>
-
-          <?php
-          if (isset($_SESSION["exito"])) {
-            echo '<script language="javascript">
-                        const Toast = Swal.mixin({
-                            toast: true,
-                            position: "top-end",
-                            showConfirmButton: false,
-                            timer: 3000,
-                            timerProgressBar: true,
-                          })
-                          
-                          Toast.fire({
-                            icon: "success",
-                            title: "' . $_SESSION["exito"] . '"
-                          })
-                        </scr>';
-            unset($_SESSION["exito"]);
-          }
-          if (isset($_SESSION["error"])) {
-            echo '<script language="javascript">
-                        const Toast = Swal.mixin({
-                            toast: true,
-                            position: "top-end",
-                            showConfirmButton: false,
-                            timer: 3000,
-                            timerProgressBar: true,
-                          })
-                          
-                          Toast.fire({
-                            icon: "error",
-                            title: "' . $_SESSION["error"] . '"
-                          })
-                        </script>';
-            unset($_SESSION["error"]);
-          }
-          ?>
-
         </div>
       </div>
     </div>
