@@ -58,7 +58,7 @@ class Calendar
     $uStart = strtotime($start);
     $uEnd = strtotime($end);
     if ($uEnd < $uStart) {
-      $this->error = "End date cannot be earlier than start date";
+      $this->error = "La fecha de fin no puede ser antes que la fecha de inicio";
       return false;
     }
 

@@ -113,7 +113,7 @@ include("db_connect.php");
 
     <div class="container">
         <div style="justify-content: center; align-items:center; min-height:100vh; display:flex;">
-            <form id="formEditar" style="padding:10px 20px; background-color: rgb(0,0,0,0.5) !important; border-radius: 25px;" name="formEditar" method="post" action="editarJugador.php" onsubmit="return validarRegistro()" enctype="multipart/form-data">
+            <form id="formEditar" style="padding:10px 20px; width: 50%; background-color: rgb(0,0,0,0.5) !important; border-radius: 25px;" name="formEditar" method="post" action="editarJugador.php" onsubmit="return validarRegistro()" enctype="multipart/form-data">
                 <h2 style="color:#efef26;">Datos del Jugador</h2>
                 <div class="row">
                     <div class="col">

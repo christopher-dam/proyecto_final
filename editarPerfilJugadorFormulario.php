@@ -77,7 +77,7 @@ include("db_connect.php");
 
   <div class="container">
   <div style="justify-content: center; align-items:center; min-height:100vh; display:flex;">
-      <form id="formEditar" style="padding:10px 20px; background-color: rgb(0,0,0,0.5) !important; border-radius: 25px;" name="formEditar" method="post" action="editarPerfilJugador.php" onsubmit="return validarperfil()" enctype="multipart/form-data">
+      <form id="formEditar" style="padding:10px 20px; width: 50%; background-color: rgb(0,0,0,0.5) !important; border-radius: 25px;" name="formEditar" method="post" action="editarPerfilJugador.php" onsubmit="return validarperfil()" enctype="multipart/form-data">
       <h2 style="font-size: 40px; color:#ffff00;">Datos de la cuenta</h2>  
       <div class="form-floating mb-3 mt-3">
           <input type="text" class="form-control" placeholder="Cambia tu email" name="email" id="email" value="<?php echo utf8_encode($fila["email"]); ?>" />

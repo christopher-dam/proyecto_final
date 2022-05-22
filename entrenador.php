@@ -27,8 +27,8 @@ include("db_connect.php");
     <!--estilos de boostrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-     <!-- Boxicons CDN Link -->
-     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
 
@@ -94,7 +94,7 @@ include("db_connect.php");
                 <span class="tooltip">Cerrar sesión</span>
         </ul>
     </div>
-    
+
     <!-- Contenedor del datatable -->
 
     <div class="container">
@@ -146,17 +146,33 @@ include("db_connect.php");
 
                     <?php
                     if (isset($_SESSION["exito"])) {
-                        echo '<script language="javascript">                          
-                          Swal.fire({
+                        echo '<script language="javascript">
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: "top-end",
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                          })
+                          
+                          Toast.fire({
                             icon: "success",
                             title: "' . $_SESSION["exito"] . '"
                           })
                         </script>';
                         unset($_SESSION["exito"]);
                     }
-                    if (!empty($_SESSION["error"])) {
+                    if (isset($_SESSION["error"])) {
                         echo '<script language="javascript">
-                          Swal.fire({
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: "top-end",
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                          })
+                          
+                          Toast.fire({
                             icon: "error",
                             title: "' . $_SESSION["error"] . '"
                           })
@@ -164,7 +180,6 @@ include("db_connect.php");
                         unset($_SESSION["error"]);
                     }
                     ?>
-
                 </div>
             </div>
         </div>

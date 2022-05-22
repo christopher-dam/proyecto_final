@@ -124,7 +124,7 @@
 
 
 <?php
-if (!empty($_SESSION["error"])) {
+if (isset($_SESSION["error"])) {
 	echo '<script language="javascript">
 	const Toast = Swal.mixin({
 		toast: true,

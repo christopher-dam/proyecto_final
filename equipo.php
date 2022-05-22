@@ -162,16 +162,32 @@ include("db_connect.php");
                     <?php
                     if (isset($_SESSION["exito"])) {
                         echo '<script language="javascript">
-                          Swal.fire({
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: "top-end",
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                          })
+                          
+                          Toast.fire({
                             icon: "success",
                             title: "' . $_SESSION["exito"] . '"
                           })
                         </script>';
                         unset($_SESSION["exito"]);
                     }
-                    if (!empty($_SESSION["error"])) {
+                    if (isset($_SESSION["error"])) {
                         echo '<script language="javascript">
-                          Swal.fire({
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: "top-end",
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                          })
+                          
+                          Toast.fire({
                             icon: "error",
                             title: "' . $_SESSION["error"] . '"
                           })
@@ -179,7 +195,6 @@ include("db_connect.php");
                         unset($_SESSION["error"]);
                     }
                     ?>
-
                 </div>
             </div>
         </div>

@@ -123,7 +123,6 @@ include("db_connect.php");
         </div>
 
         <?php
-
         if (isset($_SESSION["exito"])) {
             echo '<script language="javascript">
                         const Toast = Swal.mixin({
@@ -141,7 +140,7 @@ include("db_connect.php");
                         </script>';
             unset($_SESSION["exito"]);
         }
-        if (!empty($_SESSION["error"])) {
+        if (isset($_SESSION["error"])) {
             echo '<script language="javascript">
                         const Toast = Swal.mixin({
                             toast: true,
