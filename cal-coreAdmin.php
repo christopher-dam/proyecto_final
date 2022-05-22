@@ -126,10 +126,10 @@ class Calendar
 }
 
 // (G) DATABASE SETTINGS - CHANGE TO YOUR OWN!
-define("DB_HOST", "185.42.104.113");
-define("DB_NAME", "myjustvole");
+define("DB_HOST", "localhost");
+define("DB_NAME", "justvoley");
 define("DB_CHARSET", "utf8");
-define("DB_USER", "justvole");
+define("DB_USER", "myjustvole");
 define("DB_PASSWORD", "admin123+");
 
 // (H) NEW CALENDAR OBJECT
