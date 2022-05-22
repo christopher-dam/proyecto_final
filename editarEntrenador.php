@@ -6,12 +6,12 @@ include("db_connect.php");
     $link=conectar();
     
     $query="UPDATE entrenador 
-            SET nombre='".utf8_decode($_POST["nombre"])."',
-            apellidos='".utf8_decode($_POST["apellidos"])."',
-            dni='".utf8_decode($_POST["dni"])."',
-            telefono=".utf8_decode($_POST["telefono"]).",
-            email='".utf8_decode($_POST["email"])."',
-            titulacion='".utf8_decode($_POST["titulacion"])."'
+            SET nombre='".$_POST["nombre"]."',
+            apellidos='".$_POST["apellidos"]."',
+            dni='".$_POST["dni"]."',
+            telefono=".$_POST["telefono"].",
+            email='".$_POST["email"]."',
+            titulacion='".$_POST["titulacion"]."'
             WHERE id=".$_POST["id"].";";
     
             echo $query;

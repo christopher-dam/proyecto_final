@@ -6,11 +6,11 @@ include("db_connect.php");
     $link=conectar();
     
     $query="UPDATE jugador 
-            SET nombre='".utf8_decode($_POST["nombre"])."',
-            apellidos='".utf8_decode($_POST["apellidos"])."',
-            dni='".utf8_decode($_POST["dni"])."',
-            telefono=".utf8_decode($_POST["telefono"]).",
-            email='".utf8_decode($_POST["email"])."'
+            SET nombre='".$_POST["nombre"]."',
+            apellidos='".$_POST["apellidos"]."',
+            dni='".$_POST["dni"]."',
+            telefono=".$_POST["telefono"].",
+            email='".$_POST["email"]."'
             WHERE id=".$_POST["id"].";";
     
     //Ejecutar consulta

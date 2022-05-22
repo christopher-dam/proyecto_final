@@ -8,21 +8,17 @@ $link = conectar();
 $pass = $_POST["password"];
 $_SESSION["error"] = "";
 
-$queryEquipo = "SELECT * FROM equipo WHERE nombre= '" .($_POST["equipos"]) . "';";
-$resultEquipo = mysqli_query($link, $queryEquipo);
-$nombreEquipo = mysqli_fetch_array($resultEquipo);
-
 //Insertamos dentro de la tabla entrenador
 
 $query = "INSERT INTO entrenador
             (nombre,apellidos,dni,telefono,email,titulacion,`password`)
             VALUES (
-                    '" . utf8_decode($_POST["nombre"]) . "',
-                    '". utf8_decode($_POST["apellidos"]) . "',
-                    '" . utf8_decode($_POST["dni"]) . "',
-                    " . utf8_decode($_POST["telefono"]) . ",
-                    '" . utf8_decode($_POST["email"]) . "',
-                    " . utf8_decode($_POST["titulacion"]) . ",
+                    '" . $_POST["nombre"] . "',
+                    '". $_POST["apellidos"] . "',
+                    '" . $_POST["dni"] . "',
+                    " . $_POST["telefono"] . ",
+                    '" . $_POST["email"] . "',
+                    " . $_POST["titulacion"] . ",
                     '" .$hash = hash("sha512", $pass) . "');";
 
 echo $query;

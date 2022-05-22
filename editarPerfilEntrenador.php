@@ -4,10 +4,11 @@ include("db_connect.php");
 
     //Conectamos con la BD
     $link=conectar();
+    $pass = $_POST["password"];
     
     $query="UPDATE entrenador 
-            SET email='".utf8_decode($_POST["email"])."',
-            password='".md5($_POST["password"])."'
+            SET email='".$_POST["email"]."',
+            password='". $hash = hash("sha512", $pass)."'
             WHERE id=".$_SESSION["id_entrenador"].";";
     
     //Ejecutar consulta

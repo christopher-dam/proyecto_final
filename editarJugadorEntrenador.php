@@ -6,8 +6,8 @@ include("db_connect.php");
     $link=conectar();
     
     $query="UPDATE jugador 
-            SET observaciones='".utf8_decode($_POST["observaciones"])."',
-            lesiones='".utf8_decode($_POST["lesiones"])."'
+            SET observaciones='".$_POST["observaciones"]."',
+            lesiones='".$_POST["lesiones"]."'
             WHERE id=".$_POST["id"].";";
     
     //Ejecutar consulta

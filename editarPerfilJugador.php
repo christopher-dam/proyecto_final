@@ -4,12 +4,13 @@ include("db_connect.php");
 
     //Conectamos con la BD
     $link=conectar();
+    $pass = $_POST["password"];
     
     $query="UPDATE jugador 
-            SET email='".utf8_decode($_POST["email"])."',
-            nick='" .utf8_decode($_POST["nick"]) . "',
+            SET email='".$_POST["email"]."',
+            nick='" .$_POST["nick"] . "',
             password='".md5($_POST["password"])."'
-            WHERE id=".$_SESSION["id_jugador"].";";
+            WHERE id=".$hash = hash("sha512", $pass) .";";
     
     //Ejecutar consulta
    if (mysqli_query($link,$query))

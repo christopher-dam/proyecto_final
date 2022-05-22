@@ -134,6 +134,42 @@ include("db_connect.php");
 
             </tbody>
           </table>
+          <?php
+                    if (isset($_SESSION["exito"])) {
+                        echo '<script language="javascript">
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: "top-end",
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                          })
+                          
+                          Toast.fire({
+                            icon: "success",
+                            title: "' . $_SESSION["exito"] . '"
+                          })
+                        </script>';
+                        unset($_SESSION["exito"]);
+                    }
+                    if (isset($_SESSION["error"])) {
+                        echo '<script language="javascript">
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: "top-end",
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                          })
+                          
+                          Toast.fire({
+                            icon: "error",
+                            title: "' . $_SESSION["error"] . '"
+                          })
+                        </script>';
+                        unset($_SESSION["error"]);
+                    }
+                    ?>
         </div>
       </div>
     </div>
