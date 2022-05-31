@@ -83,7 +83,7 @@ include("db_connect.php");
 
   <div class="container">
     <div style="justify-content: center; align-items:center; min-height:100vh; display:flex;">
-      <form  style="padding:10px 20px; width: 50%; background-color: rgb(0,0,0,0.5) !important; border-radius: 25px;" id="formEditar" name="formEditar" method="post" action="editarPerfilJugador.php" onsubmit="return validarperfil()" enctype="multipart/form-data">
+      <form style="padding:10px 20px; width: 50%; background-color: rgb(0,0,0,0.5) !important; border-radius: 25px;" id="formEditar" name="formEditar" method="post" action="editarPerfilEntrenador.php" onsubmit="return validarperfil()" enctype="multipart/form-data">
         <h2 style="font-size: 40px; color:#ffff00;">Datos de la cuenta</h2>
         <div class="form-floating mb-3 mt-3">
           <input type="text" class="form-control" placeholder="Cambia tu email" name="email" id="email" value="<?php echo utf8_encode($fila["email"]); ?>" />
@@ -94,8 +94,12 @@ include("db_connect.php");
           <label for="password">Contraseña</label>
         </div>
         <div class="form-floating mb-3 mt-3">
-          <input type="text" class="form-control" name="passwordConfirm" id="passwordConfirm" placeholder="Confirme la nueva contraseña" />
+          <input type="password" class="form-control" name="passwordConfirm" id="passwordConfirm" placeholder="Confirme la nueva contraseña" />
           <label for="password">Confirmar contraseña</label>
+        </div>
+        <div>
+          <label style="font-size:18px; color:#efef26">Elige fotografía</label>
+          <input type="file" name="fotosubida" id="fotosubida" />
         </div>
 
         <button style="margin-bottom:20px;" type="submit" class="btn btn-primary float-left">Guardar</button>

@@ -92,8 +92,12 @@ include("db_connect.php");
           <label for="password">Contraseña</label>
         </div>
         <div class="form-floating mb-3 mt-3">
-          <input type="text" class="form-control" name="passwordConfirm" id="passwordConfirm" placeholder="Confirme la nueva contraseña" />
+          <input type="password" class="form-control" name="passwordConfirm" id="passwordConfirm" placeholder="Confirme la nueva contraseña" />
           <label for="password">Confirmar contraseña</label>
+        </div>
+        <div>
+          <label style="font-size:18px; color:#efef26">Elige fotografía</label>
+          <input type="file" name="fotosubida" id="fotosubida" />
         </div>
 
         <button style="margin-bottom:20px;" type="submit" class="btn btn-primary float-right">Guardar</button>

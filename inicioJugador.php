@@ -86,7 +86,7 @@ include("db_connect.php");
         $queryEquipo = "SELECT * FROM equipo WHERE id=" . $fila['id_equipo'] . ";";
         $resultEquipo = mysqli_query($link, $queryEquipo);
         $nombreEquipo = mysqli_fetch_array($resultEquipo);
-
+        $foto= $fila['foto']?:'placeholder.png';
         echo '<div class="container">
                 <div class="main-body">
                       <div class="row gutters-sm">
@@ -94,7 +94,7 @@ include("db_connect.php");
                           <div class="card">
                             <div class="card-body">
                               <div class="d-flex flex-column align-items-center text-center">
-                                <img src=img/' . utf8_encode($fila['foto']) . ' class="rounded-circle" width="150">
+                                <img src=img/' . $foto . ' class="rounded-circle" width="150">
                                 <div class="mt-3">
                                   <h4 id="nick"><p> ' . $fila['nick'] . '</p></h4>
                                   <p class="text-secondary mb-1">Just Voley</p>
