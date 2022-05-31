@@ -8,14 +8,19 @@ $otraQuery = "SELECT * FROM jugador where id=" . $_SESSION["id_jugador"];
 
 $result = mysqli_query($link, $otraQuery);
 
+while ($foto = mysqli_fetch_array($result)) {
+    [$nombre, $extension]=explode('.',$foto['foto']);
+}
+
+$file = 'fotosubida';
+include 'subirImagenes.php';
+
     //Conectamos con la BD
     $link=conectar();
     $pass = $_POST["password"];
     
     $query="UPDATE jugador 
-            SET email='".$_POST["email"]."',
-            nick='" .$_POST["nick"] . "',
-            password='". $hash = hash("sha512", $pass)."'
+            SET foto='" . $imagensubida . "'
             WHERE id=".$_SESSION["id_jugador"] .";";
     
     //Ejecutar consulta

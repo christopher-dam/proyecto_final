@@ -3,44 +3,29 @@ session_start();
 include("db_connect.php");
 
 ?>
-
 <!DOCTYPE html>
 <html>
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JustApp</title>
 
-  <!--hoja de estilos -->
-  <link type="text/css" href="css/estilo.css" rel="stylesheet" />
+  <!-- hoja de estilos -->
   <link type="text/css" href="css/sydebar.css" rel="stylesheet" />
+  <link type="text/css" href="css/estilo.css" rel="stylesheet" />
 
-  <!--estilo de datatables -->
-  <link rel="stylesheet" type="text/css" href="datatables/datatables.min.css" />
-  <link rel="stylesheet" type="text/css" href="datatables/DataTables-1.11.4/css/dataTables.bootstrap5.min.css" />
-
-  <!--estilos de sweetalert2 -->
+  <!--sweetalert  -->
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="sweetalert2.min.js"></script>
   <link rel="stylesheet" href="sweetalert2.min.css">
 
-  <!-- JS -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <!-- Bootstrap de CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <!-- Boxicons CDN Link -->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-
-  <style>
-    .card-deck {
-      margin-top: 2%;
-    }
-  </style>
 
 </head>
 
@@ -98,60 +83,45 @@ include("db_connect.php");
     </ul>
   </div>
 
-  <div class="container">
+  <?php
+  //Conectamos con la BD
+  $link = conectar();
+  $queryEntrenador = "SELECT * FROM entrenador WHERE id=" . $_SESSION['id_entrenador'] . ";";
 
-    <h2 style="margin-top: 30px;"><b>Ejercicios</b></h2>
-    <form style="justify-content: center; display:flex; margin-top: 1%; align-items:center;">
-      <label style="margin-bottom: 0;">Nombre: <input type="text" name="nombre"></label>
-      <label style="margin-left: 10px; margin-bottom: 0;">Participantes: <input type="text" name="participantes"></label>
-      <label style="margin-left: 10px; margin-bottom: 0;">Tiempo: <input type="number" name="tiempo"></label>
-      <button id="buscar" class="btn-primary" style="margin-left: 10px; height: 35px; width: 7%;">Buscar</button>
-    </form>
-    <div id="ejercicios" class="card-deck"></div>
+  //Ejecutar consulta
+  $result = mysqli_query($link, $queryEntrenador);
+  $fila = mysqli_fetch_array($result)
+  ?>
+
+  <!-- Formulario con propiedades flotantes -->
+
+  <div class="container">
+    <div style="justify-content: center; align-items:center; min-height:100vh; display:flex;">
+      <form style="padding:10px 20px; width: 50%; background-color: rgb(0,0,0,0.5) !important; border-radius: 25px;" id="formEditar" name="formEditar" method="post" action="editarImagenEntrenador.php" enctype="multipart/form-data">
+        <h2 style="font-size: 40px; color:#ffff00;">Datos de la cuenta</h2>
+        <div>
+          <label style="font-size:18px; color:#efef26">Elige fotografía</label>
+          <input type="file" name="fotosubida" id="fotosubida" />
+        </div>
+
+        <button style="margin-bottom:20px;" type="submit" class="btn btn-primary float-left">Guardar</button>
+        <button onclick="GoBackWithRefresh();return false;" style="margin-bottom:20px; float:right" type="volver" class="btn btn-danger float-right">Cancelar</button>
+    </div>
   </div>
+
+
   <!-- Bootstrap JS, Popper.js -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-
-  <!-- jQuery -->
-  <script src="../jquery/jquery-3.3.1.min.js"></script>
-
-  <!-- datatables JS -->
-  <script type="text/javascript" src="../datatables/datatables.min.js"></script>
-  <script type="text/javascript" src="../scripts/main.js"></script>
 
   <!-- Font Awesome JS -->
   <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
   <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
-  <script type="text/javascript" src="../scripts/validaciones.js"></script>
   <script src="js/sydebar.js"></script>
-  <script src="jquery/jquery-3.3.1.min.js"></script>
-  <script>
-    let buscar = document.getElementById("buscar");
-    let ejercicios = $("#ejercicios");
-    buscar.onclick = function(e) {
-      e.preventDefault();
-      $.ajax({
-        type: "POST",
-        url: "ejercicioEntrenadorListado.php",
-        data:$('form').serializeArray(),
-        success: function(response) {
-          ejercicios.html(response)
-        }
-      });
-    }
-    $.ajax({
-      type: "POST",
-      url: "ejercicioEntrenadorListado.php",
-      data: {
+  <script type="text/javascript" src="js/validaciones.js"></script>
 
-      },
-      success: function(response) {
-        ejercicios.html(response)
-      }
-    });
-  </script>
+  </div>
 
 </body>
 

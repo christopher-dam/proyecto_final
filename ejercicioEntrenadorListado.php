@@ -20,7 +20,7 @@ if (!$result){
 }
 while ($fila = $result->fetch()) {
     echo '
-                        <div class="card">
+                        <div class="card" style="max-width:30%;">
                             <img class="card-img-top" src=img/' . utf8_encode($fila['foto']) . '>
                             <div class="card-body">
                                 <h5 class="card-title">' . $fila['nombre'] . '</h5>

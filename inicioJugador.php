@@ -102,6 +102,9 @@ include("db_connect.php");
                                   <a href="editarPerfilJugadorFormulario.php">
                                   <button class="btn btn-primary">Editar</button>
                                   </a>
+                                  <a href="editarImagenJugadorFormulario.php">
+                                  <button class="btn btn-primary">Cambiar imagen</button>
+                                  </a>
                                 </div>
                               </div>
                             </div>

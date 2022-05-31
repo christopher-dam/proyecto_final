@@ -11,11 +11,11 @@ include("db_connect.php");
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JustApp</title>
 
-  <!-- hoja de estilos -->
+  <!-- Hoja de estilos -->
   <link type="text/css" href="css/sydebar.css" rel="stylesheet" />
   <link type="text/css" href="css/estilo.css" rel="stylesheet" />
 
-  <!--sweetalert  -->
+  <!-- SweetAlert -->
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="sweetalert2.min.js"></script>
   <link rel="stylesheet" href="sweetalert2.min.css">
@@ -40,39 +40,18 @@ include("db_connect.php");
     </div>
     <ul class="nav-list">
       <li>
-        <a href="inicioEntrenador.php">
+        <a href="inicioJugador.php">
           <i class='bx bx-home'></i>
           <span class="links_name">Inicio</span>
         </a>
         <span class="tooltip">Inicio</span>
       </li>
       <li>
-        <a href="administrarJugadores.php">
-          <i class='bx bx-group'></i>
-          <span class="links_name">Jugadores</span>
-        </a>
-        <span class="tooltip">Jugadores</span>
-      </li>
-      <li>
-        <a href="calendarioEntrenador.php">
+        <a href="calendarioJugador.php">
           <i class='bx bx-calendar'></i>
-          <span class="links_name">Eventos</span>
+          <span class="links_name">Calendario</span>
         </a>
-        <span class="tooltip">Eventos</span>
-      </li>
-      <li>
-        <a href="convocatoria.php">
-          <i class='bx bx-list-check'></i>
-          <span class="links_name">Convocatorias</span>
-        </a>
-        <span class="tooltip">Convocatorias</span>
-      </li>
-      <li>
-        <a href="ejercicioEntrenador.php">
-          <i class='bx bx-basketball'></i>
-          <span class="links_name">Ejercicios</span>
-        </a>
-        <span class="tooltip">Ejercicios</span>
+        <span class="tooltip">Calendario</span>
       </li>
       <li>
         <a href="salir.php">
@@ -83,39 +62,32 @@ include("db_connect.php");
     </ul>
   </div>
 
+
   <?php
   //Conectamos con la BD
   $link = conectar();
-  $queryEntrenador = "SELECT * FROM entrenador WHERE id=" . $_SESSION['id_entrenador'] . ";";
+  $queryJugador = "SELECT * FROM jugador WHERE id=" . $_SESSION['id_jugador'] . ";";
 
   //Ejecutar consulta
-  $result = mysqli_query($link, $queryEntrenador);
+  $result = mysqli_query($link, $queryJugador);
   $fila = mysqli_fetch_array($result)
   ?>
 
   <!-- Formulario con propiedades flotantes -->
 
   <div class="container">
-    <div style="justify-content: center; align-items:center; min-height:100vh; display:flex;">
-      <form style="padding:10px 20px; width: 50%; background-color: rgb(0,0,0,0.5) !important; border-radius: 25px;" id="formEditar" name="formEditar" method="post" action="editarPerfilEntrenador.php" onsubmit="return validarperfil()" enctype="multipart/form-data">
-        <h2 style="font-size: 40px; color:#ffff00;">Datos de la cuenta</h2>
-        <div class="form-floating mb-3 mt-3">
-          <input type="text" class="form-control" placeholder="Cambia tu email" name="email" id="email" value="<?php echo utf8_encode($fila["email"]); ?>" />
-          <label for="email">Email</label>
+  <div style="justify-content: center; align-items:center; min-height:100vh; display:flex;">
+      <form id="formEditar" style="padding:10px 20px; width: 50%; background-color: rgb(0,0,0,0.5) !important; border-radius: 25px;" name="formEditar" method="post" action="editarImagenJugador.php" enctype="multipart/form-data">
+      <h2 style="font-size: 40px; color:#ffff00;">Datos de la cuenta</h2>  
+        <div>
+          <label style="font-size:18px; color:#efef26">Elige fotografía</label>
+          <input type="file" name="fotosubida" id="fotosubida" />
         </div>
-        <div class="form-floating mb-3 mt-3">
-          <input type="password" class="form-control" name="password" placeholder="Introduce la nueva contraseña" id="password" />
-          <label for="password">Contraseña</label>
-        </div>
-        <div class="form-floating mb-3 mt-3">
-          <input type="password" class="form-control" name="passwordConfirm" id="passwordConfirm" placeholder="Confirme la nueva contraseña" />
-          <label for="password">Confirmar contraseña</label>
-        </div>
-        <button style="margin-bottom:20px;" type="submit" class="btn btn-primary float-left">Guardar</button>
-        <button onclick="GoBackWithRefresh();return false;" style="margin-bottom:20px; float:right" type="volver" class="btn btn-danger float-right">Cancelar</button>
+
+        <button style="margin-bottom:20px;" type="submit" class="btn btn-primary float-right">Guardar</button>
+        <button onclick="GoBackWithRefresh();return false;" style="margin-bottom:20px; float:right" type="volver" class="btn btn-danger float-right">Cancelar</button>  
     </div>
   </div>
-
 
   <!-- Bootstrap JS, Popper.js -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

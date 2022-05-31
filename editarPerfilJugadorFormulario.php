@@ -95,12 +95,9 @@ include("db_connect.php");
           <input type="password" class="form-control" name="passwordConfirm" id="passwordConfirm" placeholder="Confirme la nueva contraseña" />
           <label for="password">Confirmar contraseña</label>
         </div>
-        <div>
-          <label style="font-size:18px; color:#efef26">Elige fotografía</label>
-          <input type="file" name="fotosubida" id="fotosubida" />
-        </div>
 
         <button style="margin-bottom:20px;" type="submit" class="btn btn-primary float-right">Guardar</button>
+        <button onclick="GoBackWithRefresh();return false;" style="margin-bottom:20px; float:right" type="volver" class="btn btn-danger float-right">Cancelar</button>
     </div>
   </div>
 
