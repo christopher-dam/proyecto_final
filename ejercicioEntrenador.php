@@ -36,6 +36,12 @@ include("db_connect.php");
   <!-- Boxicons CDN Link -->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
+  <style>
+    .card-deck {
+      margin-top: 2%;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -95,29 +101,13 @@ include("db_connect.php");
   <div class="container">
 
     <h2 style="margin-top: 30px;"><b>Ejercicios</b></h2>
-    <div class="card-deck">
-
-      <?php
-      //Conectamos con la BD
-      $link = conectar();
-      $query = "SELECT * FROM ejercicio;";
-
-      //Ejecutar consulta
-      $result = mysqli_query($link, $query);
-
-      while ($fila = mysqli_fetch_array($result)) {
-        echo '
-                        <div class="card">
-                            <img class="card-img-top" src=img/' . utf8_encode($fila['foto']) . '>
-                            <div class="card-body">
-                                <h5 class="card-title">' . $fila['nombre'] . '</h5>
-                                <p class="card-text">' . $fila['descripcion'] . '</p>
-                                </div>
-                                </div>';
-      }
-      mysqli_close($link);
-      ?>
-    </div>
+    <form style="justify-content: center; display:flex; margin-top: 1%; align-items:center;">
+      <label style="margin-bottom: 0;">Nombre: <input type="text" name="nombre"></label>
+      <label style="margin-left: 10px; margin-bottom: 0;">Participantes: <input type="text" name="participantes"></label>
+      <label style="margin-left: 10px; margin-bottom: 0;">Tiempo: <input type="number" name="tiempo"></label>
+      <button id="buscar" class="btn-primary" style="margin-left: 10px;">Buscar</button>
+    </form>
+    <div id="ejercicios" class="card-deck"></div>
   </div>
   <!-- Bootstrap JS, Popper.js -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
@@ -136,6 +126,32 @@ include("db_connect.php");
 
   <script type="text/javascript" src="../scripts/validaciones.js"></script>
   <script src="js/sydebar.js"></script>
+  <script src="jquery/jquery-3.3.1.min.js"></script>
+  <script>
+    let buscar = document.getElementById("buscar");
+    let ejercicios = $("#ejercicios");
+    buscar.onclick = function(e) {
+      e.preventDefault();
+      $.ajax({
+        type: "POST",
+        url: "ejercicioEntrenadorListado.php",
+        data:$('form').serializeArray(),
+        success: function(response) {
+          ejercicios.html(response)
+        }
+      });
+    }
+    $.ajax({
+      type: "POST",
+      url: "ejercicioEntrenadorListado.php",
+      data: {
+
+      },
+      success: function(response) {
+        ejercicios.html(response)
+      }
+    });
+  </script>
 
 </body>
 

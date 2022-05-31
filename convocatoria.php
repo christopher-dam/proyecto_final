@@ -125,7 +125,7 @@ include("db_connect.php");
           <label for="dni">Ingrese el título</label>
         </div>
         <div class="form-check" id="jugadores" style="color: white;"></div>
-        <button style="margin-top:10px; margin-bottom:10px;" type="submit" class="btn btn-primary">Enviar</button>
+        <button id="submit" style="margin-top:10px; margin-bottom:10px;" type="submit" class="btn btn-primary">Enviar</button>
       </form>
     </div>
 
@@ -174,6 +174,21 @@ include("db_connect.php");
       <?php
       endif;
       ?>
+
+
+      var requerirJugador = function() {
+        var jugadores = $('#jugadores');
+        var inputs = jugadores.find('input');
+        var first = inputs.first()[0];
+
+        inputs.on('change', function() {
+          this.setCustomValidity('');
+        });
+
+        first.setCustomValidity(jugadores.find('input:checked').length === 0 ? 'Debes elegir al menos una persona' : '');
+      }
+
+      $('#submit').click(requerirJugador);
     </script>
 
 

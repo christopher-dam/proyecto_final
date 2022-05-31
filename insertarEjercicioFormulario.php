@@ -97,6 +97,14 @@ include("db_connect.php");
                     <textarea class="form-control" id="descripcion" placeholder="Ingrese la descripcion del ejercicio" style="height:100px;" name="descripcion"></textarea>
                     <label for="descripcion">Descripción del ejercicio</label>
                 </div>
+                <div class="form-floating mb-3 mt-3">
+                    <input type="number" class="form-control" id="tiempo" placeholder="Ingrese el nombre del ejercicio" name="tiempo">
+                    <label for="nombre">Tiempo del ejercicio (en minutos)</label>
+                </div>
+                <div class="form-floating mb-3 mt-3">
+                    <input type="text" class="form-control" id="participantes" placeholder="Ingrese el nombre del ejercicio" name="participantes">
+                    <label for="nombre">Cantidad de participantes (1, 2, ..., Equipo)</label>
+                </div>
                 <div>
                     <label style="font-size:18px; color:#efef26">Elige fotografía</label>
                     <input type="file" name="fotosubida" id="fotosubida" />
