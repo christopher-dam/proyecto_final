@@ -27,14 +27,16 @@
 			height: 75vh;
 
 		}
-		#Frase{
+
+		#Frase {
 			text-align: center;
 			position: absolute;
 			top: 40%;
 			left: 27%;
 			font-size: 24px;
 		}
-		.logologin{
+
+		.logologin {
 			max-width: 12%;
 			height: auto;
 			position: relative;
@@ -42,63 +44,66 @@
 			left: 85%;
 			padding-bottom: 3%;
 		}
+
 		.btn-primary {
-		color: #ffff00 !important;
-		background-color: black !important;
-		border-color: black !important;
+			color: #ffff00 !important;
+			background-color: black !important;
+			border-color: black !important;
 		}
-		.col{
-			background-color: rgb(255,255,255,0.5);
+
+		.col {
+			background-color: rgb(255, 255, 255, 0.5);
 		}
-		.pass:hover{
+
+		.pass:hover {
 			color: black !important;
 		}
 	</style>
 </head>
 
 <body>
-	
+
 	<div class="container w-75 mt-5 rounded shadow ">
 		<div class="row align-items-stretch ">
 
 			<!--- Esto es para el fondo y los resize --->
 			<!-- <div class="col fondo d-none d-lg-block col-md-5 col-lg-5 col-xl-6"> -->
 
-			</div>
-			<div class="col">
-
-				<h2 class="fw-bold text-center py-5" style="font-size: 4rem !important;">Bienvenido</h2>
-
-				<!--- LOGIN --->
-				<form id="form" method="post" name="form" action="conectar.php">
-					<div class="mb-4">
-						<!--- Email --->
-						<label for="email" class="form-label">Correo</label>
-						<input type="email" class="form-control" name="email" id="email"></label>
-					</div>
-					<!--- Contraseña --->
-					<label for="password" class="form-label">Contraseña</label>
-					<div class="mb-4 input-group">
-						<input id="password" type="password" class="form-control" name="pass" id="pass" size="50"></label>
-						<div class="input-group-append">
-							<button id="mostrar_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
-
-						</div>
-					</div>
-					<!--- Inicio --->
-					<div class="d-grid">
-						<button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-					</div>
-
-					<!--- Recordar --->
-					<div class="mb-4 form-check">
-						<label style="margin: top 20px; font-size: 24px;"><a class="pass" style="position: absolute;" href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=CllgCJqbQxrwfQLlFHbZvxcxRFQVJSLKGCkfMZztNvgsrSfmpwbbSRGfqkwFKHrGmXDBNCNNNJB">Olvidé la contraseña</a></label>
-					</div>
-					<img class="logologin" src= img/logo.png></img>
-				</form>
-				
-			</div>
 		</div>
+		<div class="col">
+
+			<h2 class="fw-bold text-center py-5" style="font-size: 4rem !important;">Bienvenido</h2>
+
+			<!--- LOGIN --->
+			<form id="form" method="post" name="form" action="conectar.php">
+				<div class="mb-4">
+					<!--- Email --->
+					<label for="email" class="form-label">Correo</label>
+					<input type="email" class="form-control" name="email" id="email"></label>
+				</div>
+				<!--- Contraseña --->
+				<label for="password" class="form-label">Contraseña</label>
+				<div class="mb-4 input-group">
+					<input id="password" type="password" class="form-control" name="pass" id="pass" size="50"></label>
+					<div class="input-group-append">
+						<button id="mostrar_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+
+					</div>
+				</div>
+				<!--- Inicio --->
+				<div class="d-grid">
+					<button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+				</div>
+
+				<!--- Recordar --->
+				<div class="mb-4 form-check">
+					<label style="margin: top 20px; font-size: 24px;"><a class="pass" href="https://mail.google.com/mail/u/0/?fs=1&to=justvoleycv@gmail.com&su=Reinicio%20de%20contraseña&body=Hola%20le%20escribo%20porque%20he%20olvidado%20mi%20contraseña%20y%20necesito%20una%20nueva&tf=cm" 
+					style="position: absolute;">Olvidé la contraseña</a></label>
+				</div>
+				<img class="logologin" src=img/logo.png></img>
+			</form>
+		</div>
+	</div>
 	</div>
 
 	<script type="text/javascript">
